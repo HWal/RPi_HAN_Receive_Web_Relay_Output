@@ -76,8 +76,8 @@ The root owner/group of /var/kaifalog is related to the fact that I run a cron j
 
 Now copy the files from github into the corresponding directories on RPi listed above.
 
-Goto folder Cpp_AMS and start reading messages with: pi@raspberrypi:~/Cpp_AMS $ ./a.out
-Goto folder Python_AMS and start the notification app with: pi@raspberrypi:~/Python_AMS $ python3 notify04.py
+Goto folder Cpp_AMS and start reading messages with: ./a.out
+Goto folder Python_AMS and start the notification app with: python3 notify04.py
 
 When you see the two programs working in their respective terminal windows, you may open the website. From the laptop, when connected to the same local network, open the browser and enter the IP address of the Raspberry pi. The website is very simple, and should be self explanatory. Test that messages are shown in the messages page. Also, edit the user settings suited to your application.
 Note, configuring notifications in IFTTT is outside the scope of this Readme, but it is quite easy to get working if you spend a little time looking into it. When that is done, you may test the functionality of the notification service. 
