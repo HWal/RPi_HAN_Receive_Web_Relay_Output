@@ -9,6 +9,7 @@ About the programs
 Get started (Windows 10)
 ------------------------
 Install the latest Python 2.7 from here: https://www.python.org/downloads/
+
 Remember to check the box for installing the Path Environment variable for Python 2.7.
 
 Plot recorded data on the laptop screen:
