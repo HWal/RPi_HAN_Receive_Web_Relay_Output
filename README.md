@@ -49,9 +49,9 @@ Physical pin 10 = gpio 15 = Rx
 sudo apt-get update , sudo apt-get upgrade <br>
 
 Disable console and activate serial: sudo raspi-config -> Interfacing Options -> Serial <br>
-Login shell accessible over serial      No <br>
-Serial port hardware enabled            Yes <br>
-The system nowasks for a reboot, answer Yes
+Login shell accessible over serial: No <br>
+Serial port hardware enabled: Yes <br>
+The system nowasks for a reboot: Yes
 
 We can stop the getty service, as long as the console is not used: <br>
 sudo systemctl stop serial-getty@ttyS0.service <br>
@@ -66,12 +66,12 @@ sudo reboot <br>
 Now ttyAMA0 / PL011 / UART0 is connected to gpio 14 / 15 which are the physical pins 8 / 10 <br>
 
 Make some directories on the Raspberry Pi: <br>
-Command                     Owner   Group   View     Change       Access <br>
-mkdir /home/pi/Cpp_AMS      pi      pi      Anyone   Only owner   Anyone <br>
-mkdir /home/pi/Python_AMS   pi      pi      Anyone   Only owner   Anyone <br>
-mkdir /var/kaifalog         root    root    Anyone   Anyone       Anyone <br>
-mkdir /var/www/html/data    pi      pi      Anyone   Only owner   Anyone <br>
-mkdir /var/www/html/img     pi      pi      Anyone   Only owner   Anyone
+Command - Owner - Group - View - Change - Access <br>
+mkdir /home/pi/Cpp_AMS - pi - pi - Anyone - Only owner - Anyone <br>
+mkdir /home/pi/Python_AMS - pi - pi - Anyone - Only owner - Anyone <br>
+mkdir /var/kaifalog - root - root - Anyone - Anyone - Anyone <br>
+mkdir /var/www/html/data - pi - pi - Anyone - Only owner - Anyone <br>
+mkdir /var/www/html/img - pi - pi - Anyone - Only owner - Anyone
 
 The root owner/group of /var/kaifalog is related to the fact that I run a cron job just after each midnight, to copy the completed logfiles to a USB stick.
 
@@ -81,8 +81,9 @@ Goto folder Cpp_AMS and start reading messages with: ./a.out
 
 Goto folder Python_AMS and start the notification app with: python3 notify04.py
 
-When you see the two programs working in their respective terminal windows, you may open the website. From the laptop, when connected to the same local network, open the browser and enter the IP address of the Raspberry pi. The website is very simple, and should be self explanatory. Test that messages are shown in the messages page. Also, edit the user settings suited to your application. <br>
-Note, configuring notifications in IFTTT is outside the scope of this Readme, but it is quite easy to get working if you spend a little time looking into it. When that is done, you may test the functionality of the notification service. 
+When you see the two programs working in their respective terminal windows, you may open the website. From the laptop, when connected to the same local network, open the browser and enter the IP address of the Raspberry pi. The website is very simple, and should be self explanatory. Test that messages are shown in the messages page. Also, edit the user settings suited to your application.
+
+Configuring notifications in IFTTT is outside the scope of this Readme, but it is quite easy to get working if you spend a little time looking into it. When that is done, you may test the functionality of the notification service. 
 
 For presentation of log data, please check the Readme in the python folder.
 
