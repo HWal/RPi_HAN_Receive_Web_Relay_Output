@@ -21,7 +21,7 @@ Hardware
 * Some connecting wire
 * A laptop, in my project one that is running Windows 10
 
-Preparation of RPi while powered up and connectected directlo to a screen (TV)
+Preparation of RPi while powered up and connectected directly to a screen (TV)
 ------------------------------------------------------------------------------
 Activate VNC here: sudo raspi-config -> Interfacing Options -> VNC -> Enable VNC server <br>
 Activate SSH here: sudo raspi-config -> Interfacing Options -> SSH -> Enable SSH server
@@ -51,7 +51,7 @@ sudo apt-get update , sudo apt-get upgrade <br>
 Disable console and activate serial: sudo raspi-config -> Interfacing Options -> Serial <br>
 Login shell accessible over serial: No <br>
 Serial port hardware enabled: Yes <br>
-The system nowasks for a reboot: Yes
+The system asks for a reboot: Yes
 
 We can stop the getty service, as long as the console is not used: <br>
 sudo systemctl stop serial-getty@ttyS0.service <br>
