@@ -23,7 +23,7 @@ Hardware
 
 Preparation of RPi while powered up and connectected directlo to a screen (TV)
 ------------------------------------------------------------------------------
-Activate VNC here: sudo raspi-config -> Interfacing Options -> VNC -> Enable VNC server
+Activate VNC here: sudo raspi-config -> Interfacing Options -> VNC -> Enable VNC server<br>
 Activate SSH here: sudo raspi-config -> Interfacing Options -> SSH -> Enable SSH server
 
 Prepare a laptop for remote control of the RPi
