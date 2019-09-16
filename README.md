@@ -30,13 +30,13 @@ Prepare a laptop for remote control of the RPi
 ----------------------------------------------
 Download VNC viewer: https://www.realvnc.com/en/connect/download/viewer/ <br>
 Download putty.exe and pscp.exe: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html <br>
-You should now be able to control RPi from the laptop on your local network, both via the GUI (VNC viewer) and terminal window (putty.exe). <br>
-Also you can copy files between RPi and the laptop (pscp.exe). <br>
-From now on a screen should no longer be necessary, and the RPi works in "Headless mode".
+You should now be able to control RPi from the laptop on your local network, both via the GUI (VNC viewer) and terminal window (putty.exe). Also you can copy files between RPi and the laptop with pscp.exe.
+
+From now on a separate screen should rarely be necessary, and the RPi will be working in "Headless mode".
 
 Continue to prepare RPi in Headless mode
 ----------------------------------------
-Preferably, give RPi a static IP address: https://raspberrypi.stackexchange.com/questions/37920/how-do-i-set-up-networking-wifi-static-ip-address/74428#74428 <br>
+Preferably, give RPi a static IP address, see: https://raspberrypi.stackexchange.com/questions/37920/how-do-i-set-up-networking-wifi-static-ip-address/74428#74428 <br>
 Install Apache2 webserver: sudo apt-get update , sudo apt-get upgrade , sudo apt-get install apache2 -y <br>
 Make user pi the owner of /var/www/html: sudo chown pi: -R html <br>
 Install PHP for the relay control script: sudo apt-get install php libapache2-mod-php -y <br>
@@ -44,13 +44,14 @@ Install PHP for the relay control script: sudo apt-get install php libapache2-mo
 Make a "clean" UART port on the RPi 3. For reference, see: https://www.raspberrypi.org/documentation/configuration/uart.md and https://spellfoundry.com/2016/05/29/configuring-gpio-serial-port-raspbian-jessie-including-pi-3-4/ <br>
 We want these pins to communicate with the M-BUS To TTL converter:  <br>
 Physical pin 8 = gpio 14 = Tx <br>
-Physical pin 10 = gpio 15 = Rx <br>
+Physical pin 10 = gpio 15 = Rx
+
 sudo apt-get update , sudo apt-get upgrade <br>
 
 Disable console and activate serial: sudo raspi-config -> Interfacing Options -> Serial <br>
-Login shell accessible over serial  <No> <br>
-Serial port hardware enabled        <Yes> <br>
-The system nowasks for a reboot, answer Yes <br>
+Login shell accessible over serial      No <br>
+Serial port hardware enabled            Yes <br>
+The system nowasks for a reboot, answer Yes
 
 We can stop the getty service, as long as the console is not used: <br>
 sudo systemctl stop serial-getty@ttyS0.service <br>
