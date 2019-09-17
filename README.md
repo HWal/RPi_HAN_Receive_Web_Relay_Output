@@ -26,11 +26,13 @@ Preparation of RPi while powered up and connectected directly to a screen (TV)
 Activate VNC here: sudo raspi-config -> Interfacing Options -> VNC -> Enable VNC server <br>
 Activate SSH here: sudo raspi-config -> Interfacing Options -> SSH -> Enable SSH server
 
+Open a terminal window, note the IP number of the RPi returned from the command: hostname -I
+
 Prepare a laptop for remote control of the RPi
 ----------------------------------------------
 Download VNC viewer: https://www.realvnc.com/en/connect/download/viewer/ <br>
 Download putty.exe and pscp.exe: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html <br>
-You should now be able to control RPi from the laptop on your local network, both via the GUI (VNC viewer) and terminal window (putty.exe). Also you can copy files between RPi and the laptop with pscp.exe.
+You should now be able to control RPi from the laptop on your local network, both via the GUI (VNC viewer) and terminal window (putty.exe). Also you can copy files between RPi and the laptop with pscp.exe. To connect, use the IP number noted above.
 
 From now on a separate screen should rarely be necessary, and the RPi will be working in "Headless mode".
 
