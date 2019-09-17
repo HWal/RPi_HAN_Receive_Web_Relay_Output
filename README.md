@@ -36,7 +36,8 @@ From now on a separate screen should rarely be necessary, and the RPi will be wo
 
 Continue to prepare RPi in Headless mode
 ----------------------------------------
-Preferably, give RPi a static IP address, see: https://raspberrypi.stackexchange.com/questions/37920/how-do-i-set-up-networking-wifi-static-ip-address/74428#74428 <br>
+Preferably, give RPi a static IP address, see: https://raspberrypi.stackexchange.com/questions/37920/how-do-i-set-up-networking-wifi-static-ip-address/74428#74428
+
 Install Apache2 webserver: sudo apt-get update , sudo apt-get upgrade , sudo apt-get install apache2 -y <br>
 Make user pi the owner of /var/www/html: sudo chown pi: -R html <br>
 Install PHP for the relay control script: sudo apt-get install php libapache2-mod-php -y <br>
@@ -73,7 +74,7 @@ mkdir /var/kaifalog - root - root - Anyone - Anyone - Anyone <br>
 mkdir /var/www/html/data - pi - pi - Anyone - Only owner - Anyone <br>
 mkdir /var/www/html/img - pi - pi - Anyone - Only owner - Anyone
 
-The root owner/group of /var/kaifalog is related to the fact that I run a cron job just after each midnight, to copy the completed logfiles to a USB stick.
+The root owner/group of /var/kaifalog is related to the fact that I run a cron job just after midnight, to copy the completed logfiles to a USB stick. Not described here.
 
 Now copy the files from github into the corresponding directories on RPi listed above.
 
@@ -83,7 +84,7 @@ Goto folder Python_AMS and start the notification app with: python3 notify04.py
 
 When you see the two programs working in their respective terminal windows, you may open the website. From the laptop, when connected to the same local network, open the browser and enter the IP address of the Raspberry pi. The website is very simple, and should be self explanatory. Test that messages are shown in the messages page. Also, edit the user settings suited to your application.
 
-Configuring notifications in IFTTT is outside the scope of this Readme, but it is quite easy to get working if you spend a little time looking into it. When that is done, you may test the functionality of the notification service. 
+Configuring notifications in IFTTT is outside the scope of this Readme, but it is quite easy to get working if you spend a little time looking into it. When that is done, you may test the functionality of the notification service. See: https://ifttt.com
 
 For presentation of log data, please check the Readme in the python folder.
 
