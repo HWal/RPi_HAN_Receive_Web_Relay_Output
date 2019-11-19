@@ -75,12 +75,11 @@ mkdir /home/pi/Python_AMS - pi - pi - Anyone - Only owner - Anyone <br>
 mkdir /var/kaifalog - root - root - Anyone - Anyone - Anyone <br>
 mkdir /var/www/html/data - pi - pi - Anyone - Only owner - Anyone <br>
 mkdir /var/www/html/img - pi - pi - Anyone - Only owner - Anyone
-
-The root owner/group of /var/kaifalog is related to the fact that I run a cron job just after midnight, to copy the completed logfiles to a USB stick. Not described here.
+Permissions and ownership shown above is like I have it on my RPi. root as owner/group of /var/kaifalog is related to the fact that I run a cron job just after midnight, to copy the completed logfiles to a USB stick. Not described here.
 
 Now copy the files from github into the corresponding directories on RPi listed above.
 
-Goto folder Cpp_AMS and start reading messages with: ./a.out
+Goto folder Cpp_AMS and start reading messages with: ./a.out . If you are not permitted to run the program, recompile the source code with: g++ -W readAMS58.cpp
 
 Goto folder Python_AMS and start the notification app with: python3 notify04.py
 
