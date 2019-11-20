@@ -26,7 +26,7 @@ while True:
 
   if ok1 == False:
     try:
-      with open ("/var/www/kaifaweb/data/notificationlimit.data", "r") as fp2:
+      with open ("/var/www/html/data/notificationlimit.data", "r") as fp2:
         limitString = fp2.read()
         if (len(limitString) < 6 and len(limitString) > 2 and limitString.isdigit()):
           limit = int(limitString)
@@ -39,7 +39,7 @@ while True:
 
   if ok2 == False:
     try:
-      with open ("/var/www/kaifaweb/data/averagingtime.data", "r") as fp2:
+      with open ("/var/www/html/data/averagingtime.data", "r") as fp2:
         averageString = fp2.read()
         if (len(averageString) < 4 and len(averageString) > 0 and averageString.isdigit()):
           avgTime = int(averageString)
@@ -53,7 +53,7 @@ while True:
       print("Could not open or read file: notificationlimit.data")
 
   try:
-    with open ("/var/www/kaifaweb/data/currentactivepower.data", "r") as fp1:
+    with open ("/var/www/html/data/currentactivepower.data", "r") as fp1:
       powerString = fp1.read()
       if (len(powerString) < 6 and len(powerString) > 0 and powerString.isdigit()):
         power = int(powerString)

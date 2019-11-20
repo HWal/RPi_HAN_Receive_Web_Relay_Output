@@ -656,7 +656,7 @@ int printData() {
   // End of page
   try {
     ofstream ofs1;
-    ofs1.open("/var/www/kaifaweb/amsdata.html", ofstream::out | ofstream::trunc);
+    ofs1.open("/var/www/html/amsdata.html", ofstream::out | ofstream::trunc);
     ofs1 << page;
     ofs1.close();
   } catch(...) {
@@ -683,7 +683,7 @@ int printData() {
   // Write current active power value from every message to file: currentactivepower.data
   try {
     ofstream ofs3;
-    ofs3.open("/var/www/kaifaweb/data/currentactivepower.data", ofstream::out | ofstream::trunc);
+    ofs3.open("/var/www/html/data/currentactivepower.data", ofstream::out | ofstream::trunc);
     ofs3 << actPowerPlus;
     ofs3.close();
   } catch(...) {

@@ -23,7 +23,7 @@
         <table align="center" border="1" height="180" width="300" cellpadding="2" bgcolor="#F5F9FA"><tr><td>
 
         <?php
-        $path = '/var/www/kaifaweb/data/averagingtime.data';
+        $path = '/var/www/html/data/averagingtime.data';
         // Data has been entered and form submitted
         if (isset($_POST['newval'])) {
             $fh = fopen($path,"wa");
