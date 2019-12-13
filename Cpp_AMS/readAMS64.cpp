@@ -573,174 +573,18 @@ int printData() {
     cout << "reactiveEnergyMinus: " << reactiveEnergyMinus << endl;
   }
 
-
-
-  // Create web page to write to file: amsdata.html
-  string page = "";
-  // Header
-  page += "<!DOCTYPE html>";
-  page += "<html lang=en-EN>";
-  page += "<head>";
-  page += "<meta name=\"viewport\" content =\"width=device-width, initial-scale=1.0, maximum-scale=4.0, minimum-scale=.5, user-scalable=1\">";
-  page += "<meta http-equiv=\"refresh\" content=\"3600\">";
-  page += "<title>Web page</title>";
-  page += "<style> body { background-color: #fffff; font-family: Arial, Helvetica, Sans-Serif; Color: #000088; }</style>";
-  page += "</head>";
-  page += "<body>";
-  page += "<center>";
-  page += "<center><H3>Data from Kaifa AMS meter</center></H3></center>";
-  // Create table to fill with data from the meter
-  page += "<table align=\"center\" border=\"1\" width=\"350\" cellpadding=\"2\">";
-  // page += "<tr><td><b>LAST READ LIST TYPE</b></td><td align=\"right\"><b><font color=\"red\">";
-  // page += listType;
-  // page += "</font></b></td></tr>";
-  page += "<tr><td><b>DATE</b></td><td align=\"right\">";
-  // page += msgDate;
-  page += "<div id = \"msgDate_SSE\"></div>";
-  page += "</td></tr>";
-  page += "<tr><td><b>TIME</b></td><td align=\"right\">";
-  // page += msgTime;
-  page += "<div id = \"msgTime_SSE\"></div>";
-  page += "</td></tr>";
-  page += "<tr><td><b>LIST VERSION</b></td><td align=\"right\">";
-  // page += obis_list_version;
-  page += "<div id = \"obis_list_version_SSE\"></div>";
-  page += "</td></tr>";
-  page += "<tr><td><b>METER ID</b></td><td align=\"right\">";
-  // page += meterId;
-  page += "<div id = \"meterId_SSE\"></div>";
-  page += "</td></tr>";
-  page += "<tr><td><b>METER MODEL</b></td><td align=\"right\">";
-  // page += meterModel;
-  page += "<div id = \"meterModel_SSE\"></div>";
-  page += "</td></tr>";
-  page += "<tr><td><b>ACT POWER+ (W)</b></td><td align=\"right\">";
-  // page += actPowerPlus;
-  page += "<div id = \"actPowerPlus_SSE\"></div>";
-  page += "</td></tr>";
-  page += "<tr><td><b>ACT POWER- (W)</b></td><td align=\"right\">";
-  // page += actPowerMinus;
-  page += "<div id = \"actPowerminus_SSE\"></div>";
-  page += "</td></tr>";
-  page += "<tr><td><b>REA POWER+ (VAR)</b></td><td align=\"right\">";
-  // page += reactPowerPlus;
-  page += "<div id = \"reactPowerPlus_SSE\"></div>";
-  page += "</td></tr>";
-  page += "<tr><td><b>REA POWER- (VAR)</b></td><td align=\"right\">";
-  // page += reactPowerMinus;
-  page += "<div id = \"reactPowerMinus_SSE\"></div>";
-  page += "</td></tr>";
-  page += "<tr><td><b>CURR L1 (A * 1000)</b></td><td align=\"right\">";
-  // page += currentL1;
-  page += "<div id = \"currentL1_SSE\"></div>";
-  page += "</td></tr>";
-  page += "<tr><td><b>CURR L2 (A * 1000)</b></td><td align=\"right\">";
-  // page += currentL2;
-  page += "<div id = \"currentL2_SSE\"></div>";
-  page += "</td></tr>";
-  page += "<tr><td><b>CURR L3 (A * 1000)</b></td><td align=\"right\">";
-  // page += currentL3;
-  page += "<div id = \"currentL3_SSE\"></div>";
-  page += "</td></tr>";
-  page += "<tr><td><b>VOLT L1 (V * 10)</b></td><td align=\"right\">";
-  // page += voltageL1;
-  page += "<div id = \"voltageL1_SSE\"></div>";
-  page += "</td></tr>";
-  page += "<tr><td><b>VOLT L2 (V * 10)</b></td><td align=\"right\">";
-  // page += voltageL2;
-  page += "<div id = \"voltageL2_SSE\"></div>";
-  page += "</td></tr>";
-  page += "<tr><td><b>VOLT L3 (V * 10)</b></td><td align=\"right\">";
-  // page += voltageL3;
-  page += "<div id = \"voltageL3_SSE\"></div>";
-  page += "</td></tr>";
-  page += "<tr><td><b>ACT ENERGY+ (Wh)</b></td><td align=\"right\">";
-  // page += activeEnergyPlus;
-  page += "<div id = \"activeEnergyPlus_SSE\"></div>";
-  page += "</td></tr>";
-  page += "<tr><td><b>ACT ENERGY- (Wh)</b></td><td align=\"right\">";
-  // page += activeEnergyMinus;
-  page += "<div id = \"activeEnergyMinus_SSE\"></div>";
-  page += "</td></tr>";
-  page += "<tr><td><b>REA ENERGY+ (VARh)</b></td><td align=\"right\">";
-  // page += reactiveEnergyPlus;
-  page += "<div id = \"reactiveEnergyPlus_SSE\"></div>";
-  page += "</td></tr>";
-  page += "<tr><td><b>REA ENERGY- (VARh)</b></td><td align=\"right\">";
-  // page += reactiveEnergyMinus;
-  page += "<div id = \"reactiveEnergyMinus_SSE\"></div>";
-  page += "</td></tr>";
-  page += "</table>";
-  // End of table
-  page += "<br>";
-  page += "<b><center><a href=\"index.html\">Back</a></center></b>";
-
-  // Javascript to process Server-Sent events
-  page += "<script type = \"text/javascript\">";
-  page += "if(typeof(EventSource) !== \"undefined\") {";
-  page += "var eSource2 = new EventSource(\"currtime.php\");";
-  page += "eSource2.onmessage = function(event) {";
-  page += "document.getElementById(\"msgTime_SSE\").innerHTML = event.data;";
-  page += "};";
-  page += "}";
-  page += "if(typeof(EventSource) !== \"undefined\") {";
-  page += "var eSource1 = new EventSource(\"currpower.php\");";
-  page += "eSource1.onmessage = function(event) {";
-  page += "document.getElementById(\"actPowerPlus_SSE\").innerHTML = event.data;";
-  page += "};";
-  page += "}";
-  page += "if(typeof(EventSource) !== \"undefined\") {";
-  page += "var eSource3 = new EventSource(\"currlog.php\");";
-  page += "eSource3.onmessage = function(event) {";
-  page += "var logArray = JSON.parse(event.data);";
-  page += "document.getElementById(\"msgDate_SSE\").innerHTML = logArray[0];";
-  page += "document.getElementById(\"obis_list_version_SSE\").innerHTML = logArray[2];";
-  page += "document.getElementById(\"meterId_SSE\").innerHTML = logArray[3];";
-  page += "document.getElementById(\"meterModel_SSE\").innerHTML = logArray[4];";
-  page += "document.getElementById(\"actPowerminus_SSE\").innerHTML = logArray[6];";
-  page += "document.getElementById(\"reactPowerPlus_SSE\").innerHTML = logArray[7];";
-  page += "document.getElementById(\"reactPowerMinus_SSE\").innerHTML = logArray[8];";
-  page += "document.getElementById(\"currentL1_SSE\").innerHTML = logArray[9];";
-  page += "document.getElementById(\"currentL2_SSE\").innerHTML = logArray[10];";
-  page += "document.getElementById(\"currentL3_SSE\").innerHTML = logArray[11];";
-  page += "document.getElementById(\"voltageL1_SSE\").innerHTML = logArray[12];";
-  page += "document.getElementById(\"voltageL2_SSE\").innerHTML = logArray[13];";
-  page += "document.getElementById(\"voltageL3_SSE\").innerHTML = logArray[14];";
-  page += "document.getElementById(\"activeEnergyPlus_SSE\").innerHTML = logArray[15];";
-  page += "document.getElementById(\"activeEnergyMinus_SSE\").innerHTML = logArray[16];";
-  page += "document.getElementById(\"reactiveEnergyPlus_SSE\").innerHTML = logArray[17];";
-  page += "document.getElementById(\"reactiveEnergyMinus_SSE\").innerHTML = logArray[18];";
-  page += "};";
-  page += "} else {";
-  page += "document.getElementById(\"msgDate_SSE\").innerHTML = \"No browser support.\"";
-  page += "}";
-  page += "</script>";
-  page += "</body>";
-  page += "</html>";
-  // End of page
-
-  // Write values from every message to web page file: amsdata.html
-  try {
-    ofstream ofs1;
-    ofs1.open("/var/www/html/amsdata.html", ofstream::out | ofstream::trunc);
-    ofs1 << page;
-    ofs1.close();
-  } catch(...) {
-    cout << "Something went wrong on open/write/close file amsdata.html\n";
-  }
-
   // Write List2 and List3 to logfile: yyyy-mm-dd.txt
   if ((num_items == 9) || (num_items == 13) || (num_items == 14) || (num_items == 18)) {
     try {
-      ofstream ofs2;
+      ofstream ofs1;
       string logData = "/var/kaifalog/" + msgDate + ".txt";
-      ofs2.open(logData, ofstream::out | ofstream::app);
-      ofs2 << msgDate << "," << msgTime << "," << obis_list_version << "," << meterId << ","
+      ofs1.open(logData, ofstream::out | ofstream::app);
+      ofs1 << msgDate << "," << msgTime << "," << obis_list_version << "," << meterId << ","
            << meterModel << "," << actPowerPlus << "," << actPowerMinus << "," << reactPowerPlus << ","
            << reactPowerMinus << "," << currentL1 << "," << currentL2 << "," << currentL3 << ","
            << voltageL1 << "," << voltageL2 << "," << voltageL3 << "," << activeEnergyPlus << ","
            << activeEnergyMinus << "," << reactiveEnergyPlus << "," << reactiveEnergyMinus << "\n";
-      ofs2.close();
+      ofs1.close();
     } catch(...) {
       cout << "Something went wrong on open/write/close file msgDate.txt\n";
     }
@@ -748,20 +592,20 @@ int printData() {
 
   // Write current active power value from every message to file: currentactivepower.data
   try {
-    ofstream ofs3;
-    ofs3.open("/var/www/html/data/currentactivepower.data", ofstream::out | ofstream::trunc);
-    ofs3 << actPowerPlus;
-    ofs3.close();
+    ofstream ofs2;
+    ofs2.open("/var/www/html/data/currentactivepower.data", ofstream::out | ofstream::trunc);
+    ofs2 << actPowerPlus;
+    ofs2.close();
   } catch(...) {
     cout << "Something went wrong on open/write/close file currentactivepower.data\n";
   }
 
   // Write current time from every message to file: currenttime.data
   try {
-    ofstream ofs4;
-    ofs4.open("/var/www/html/data/currenttime.data", ofstream::out | ofstream::trunc);
-    ofs4 << msgTime;
-    ofs4.close();
+    ofstream ofs3;
+    ofs3.open("/var/www/html/data/currenttime.data", ofstream::out | ofstream::trunc);
+    ofs3 << msgTime;
+    ofs3.close();
   } catch(...) {
     cout << "Something went wrong on open/write/close file currenttime.data\n";
   }
@@ -769,14 +613,14 @@ int printData() {
   // Write newest version of List2 or List3 to file: currentlog.data
   if ((num_items == 9) || (num_items == 13) || (num_items == 14) || (num_items == 18)) {
     try {
-      ofstream ofs5;
-      ofs5.open("/var/www/html/data/currentlog.data", ofstream::out | ofstream::trunc);
-      ofs5 << msgDate << "," << msgTime << "," << obis_list_version << "," << meterId << ","
+      ofstream ofs4;
+      ofs4.open("/var/www/html/data/currentlog.data", ofstream::out | ofstream::trunc);
+      ofs4 << msgDate << "," << msgTime << "," << obis_list_version << "," << meterId << ","
            << meterModel << "," << actPowerPlus << "," << actPowerMinus << "," << reactPowerPlus << ","
            << reactPowerMinus << "," << currentL1 << "," << currentL2 << "," << currentL3 << ","
            << voltageL1 << "," << voltageL2 << "," << voltageL3 << "," << activeEnergyPlus << ","
            << activeEnergyMinus << "," << reactiveEnergyPlus << "," << reactiveEnergyMinus << "\n";
-      ofs5.close();
+      ofs4.close();
     } catch(...) {
       cout << "Something went wrong on open/write/close file currentlog.data\n";
     }

@@ -80,7 +80,7 @@ Permissions and ownership shown above is like I have it on my RPi. Owner/group o
 
 Now copy the files from github into the corresponding directories on RPi listed above.
 
-Goto folder Cpp_AMS and compile the source code with: g++ -W readAMS62.cpp. Then start reading messages by typing: ./a.out
+Goto folder Cpp_AMS and compile the source code with: g++ -W readAMS64.cpp. Then start reading messages by typing: ./a.out
 
 Goto folder Python_AMS and start the notification app with: python3 notify04.py
 
