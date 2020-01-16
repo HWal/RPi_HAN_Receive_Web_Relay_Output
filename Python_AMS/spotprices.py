@@ -53,8 +53,8 @@ root = ET.fromstring(xmlstring)
 for element in root.iter():
     if element.tag == 'Reason':
         # If the above tag is found, prices are not available
-        print ('Day-Ahead-Prices not available yet')
-        print ('Normally available after 1300 GMT')
+        # print ('Day-Ahead-Prices not available yet')
+        # print ('Normally available after 1300 GMT')
         sys.exit()
 
 # If day-ahead prices are available, the program saves
