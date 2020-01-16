@@ -13,7 +13,7 @@ import sys
 tomorrow = datetime.date.today() + datetime.timedelta(days=1)
 shortDate = tomorrow.strftime("%Y") + tomorrow.strftime("%m") + tomorrow.strftime("%d")
 
-# Build the Url search string
+# Build the Url search string with Domain code for Market Balance Area N05 (includes Bergen)
 a = 'https://transparency.entsoe.eu/api?documentType=A44&in_Domain=10Y1001A1001A48H&out_Domain=10Y1001A1001A48H&periodStart='
 b = '0000&periodEnd='
 c = '2300&securityToken=YOUR_PRIVATE_TOKEN'
@@ -32,11 +32,9 @@ while searchFinished == False:
     # Limit number of tries to 10
     counter += 1
     if counter >= 10:
-        # print ('Search ended without success')
         sys.exit()
     # Wait 10 seconds before next try
     time.sleep(10)
-
 
 # Read xml file into an xml string
 with open('/var/www/html/data/prices.xml') as f:
@@ -52,9 +50,7 @@ root = ET.fromstring(xmlstring)
 # Check if xml file is the correct one with prices
 for element in root.iter():
     if element.tag == 'Reason':
-        # If the above tag is found, prices are not available
-        # print ('Day-Ahead-Prices not available yet')
-        # print ('Normally available after 1300 GMT')
+        # If tag <Reason> is found, prices are not available
         sys.exit()
 
 # If day-ahead prices are available, the program saves
@@ -64,17 +60,12 @@ for element in root.iter():
 for element in root.iter('price.amount'):
     element.tag = 'priceamount'
 
-# Generate a list with hour numbers
-pos = []
-for position in root.iter('position'):
-    pos.append(position.text)
-
 price = []
 # Generate a list with prices in EUR per MWh
 for priceamount in root.iter('priceamount'):
     price.append(priceamount.text)
 
-# Build a string with price information
+# Build a text string with price information
 saveFileString = shortDate + ','
 for i in range(len(price)):
     saveFileString += price[i]
@@ -87,5 +78,5 @@ with open('/var/www/html/data/prices.data', 'w') as file:
     file.write(saveFileString)
     sys.exit()
 
-# Everything was successfuly processed - end program
+# Everything was successfuly processed - exit program
 sys.exit()
