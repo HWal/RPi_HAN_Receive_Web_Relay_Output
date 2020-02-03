@@ -9,6 +9,7 @@ This project for the Raspberry Pi has the following functions:
 * Read and decode data from the HAN-port on Kaifa (MA304H3E 3-phase) smart electricity meter. It also reads data from Kaifa 1-phase meter, but this has not been tested.
 * Present live data from the meter on a simple webpage, based on Apache2 webserver.
 * Control two output relays.
+* View el-spotprices for Norway/Bergen area in EUR and NOK currency.
 * Send notification to mobile phone via the IFTTT service when averaged active power (user defined averaging period) exceeds a limit set by the user.
 * Analyze log files on a Windows 10 laptop.
 
@@ -82,7 +83,7 @@ Now copy the files from github into the corresponding directories on RPi listed 
 
 Goto folder Cpp_AMS and compile the source code with: g++ -W readAMS64.cpp. Then start reading messages by typing: ./a.out
 
-Goto folder Python_AMS and start the notification app with: python3 notify04.py
+Goto folder Python_AMS and start the notification app with: python3 notify.py
 
 When you see the two programs working in their respective terminal windows, you may open the website. From the laptop, when connected to the same local network, open the browser and enter the IP address of the Raspberry pi. The website is very simple, and should be self explanatory. Test that values are being updated in the "View current data from the meter" page. <br>
 
