@@ -20,7 +20,7 @@
 
     <body>
     <table align="center" border="1" height="200" width="300" cellpadding="2" bgcolor="#F5F9FA"><tr><td>
-        <b>Heater control</b><br><br>
+        <b>Heater control relays</b><br><br>
         <table align="center" border="1" height= 80 width="200" cellpadding="2" bgcolor="#F5F8FA"><tr><td>
 
         <!-- php code to generate the initial page -->
@@ -38,19 +38,19 @@
         for ($i = 0; $i < 2; $i++) {
             // Relay
             if ($i == 0 ) {
-                echo("<b>Water: </b>");
+                echo("<b>Panel: </b>");
             }
             if ($i == 1 ) {
-                echo("<b>Panel: </b>");
+                echo("<b>Water: </b>");
             }
             //if off
             if ($val_array[$i][0] == 0 ) {
-                echo ("<img id='button_".$i."' src='img/red_".$i.".jpg'.' width=36 height=14' onclick='change_pin (".$i.");'/>");
+                echo ("<img id='button_".$i."' src='img/green_".$i.".jpg'.' width=36 height=14' onclick='change_pin (".$i.");'/>");
                 echo "<br><br>";
             }
             //if on
             if ($val_array[$i][0] == 1 ) {
-                echo ("<img id='button_".$i."' src='img/green_".$i.".jpg'.' width=36 height=13' onclick='change_pin (".$i.");'/>");
+                echo ("<img id='button_".$i."' src='img/red_".$i.".jpg'.' width=36 height=13' onclick='change_pin (".$i.");'/>");
                 echo "<br><br>";
             }	 
         }
@@ -86,12 +86,12 @@
                 data = request.responseText;
                 //update the index pic
                 if ( !(data.localeCompare("0")) ){
-                    Buttons[pic].src = "img/red_"+pic+".jpg";
+                    Buttons[pic].src = "img/green_"+pic+".jpg";
                     Buttons[pic].width = 36;
                     Buttons[pic].height = 14;
                 }
                 else if ( !(data.localeCompare("1")) ) {
-                    Buttons[pic].src = "img/green_"+pic+".jpg";
+                    Buttons[pic].src = "img/red_"+pic+".jpg";
                     Buttons[pic].width = 36;
                     Buttons[pic].height = 13;
                 }
@@ -118,6 +118,9 @@
         }
         </script>
 
+        <br>To operate relay, click on green (On) <br> or red (Off) status indicator.<br>
+        <br><b>Panel heater:</b><br>Controls max 2400W power to the two fixed panel heaters in the living room. Status On indicates the heaters are powered.<br>
+        <br><b>Water heater:</b><br>Controls max 2000W power to the 200L water heater in the laundry room. Status On indicates the heater is powered.<br>
 
         <br><b><center><a href="index.html">Back</a></center></b>
     </td></tr></table>
