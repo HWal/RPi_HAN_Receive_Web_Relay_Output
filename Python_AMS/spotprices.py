@@ -18,7 +18,7 @@ shortDate = tomorrow.strftime("%Y") + tomorrow.strftime("%m") + tomorrow.strftim
 # Build the Url search string with Domain code for Market Balance Area N05 (includes Bergen)
 a = 'https://transparency.entsoe.eu/api?documentType=A44&in_Domain=10Y1001A1001A48H&out_Domain=10Y1001A1001A48H&periodStart='
 b = '0000&periodEnd='
-c = '2300&securityToken=3880e276-5398-4edb-b283-e96b339ea056'
+c = '2300&securityToken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 url1 = a + shortDate + b + shortDate + c
 
 # Download and save price data as xml file
