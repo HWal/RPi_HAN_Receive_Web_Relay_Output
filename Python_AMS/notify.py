@@ -7,7 +7,7 @@ import requests
 
 # Variables
 MakerIFTTT_Event = 'Kaifa_notify'
-MakerIFTTT_Key = 'xxxxxxxxxxxxxxxxxxxxxx'
+MakerIFTTT_Key = 'czOJdxDPnujwWnBfXajrvw'
 info1 = {"value1" : "Grense overskredet!"}
 limit = 12000
 power = 0

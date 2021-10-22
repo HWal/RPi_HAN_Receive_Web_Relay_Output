@@ -577,7 +577,7 @@ int printData() {
   if ((num_items == 9) || (num_items == 13) || (num_items == 14) || (num_items == 18)) {
     try {
       ofstream ofs1;
-      string logData = "/var/kaifalog/" + msgDate + ".txt";
+      string logData = "/var/meter_log/" + msgDate + ".txt";
       ofs1.open(logData, ofstream::out | ofstream::app);
       ofs1 << msgDate << "," << msgTime << "," << obis_list_version << "," << meterId << ","
            << meterModel << "," << actPowerPlus << "," << actPowerMinus << "," << reactPowerPlus << ","

@@ -48,7 +48,7 @@ body {
 
 <script type = "text/javascript">
 if(typeof(EventSource) !== "undefined") {
-  var eSource3 = new EventSource("spotprices_EUR.php");
+  var eSource3 = new EventSource("spotprices_EUR_tomorrow.php");
   eSource3.onmessage = function(event) {
     var priceArray = JSON.parse(event.data);
     var YYYY = priceArray[0].substring(0, 4);

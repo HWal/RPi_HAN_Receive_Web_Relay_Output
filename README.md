@@ -9,7 +9,7 @@ This project for the Raspberry Pi has the following functions:
 * Read and decode data from the HAN-port on Kaifa (MA304H3E 3-phase) smart electricity meter. It also reads data from Kaifa 1-phase meter, but this has not been tested.
 * Present live data from the meter on a simple webpage, based on Apache2 webserver.
 * Control two output relays.
-* View el-spotprices for Norway/Bergen area in EUR and NOK currency.
+* View and download el-spotprices for Norway/Bergen area in EUR and NOK currency.
 * Send notification to mobile phone via the IFTTT service when averaged active power (user defined averaging period) exceeds a limit set by the user.
 * Analyze log files on a Windows 10 laptop.
 
@@ -35,7 +35,7 @@ Download VNC viewer: https://www.realvnc.com/en/connect/download/viewer/ <br>
 Download putty.exe and pscp.exe: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html <br>
 You should now be able to control RPi from the laptop on your local network, both via the GUI (VNC viewer) and terminal window (putty.exe). Also you can copy files between RPi and the laptop with pscp.exe. To connect, use the IP number noted above.
 
-From now on a separate screen should rarely be necessary, and the RPi will be working in "Headless mode".
+From now on a separate screen should rarely be necessary, while the RPi will be working in "Headless mode".
 
 Continue to prepare RPi in Headless mode
 ----------------------------------------
@@ -73,13 +73,19 @@ Make some directories on the Raspberry Pi: <br>
 Command - Owner - Group - View - Change - Access <br>
 mkdir /home/pi/Cpp_AMS - pi - pi - Anyone - Only owner - Anyone <br>
 mkdir /home/pi/Python_AMS - pi - pi - Anyone - Only owner - Anyone <br>
-mkdir /var/kaifalog - root - root - Anyone - Anyone - Anyone <br>
+mkdir /var/meter_log - root - root - Anyone - Anyone - Anyone <br>
+mkdir /var/prices_log - root - root - Anyone - Anyone - Anyone <br>
 mkdir /var/www/html/data - pi - pi - Anyone - Only owner - Anyone <br>
 mkdir /var/www/html/img - pi - pi - Anyone - Only owner - Anyone
+The directory for a USB stick plugged into the RPi would typically be:
+/media/pi/ABCDEFGHI, so:
+mkdir /media/pi/ABCDEFGHI/kaifa - pi - pi - Anyone - Only owner - Anyone <br>
+mkdir /media/pi/ABCDEFGHI/prices - pi - pi - Anyone - Only owner - Anyone <br>
 
-Permissions and ownership shown above is like I have it on my RPi. Owner/group of /var/kaifalog is root. this is related to the fact that I run a cron job just after midnight, to copy completed logfiles to a USB stick. Not described in detail here, but the file with the name copyfiles in directory Cpp_AMS does the job.
+Permissions and ownership shown above is like I have it on my RPi. Security has not been a consideration so far.
 
 Now copy the files from github into the corresponding directories on RPi listed above.
+Edit a cronjob as your pi user, with crontab -e.
 
 Goto folder Cpp_AMS and compile the source code with: g++ -W readAMS64.cpp. Then start reading messages by typing: ./a.out
 
@@ -91,4 +97,4 @@ Configuring notifications in IFTTT is outside the scope of this Readme, but it i
 
 For presentation of log data, please check the Readme in the python folder.
 
-To connect to the website from the outside world, you should open port 80 in your firewall. Beware the risk of getting the RPi hacked by outside users.
+To connect to the website from the outside world, you should open port 80 in your firewall. Beware the risk of getting the RPi hacked by outside users. You should therefor password protect the website, information about this task is readily found on internet.

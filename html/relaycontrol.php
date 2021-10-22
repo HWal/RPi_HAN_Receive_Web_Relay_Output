@@ -118,7 +118,7 @@
         }
         </script>
 
-        <br>To operate relay, click on green (On) <br> or red (Off) status indicator.<br>
+        <br>To operate, click on the green (On) <br> or red (Off) status indicator.<br>
         <br><b>Panel heater:</b><br>Controls max 2400W power to the two fixed panel heaters in the living room. Status On indicates the heaters are powered.<br>
         <br><b>Water heater:</b><br>Controls max 2000W power to the 200L water heater in the laundry room. Status On indicates the heater is powered.<br>
 

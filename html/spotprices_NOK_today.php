@@ -1,14 +1,14 @@
 <?php
 
 // This script is called by (and used to) update all fields in
-// webpage file spotprices_NOK.html.
+// webpage file spotprices_NOK_today.html.
 
 header("Cache-Control: no-cache");
 header("Content-Type: text/event-stream");
 
 while (true) {
-  $myFile = fopen("data/prices_NOK.data", "r") or die("Unable to open file!");
-  $prices = fread($myFile,filesize("data/prices_NOK.data"));
+  $myFile = fopen("data/prices_NOK_today.data", "r") or die("Unable to open file!");
+  $prices = fread($myFile,filesize("data/prices_NOK_today.data"));
   fclose($myFile);
 
   $priceArray = explode(',', $prices);
