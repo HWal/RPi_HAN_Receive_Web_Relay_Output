@@ -86,9 +86,13 @@ Permissions and ownership shown above is like I have it on my RPi. Security has 
 Now copy the files from github into the corresponding directories on RPi listed above.
 
 Edit a cronjob as your pi user, with crontab -e, with the following content:
+
 05 00 * * * /usr/bin/python3 /home/pi/Python_AMS/copyprices_1.py
+
 10 00 * * * /home/pi/Cpp_AMS/copyFiles_meter
+
 00 15 * * * /usr/bin/python3 /home/pi/Python_AMS/spotprices.py
+
 55 23 * * * /usr/bin/python3 /home/pi/Python_AMS/copyprices_2.py
 
 Goto folder Cpp_AMS and compile the source code with: g++ -W readAMS64.cpp. Then start reading messages by typing: ./a.out
