@@ -74,7 +74,6 @@ Command - Owner - Group - View - Change - Access <br>
 mkdir /home/pi/Cpp_AMS - pi - pi - Anyone - Only owner - Anyone <br>
 mkdir /home/pi/Python_AMS - pi - pi - Anyone - Only owner - Anyone <br>
 mkdir /var/meter_log - root - root - Anyone - Anyone - Anyone <br>
-mkdir /var/prices_log - root - root - Anyone - Anyone - Anyone <br>
 mkdir /var/www/html/data - pi - pi - Anyone - Only owner - Anyone <br>
 mkdir /var/www/html/img - pi - pi - Anyone - Only owner - Anyone
 The directory for a USB stick plugged into the RPi would typically be:
@@ -85,7 +84,16 @@ mkdir /media/pi/ABCDEFGHI/prices - pi - pi - Anyone - Only owner - Anyone <br>
 Permissions and ownership shown above is like I have it on my RPi. Security has not been a consideration so far.
 
 Now copy the files from github into the corresponding directories on RPi listed above.
-Edit a cronjob as your pi user, with crontab -e.
+
+Edit a cronjob as your pi user, with crontab -e, with the following content:
+# Copy current Day-Ahead prices file to Todays prices file
+05 00 * * * /usr/bin/python3 /home/pi/Python_AMS/copyprices_1.py
+# Copy logfiles from AMS meter to USB stick on RPi
+10 00 * * * /home/pi/Cpp_AMS/copyFiles_meter
+# Download spotprices from entso-e and create readable files
+00 15 * * * /usr/bin/python3 /home/pi/Python_AMS/spotprices.py
+# Create logfile with Todays prices and save to USB stick on RPi
+55 23 * * * /usr/bin/python3 /home/pi/Python_AMS/copyprices_2.py
 
 Goto folder Cpp_AMS and compile the source code with: g++ -W readAMS64.cpp. Then start reading messages by typing: ./a.out
 
