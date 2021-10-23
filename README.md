@@ -78,10 +78,10 @@ mkdir /var/www/html/data - pi - pi - Anyone - Only owner - Anyone <br>
 mkdir /var/www/html/img - pi - pi - Anyone - Only owner - Anyone
 The directory for a USB stick plugged into the RPi would typically be:
 /media/pi/ABCDEFGHI, so:
-mkdir /media/pi/ABCDEFGHI/kaifa - pi - pi - Anyone - Only owner - Anyone <br>
+mkdir /media/pi/ABCDEFGHI/meter - pi - pi - Anyone - Only owner - Anyone <br>
 mkdir /media/pi/ABCDEFGHI/prices - pi - pi - Anyone - Only owner - Anyone <br>
 
-Permissions and ownership shown above is like I have it on my RPi. Security has not been a consideration so far.
+Permissions and ownership shown above is like I have it on my RPi. Data security has not been considered so far.
 
 Now copy the files from github into the corresponding directories on RPi listed above.
 
@@ -105,4 +105,4 @@ Configuring notifications in IFTTT is outside the scope of this Readme, but it i
 
 For presentation of log data, please check the Readme in the python folder.
 
-To connect to the website from the outside world, you should open port 80 in your firewall. Beware the risk of getting the RPi hacked by outside users. You should therefor password protect the website, information about this task is readily found on internet.
+To connect to the website from the outside world, you should open port 80 in your firewall. Beware the risk of getting the RPi hacked by outside users. You should therefor password protect the website, information about this task is found on the internet.
