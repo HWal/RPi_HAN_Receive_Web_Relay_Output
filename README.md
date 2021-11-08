@@ -1,6 +1,6 @@
 # MAIN README
 
-HAN reader with relay control for Raspberry Pi 3 B+
+HAN reader  with relay control for Raspberry Pi 3 B+
 ===================================================
 
 Brief description
