@@ -75,9 +75,9 @@ mkdir /home/pi/Cpp_AMS - pi - pi - Anyone - Only owner - Anyone <br>
 mkdir /home/pi/Python_AMS - pi - pi - Anyone - Only owner - Anyone <br>
 mkdir /var/meter_log - root - root - Anyone - Anyone - Anyone <br>
 mkdir /var/www/html/data - pi - pi - Anyone - Only owner - Anyone <br>
-mkdir /var/www/html/img - pi - pi - Anyone - Only owner - Anyone
+mkdir /var/www/html/img - pi - pi - Anyone - Only owner - Anyone <br>
 The directory for a USB stick plugged into the RPi would typically be:
-/media/pi/ABCDEFGHI, so:
+/media/pi/ABCDEFGHI, so: <br>
 mkdir /media/pi/ABCDEFGHI/meter - pi - pi - Anyone - Only owner - Anyone <br>
 mkdir /media/pi/ABCDEFGHI/prices - pi - pi - Anyone - Only owner - Anyone <br>
 
