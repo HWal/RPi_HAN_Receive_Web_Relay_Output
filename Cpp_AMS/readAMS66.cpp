@@ -109,7 +109,8 @@ int main() {
   options.c_lflag = 0;
   options.c_cc[VTIME] = 3;  /* read returns after an interval of
                                3*0.1s between two characters */
-  options.c_cc[VMIN] = 255; // read returns after 255 chars
+  options.c_cc[VMIN] = 255; /* read should return after 255 chars. With
+                               Buster distro only allows 64 chars */
   tcflush(uart0_filestream, TCIFLUSH);
   tcsetattr(uart0_filestream, TCSANOW, &options);
 
