@@ -15,7 +15,7 @@ This project for the Raspberry Pi has the following functions:
 
 Hardware
 --------
-* One Raspberry Pi 3 B+ with Raspbian (stretch) installed
+* One Raspberry Pi 3 B+ with Raspbian (Buster) installed
 * 5V power supply and USB cable
 * TSS721 Module Board M-BUS To TTL converter (AliExpress)
 * Two 3.3V relay boards that will drain less than 12mA from RPi gpio output
@@ -57,7 +57,7 @@ Login shell accessible over serial: No <br>
 Serial port hardware enabled: Yes <br>
 The system asks for a reboot: Yes
 
-We can stop the getty service, as long as the console is not used: <br>
+We can stop and deactivate the getty service, as long as the console is not used: <br>
 sudo systemctl stop serial-getty@ttyS0.service <br>
 sudo systemctl disable serial-getty@ttyS0.service <br>
 
@@ -67,6 +67,7 @@ sudo systemctl disable hciuart  // Disables the Bluetooth modem <br>
 We want to swap the serial ports, please see the relevant lines in the file /boot/overlays/README. <br>
 sudo nano /boot/config.txt, and add at the bottom: dtoverlay=pi3-disable-bt <br>
 sudo reboot <br>
+
 Now ttyAMA0 / PL011 / UART0 is connected to gpio 14 / 15 which are the physical pins 8 / 10 <br>
 
 Make some directories on the Raspberry Pi: <br>
@@ -95,7 +96,7 @@ Edit a cronjob as your pi user, with crontab -e, with the following content:
 
 55 23 * * * /usr/bin/python3 /home/pi/Python_AMS/copyprices_2.py
 
-Goto folder Cpp_AMS and compile the source code with: g++ -W readAMS64.cpp. Then start reading messages by typing: ./a.out
+Goto folder Cpp_AMS and compile the source code with: g++ -W readAMS66.cpp. Then start reading messages by typing: ./a.out
 
 Goto folder Python_AMS and start the notification app with: python3 notify.py
 
