@@ -80,6 +80,8 @@ bool debugHex = true;                /* Set true to display telegram length
                                         and HEX values on serial monitor */
 bool debugText = true;               // Set true to display telegrams in clear text
 unsigned char buf[255];              // Buffer array to receive message
+unsigned char buf1[255];             // Intermediate buffer to accumulate message parts when read buffer is too short
+bool buff_nb = false;                // Check how many times read buffer has been filled
 int rx_length = 0;                   // Length of the last read char buffer
 
 // FORWARD DECLARATIONS
@@ -127,8 +129,7 @@ int main() {
 void receive_bytes() {
   while(1) {
     if (uart0_filestream != -1) {
-      /* read returns if 255 characters are read from the port (never
-         happens in this program).
+      /* read returns when 64 bytes are read from the port (Buster distro).
          read returns if there is a > 3*0.1s interval between two characters.
          The messages from Kaifa MA304H3E 3-phase meter are 41 bytes,
          123 bytes and 157 bytes respectively. There is an estimated 1.3s
@@ -136,6 +137,80 @@ void receive_bytes() {
          This means that VMIN never kicks in, but VTIME determines when a
          message is complete. */
       rx_length = read(uart0_filestream, (void*)buf, 255);
+
+      /*********************************************************************************
+      With OS distribution Stretch, this program could read all List types with one read
+      operation per message. After upgrading to distribution Buster, the program can
+      now read only 64 bytes in each read operation. So the messages are now split into
+      parts of up to 64 bytes. The following code down to the next line of asterisks
+      takes care of this operation. */
+
+      // List1 (41 bytes) for 1 and 3 phase meters is shorter than 64 bytes so OK
+
+      // Intermediate buffer for List2 and List3 for 1 and 3 phase meters
+      if ((rx_length == 64) && (buff_nb == false)) {
+        for (int x = 0; x < 64; x++) {
+          buf1[x] = buf[x];
+        }
+        buff_nb = true;
+      }
+
+      // Intermediate buffer for List3 for 1 and 3 phase meters
+      if (rx_length == 64) {
+        for (int x = 64; x < 128; x++) {
+          buf1[x] = buf[x - 64];
+        }
+      }
+
+      // Residue of Lis12 (103 bytes) for 1 phase meter
+      if (rx_length == 39) {
+        for (int x = 64; x < 103; x++) {
+          buf1[x] = buf[x - 64];
+        }
+        for (int x = 0; x < 103; x++) {
+          buf[x] = buf1[x];
+        }
+        rx_length = 103;
+        buff_nb = false;
+      }
+
+      // Residue of List2 (123 bytes) for 3 phase meter
+      if (rx_length == 59) {
+        for (int x = 64; x < 123; x++) {
+          buf1[x] = buf[x - 64];
+        }
+        for (int x = 0; x < 123; x++) {
+          buf[x] = buf1[x];
+        }
+        rx_length = 123;
+        buff_nb = false;
+      }
+
+      // Residue of List 3 (137 bytes) for 1 phase meter
+      if (rx_length == 9) {
+        for (int x = 128; x < 137; x++) {
+          buf1[x] = buf[x - 128];
+        }
+        for (int x = 0; x < 137; x++) {
+          buf[x] = buf1[x];
+        }
+        rx_length = 137;
+        buff_nb = false;
+      }
+
+      // Residue of List 3 (157 bytes) for 3 phase meter
+      if (rx_length == 29) {
+        for (int x = 128; x < 157; x++) {
+          buf1[x] = buf[x - 128];
+        }
+        for (int x = 0; x < 157; x++) {
+          buf[x] = buf1[x];
+        }
+        rx_length = 157;
+        buff_nb = false;
+      }
+      /********************************************************************************/
+
       if ((rx_length < 0) || (rx_length == 0)) {
         // No byte received
       } else {
