@@ -78,7 +78,7 @@ mkdir /var/meter_log - root - root - Anyone - Anyone - Anyone <br>
 mkdir /var/www/html/data - pi - pi - Anyone - Only owner - Anyone <br>
 mkdir /var/www/html/img - pi - pi - Anyone - Only owner - Anyone <br>
 The directory for a USB stick plugged into the RPi would typically be:
-/media/pi/ABCDEFGHI, so: <br>
+/media/pi/ABCDEFGHI, so please adapt the cronjob files to suit your system.<br>
 mkdir /media/pi/ABCDEFGHI/meter - pi - pi - Anyone - Only owner - Anyone <br>
 mkdir /media/pi/ABCDEFGHI/prices - pi - pi - Anyone - Only owner - Anyone <br>
 
@@ -98,7 +98,7 @@ Edit a cronjob as your pi user, with crontab -e, with the following content:
 
 Goto folder Cpp_AMS and compile the source code with: g++ -W readAMS66.cpp. Then start reading messages by typing: ./a.out
 
-Note: After upgrading from RPi Operating system stretch to buster I experience problems while reading the meter. readAMS66.cpp has now been adapted to the newer buster release. This program has since been edited to the latest version readAMS77.cpp. In case of problems it is suggested that you try both program versios to determine what works best for you.
+Note: After upgrading from RPi Operating system stretch to buster I experience problems while reading the meter. readAMS66.cpp has now been adapted to the newer buster release. This program has since been edited to the latest version readAMS77.cpp. In case of problems it is suggested that you try both program versions to determine what works best for you.
 
 Goto folder Python_AMS and start the notification app with: python3 notify.py
 
