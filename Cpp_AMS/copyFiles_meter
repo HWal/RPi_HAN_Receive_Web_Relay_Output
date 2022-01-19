@@ -4,7 +4,7 @@
 # minutes after midnight.
 
 # Copy files in /var/meter_log/ to USB stick
-cp /var/meter_log/* /media/pi/D8AF-261F/meter/
+cp /var/meter_log/* /media/pi/16 GB Volume/meter/
 
 # Remove files older than 2 days in /var/meter_log/
 find /var/meter_log/* -mtime +2 -exec rm {} \;
