@@ -12,12 +12,12 @@ shortDateToday = toDay.strftime("%Y") + toDay.strftime("%m") + toDay.strftime("%
 
 # Save file for long term logging of EUR price data to log folder
 source = '/var/www/html/data/prices_EUR_today.data'
-destination = '/media/pi/16 GB Volume/prices/' + shortDateToday + '_EUR.data'
+destination = '/media/pi/ABCDEFGHI/' + shortDateToday + '_EUR.data'
 shutil.copy(source, destination)
 
 # Save file for long term logging of NOK price data to log folder
 source = '/var/www/html/data/prices_NOK_today.data'
-destination = '/media/pi/16 GB Volume/prices/' + shortDateToday + '_NOK.data'
+destination = '/media/pi/ABCDEFGHI/prices/' + shortDateToday + '_NOK.data'
 shutil.copy(source, destination)
 
 sys.exit()
