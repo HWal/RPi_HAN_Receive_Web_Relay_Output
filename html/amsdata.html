@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang=en-EN>
+
+<head>
+<meta name="viewport" content ="width=device-width, initial-scale=1.0, maximum-scale=4.0, minimum-scale=.5, user-scalable=1">
+<meta http-equiv="refresh" content="1200">
+<title>Web page</title>
+<style>
+body {
+  background-color: #fffff;
+  font-family: Arial, Helvetica, Sans-Serif;
+  Color: #000088;
+}
+</style>
+
+<script type = "text/javascript">
+if(typeof(EventSource) !== "undefined") {
+  var eSource2 = new EventSource("currtime.php");
+  eSource2.onmessage = function(event) {
+    document.getElementById("msgTime_SSE").innerHTML = event.data;
+  }
+}
+if(typeof(EventSource) !== "undefined") {
+  var eSource1 = new EventSource("currpower.php");
+  eSource1.onmessage = function(event) {
+    document.getElementById("actPowerPlus_SSE").innerHTML = event.data;
+  }
+}
+if(typeof(EventSource) !== "undefined") {
+  var eSource3 = new EventSource("currlog.php");
+  eSource3.onmessage = function(event) {
+    var logArray = JSON.parse(event.data);
+    document.getElementById("msgDate_SSE").innerHTML = logArray[0];
+    document.getElementById("obis_list_version_SSE").innerHTML = logArray[2];
+    document.getElementById("meterId_SSE").innerHTML = logArray[3];
+    document.getElementById("meterModel_SSE").innerHTML = logArray[4];
+    // document.getElementById("actPowerPlus_SSE").innerHTML = logArray[5];
+    document.getElementById("actPowerMinus_SSE").innerHTML = logArray[6];
+    document.getElementById("reactPowerPlus_SSE").innerHTML = logArray[7];
+    document.getElementById("reactPowerMinus_SSE").innerHTML = logArray[8];
+    document.getElementById("currentL1_SSE").innerHTML = logArray[9];
+    document.getElementById("currentL2_SSE").innerHTML = logArray[10];
+    document.getElementById("currentL3_SSE").innerHTML = logArray[11];
+    document.getElementById("voltageL1_SSE").innerHTML = logArray[12];
+    document.getElementById("voltageL2_SSE").innerHTML = logArray[13];
+    document.getElementById("voltageL3_SSE").innerHTML = logArray[14];
+    document.getElementById("activeEnergyPlus_SSE").innerHTML = logArray[15];
+    document.getElementById("activeEnergyMinus_SSE").innerHTML = logArray[16];
+    document.getElementById("reactiveEnergyPlus_SSE").innerHTML = logArray[17];
+    document.getElementById("reactiveEnergyMinus_SSE").innerHTML = logArray[18];
+  }
+} else {
+  document.getElementById("msgDate_SSE").innerHTML = "No browser support."
+}
+</script>
+</head>
+
+<body>
+<center><H3>Data from Kaifa AMS meter</center></H3></center>
+<table align="center" border="1" width="350" cellpadding="2">
+<tr><td width="190"><b>DATE</b></td><td width="149" align="right"><div id = "msgDate_SSE"></div></td></tr>
+<tr><td><b>TIME</b></td><td align="right"><div id = "msgTime_SSE"></div></td></tr>
+<tr><td><b>LIST VERSION</b></td><td align="right"><div id = "obis_list_version_SSE"></div></td></tr>
+<tr><td><b>METER ID</b></td><td align="right"><div id = "meterId_SSE"></div></td></tr>
+<tr><td><b>METER MODEL</b></td><td align="right"><div id = "meterModel_SSE"></div></td></tr>
+<tr><td><b>ACT POWER+ (W)</b></td><td align="right"><div id = "actPowerPlus_SSE"></div></td></tr>
+<tr><td><b>ACT POWER- (W)</b></td><td align="right"><div id = "actPowerMinus_SSE"></div></td></tr>
+<tr><td><b>REA POWER+ (VAR)</b></td><td align="right"><div id = "reactPowerPlus_SSE"></div></td></tr>
+<tr><td><b>REA POWER- (VAR)</b></td><td align="right"><div id = "reactPowerMinus_SSE"></div></td></tr>
+<tr><td><b>CURR L1 (A * 1000)</b></td><td align="right"><div id = "currentL1_SSE"></div></td></tr>
+<tr><td><b>CURR L2 (A * 1000)</b></td><td align="right"><div id = "currentL2_SSE"></div></td></tr>
+<tr><td><b>CURR L3 (A * 1000)</b></td><td align="right"><div id = "currentL3_SSE"></div></td></tr>
+<tr><td><b>VOLT L1 (V * 10)</b></td><td align="right"><div id = "voltageL1_SSE"></div></td></tr>
+<tr><td><b>VOLT L2 (V * 10)</b></td><td align="right"><div id = "voltageL2_SSE"></div></td></tr>
+<tr><td><b>VOLT L3 (V * 10)</b></td><td align="right"><div id = "voltageL3_SSE"></div></td></tr>
+<tr><td><b>ACT ENERGY+ (Wh)</b></td><td align="right"><div id = "activeEnergyPlus_SSE"></div></td></tr>
+<tr><td><b>ACT ENERGY- (Wh)</b></td><td align="right"><div id = "activeEnergyMinus_SSE"></div></td></tr>
+<tr><td><b>REA ENERGY+ (VARh)</b></td><td align="right"><div id = "reactiveEnergyPlus_SSE"></div></td></tr>
+<tr><td><b>REA ENERGY- (VARh)</b></td><td align="right"><div id = "reactiveEnergyMinus_SSE"></div></td></tr>
+</table><br>
+<b><center><a href="index.html">Back</a></center></b>
+
+</body>
+</html>

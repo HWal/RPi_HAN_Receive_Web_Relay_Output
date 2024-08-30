@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang=en-EN>
+
+<head>
+<meta name="viewport" content ="width=device-width, initial-scale=1.0, maximum-scale=4.0, minimum-scale=.5, user-scalable=1">
+<meta http-equiv="refresh" content="3600">
+<title>Web page</title>
+<style>
+body {
+  background-color: #fffff;
+  font-family: Arial, Helvetica, Sans-Serif;
+  Color: #000088;
+}
+</style>
+</head>
+
+<body>
+<center><H3>Three highest day Wh maxes,</center></H3></center>
+<center><H3>on different days in the current month</center></H3></center>
+<table align="center" border="1" width="350" cellpadding="2">
+<tr><td align="center"><b>Date, time</b></td><td align="center"><b><div id = "datetime">xxxxxxxxxxxxxxxxxx</div></b></td></tr>
+<tr><td align="center">Max 1</td><td align="center"><div id = "max1">xxxxxxxxxx</div></td></tr>
+<tr><td align="center">Max 2</td><td align="center"><div id = "max2">xxxxxxxxxx</div></td></tr>
+<tr><td align="center">Max 3</td><td align="center"><div id = "max3">xxxxxxxxxx</div></td></tr>
+<tr><td align="center"><b>Average</b></td><td align="center"><b><div id = "average">xxxxxxxxxx</div></b></td></tr>
+</table><br>
+<b><center><a href="index.html">Back</a></center></b>
+
+<script type = "text/javascript">
+
+var now = new Date();
+var datetime = now.toLocaleString();
+document.getElementById("datetime").innerHTML = datetime;
+
+if(typeof(EventSource) !== "undefined") {
+  var eSource3 = new EventSource("threemaxes.php");
+  eSource3.onmessage = function(event) {
+    var maxesArray = JSON.parse(event.data);
+    document.getElementById("max1").innerHTML = maxesArray[0];
+    document.getElementById("max2").innerHTML = maxesArray[1];
+    document.getElementById("max3").innerHTML = maxesArray[2];
+    let maxSum = Number(maxesArray[0]) + Number(maxesArray[1]) + Number(maxesArray[2]);
+    let avg = Math.floor(maxSum / 3);
+    let avgStr = avg.toString();
+    document.getElementById("average").innerHTML = avgStr;
+  }
+} else {
+  document.getElementById("prDate").innerHTML = "No browser support."
+}
+</script>
+
+</body>
+</html>
