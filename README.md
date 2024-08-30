@@ -104,7 +104,7 @@ Goto folder Python_AMS and start the notification app with: python3 maxpowermoni
 
 When you see the two programs working in their respective terminal windows, you may open the website. From the laptop, when connected to the same local network, open the browser and enter the IP address of the Raspberry pi. The website is very simple, and should be self explanatory. Test that values are being updated in the "View current data from the meter" page. <br>
 
-Note I have a water meter as well, which has an entry in the webpage. Details about this is currently not covered in the project.
+Note: I have a water meter as well, which has an entry in the webpage. Details about this is currently not covered in the project.
 
 For presentation of log data, please check the Readme in the python folder.
 
