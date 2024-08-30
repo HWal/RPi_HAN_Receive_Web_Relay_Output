@@ -7,10 +7,10 @@ Brief description
 -----------------
 This project for the Raspberry Pi has the following functions:
 * Read and decode data from the HAN-port on Kaifa (MA304H3E 3-phase) smart electricity meter. It also reads data from Kaifa 1-phase meter, but this has not been tested.
-* Present live data from the meter on a simple webpage, based on Apache2 webserver.
+* Present live data from the meter on a traditional webpage, based on Apache2 webserver.
 * Control two output relays.
 * View and download el-spotprices for Norway/Bergen area in EUR and NOK currency.
-* Send notification to mobile phone via the IFTTT service when averaged active power (user defined averaging period) exceeds a limit set by the user.
+* Send email to a specified address when average of three Wh values within one month exceeds a limit set by the user.
 * Analyze log files on a Windows 10 laptop.
 
 Hardware
@@ -96,15 +96,15 @@ Edit a cronjob as your pi user, with crontab -e, with the following content:
 
 55 23 * * * /usr/bin/python3 /home/pi/Python_AMS/copyprices_2.py
 
-Goto folder Cpp_AMS and compile the source code with: g++ -W readAMS66.cpp. Then start reading messages by typing: ./a.out
+Goto folder Cpp_AMS and compile the source code with: g++ -W readAMSxx.cpp. Then start reading messages by typing: ./a.out
 
-Note: After upgrading from RPi Operating system stretch to buster I experience problems while reading the meter. readAMS66.cpp has now been adapted to the newer buster release. This program has since been edited to the latest version readAMS77.cpp. In case of problems it is suggested that you try both program versions to determine what works best for you.
+Note: After upgrading from RPi Operating system stretch to buster I experienced problems while reading the meter. readAMS66.cpp has now been adapted to the newer buster release, and latest version is now readAMS77.cpp. In case of problems it is suggested that you try both program versions to determine what works best for you.
 
-Goto folder Python_AMS and start the notification app with: python3 notify.py
+Goto folder Python_AMS and start the notification app with: python3 maxpowermonitor.py
 
 When you see the two programs working in their respective terminal windows, you may open the website. From the laptop, when connected to the same local network, open the browser and enter the IP address of the Raspberry pi. The website is very simple, and should be self explanatory. Test that values are being updated in the "View current data from the meter" page. <br>
 
-Configuring notifications in IFTTT is outside the scope of this Readme, but it is quite easy to get working if you spend a little time looking into it. When that is done, you may test the functionality of the notification service. See: https://ifttt.com
+Note I have a water meter as well, which has an entry in the webpage. Details about this is currently not covered in the project.
 
 For presentation of log data, please check the Readme in the python folder.
 
