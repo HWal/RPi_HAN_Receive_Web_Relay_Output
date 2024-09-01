@@ -110,7 +110,7 @@ For presentation of log data, please check the Readme in the python folder.
 
 To connect to the website from the outside world, you should open port 80 in your firewall. Beware the risk of getting the RPi hacked by outside users. You should therefor password protect the website, information about this task is found on the internet.<br>
 
-LIST OF FILES
+LIST OF FILES<br>
 /home/pi/Cpp_AMS/readAMS66.cpp               C++ source code<br>
 /home/pi/Cpp_AMS/readAMS77.cpp               C++ source code<br>
 /home/pi/Cpp_AMS/copyFiles_meter             bash script<br>
