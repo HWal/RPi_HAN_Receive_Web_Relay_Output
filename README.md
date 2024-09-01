@@ -111,50 +111,51 @@ For presentation of log data, please check the Readme in the python folder.
 To connect to the website from the outside world, you should open port 80 in your firewall. Beware the risk of getting the RPi hacked by outside users. You should therefor password protect the website, information about this task is found on the internet.<br>
 
 LIST OF FILES
-/home/pi/Cpp_AMS/readAMS66.cpp               C++ source code
-/home/pi/Cpp_AMS/readAMS77.cpp               C++ source code
-/home/pi/Cpp_AMS/copyFiles_meter             bash script
-/home/pi/Cpp_AMS/a.out                       executable, reads meter
-/home/pi/Python_AMS/copyprices_1.py
-/home/pi/Python_AMS/copyprices_1.py
-/home/pi/Python_AMS/spotprices.py
-/home/pi/Python_AMS/maxpowermonitor.py
-/var/www/html/currtime.php
-/var/www/html/gpio.php
-/var/www/html/notificationlimit.php
-/var/www/html/schematic.html
-/var/www/html/schematic.jpg
-/var/www/html/spotprices_EUR_today.php
-/var/www/html/spotprices_EUR_today.html
-/var/www/html/spotprices_EUR_tomorrow.php
-/var/www/html/spotprices_EUR_tomorrow.html
-/var/www/html/spotprices_NOK_today.php
-/var/www/html/spotprices_NOK_today.html
-/var/www/html/spotprices_NOK_tomorrow.php
-/var/www/html/spotprices_NOK_tomorrow.html
-/var/www/html/relaycontrol.php
-/var/www/html/threemaxes.php
-/var/www/html/threemaxes.html
-/var/www/html/amsdata.html
-/var/www/html/currpower.php
-/var/www/html/currlog.php
-/var/www/html/index.html
-/var/www/html/img/green_0.jpg
-/var/www/html/img/green_1.jpg
-/var/www/html/img/red_0.jpg
-/var/www/html/img/red_1.jpg
-/var/www/html/data/notificationlimit.data
-/var/www/html/data/threemaxes.data
-/var/www/html/data/prices_EUR_today.data
-/var/www/html/data/prices_NOK_today.data
-/var/www/html/data/prices_EUR_tomorrow.xml
-/var/www/html/data/prices_EUR_tomorrow.data
-/var/www/html/data/currencyconversions.xml
-/var/www/html/data/prices_NOK_tomorrow.data
-/var/www/html/data/currentlog.data
-/var/www/html/data/currentactivepower.data
-/var/www/html/data/currenttime.data
-/var/meter_log/20xx-yy-zz.txt                Prepare meter log files for permanent storage on usb stick
-/media/pi/D8AF-261F/meter/20xx-yy-zz.txt
-/media/pi/D8AF-261F/prices/20xxyyzz_EUR.data
-/media/pi/D8AF-261F/prices/20xxyyzz_NOK.data
+/home/pi/Cpp_AMS/readAMS66.cpp               C++ source code<br>
+/home/pi/Cpp_AMS/readAMS77.cpp               C++ source code<br>
+/home/pi/Cpp_AMS/copyFiles_meter             bash script<br>
+/home/pi/Cpp_AMS/a.out                       executable, reads meter<br>
+/home/pi/Python_AMS/copyprices_1.py<br>
+/home/pi/Python_AMS/copyprices_1.py<br>
+/home/pi/Python_AMS/spotprices.py<br>
+/home/pi/Python_AMS/maxpowermonitor.py<br>
+/var/www/html/currtime.php<br>
+/var/www/html/gpio.php<br>
+/var/www/html/notificationlimit.php<br>
+/var/www/html/schematic.html<br>
+/var/www/html/schematic.jpg<br>
+/var/www/html/spotprices_EUR_today.php<br>
+/var/www/html/spotprices_EUR_today.html<br>
+/var/www/html/spotprices_EUR_tomorrow.php<br>
+/var/www/html/spotprices_EUR_tomorrow.html<br>
+/var/www/html/spotprices_NOK_today.php<br>
+/var/www/html/spotprices_NOK_today.html<br>
+/var/www/html/spotprices_NOK_tomorrow.php<br>
+/var/www/html/spotprices_NOK_tomorrow.html<br>
+/var/www/html/relaycontrol.php<br>
+/var/www/html/threemaxes.php<br>
+/var/www/html/threemaxes.html<br>
+/var/www/html/amsdata.html<br>
+/var/www/html/currpower.php<br>
+/var/www/html/currlog.php<br>
+/var/www/html/index.html<br>
+/var/www/html/img/green_0.jpg<br>
+/var/www/html/img/green_1.jpg<br>
+/var/www/html/img/red_0.jpg<br>
+/var/www/html/img/red_1.jpg<br>
+/var/www/html/data/notificationlimit.data<br>
+/var/www/html/data/threemaxes.data<br>
+/var/www/html/data/prices_EUR_today.data<br>
+/var/www/html/data/prices_NOK_today.data<br>
+/var/www/html/data/prices_EUR_tomorrow.xml<br>
+/var/www/html/data/prices_EUR_tomorrow.data<br>
+/var/www/html/data/currencyconversions.xml<br>
+/var/www/html/data/prices_NOK_tomorrow.data<br>
+/var/www/html/data/currentlog.data<br>
+/var/www/html/data/currentactivepower.data<br>
+/var/www/html/data/currenttime.data<br>
+/var/meter_log/20xx-yy-zz.txt                Prepare meter log files for permanent storage on usb stick<br>
+/media/pi/D8AF-261F/meter/20xx-yy-zz.txt<br>
+/media/pi/D8AF-261F/prices/20xxyyzz_EUR.data<br>
+/media/pi/D8AF-261F/prices/20xxyyzz_NOK.data<br>
+
