@@ -70,8 +70,7 @@ sudo reboot <br>
 
 Now ttyAMA0 / PL011 / UART0 is connected to gpio 14 / 15 which are the physical pins 8 / 10<br>
 
-Make some directories on the Raspberry Pi:<br>
-Command - Owner - Group - View - Change - Access<br>
+Make some directories on the Raspberry Pi (Command - Owner - Group - View - Change - Access):<br>
 mkdir /home/pi/Cpp_AMS - pi - pi - Anyone - Only owner - Anyone<br>
 mkdir /home/pi/Python_AMS - pi - pi - Anyone - Only owner - Anyone<br>
 mkdir /var/meter_log - root - root - Anyone - Anyone - Anyone<br>
