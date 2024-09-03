@@ -24,7 +24,7 @@ Hardware
 
 Preparation of RPi while powered up and connectected directly to a screen (TV)
 ------------------------------------------------------------------------------
-Activate VNC: sudo raspi-config -> Interfacing Options -> VNC -> Enable VNC server <br>
+Activate VNC: sudo raspi-config -> Interfacing Options -> VNC -> Enable VNC server<br>
 Activate SSH: sudo raspi-config -> Interfacing Options -> SSH -> Enable SSH server
 
 Open a terminal window, note the IP number of the RPi returned from the command: hostname -I
@@ -32,7 +32,7 @@ Open a terminal window, note the IP number of the RPi returned from the command:
 Prepare a laptop for remote control of the RPi
 ----------------------------------------------
 Download VNC viewer: https://www.realvnc.com/en/connect/download/viewer/ <br>
-Download putty.exe and pscp.exe: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html <br>
+Download putty.exe and pscp.exe: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html<br>
 You should now be able to control RPi from the laptop on your local network, both via the GUI (VNC viewer) and terminal window (putty.exe). Also you can copy files between RPi and the laptop with pscp.exe. To connect, use the IP number noted above.
 
 From now on a separate screen should rarely be necessary. The RPi will be working in "Headless mode".
@@ -41,46 +41,46 @@ Continue to prepare RPi in Headless mode
 ----------------------------------------
 Preferably, give RPi a static IP address, see: https://raspberrypi.stackexchange.com/questions/37920/how-do-i-set-up-networking-wifi-static-ip-address/74428#74428
 
-Install Apache2 webserver: sudo apt-get update , sudo apt-get upgrade , sudo apt-get install apache2 -y <br>
-Make user pi the owner of /var/www/html: sudo chown pi: -R html <br>
-Install PHP for the relay control script: sudo apt-get install php libapache2-mod-php -y <br>
+Install Apache2 webserver: sudo apt-get update , sudo apt-get upgrade , sudo apt-get install apache2 -y<br>
+Make user pi the owner of /var/www/html: sudo chown pi: -R html<br>
+Install PHP for the relay control script: sudo apt-get install php libapache2-mod-php -y<br>
 
-Make a "clean" UART port on the RPi 3. For reference, see: https://www.raspberrypi.org/documentation/configuration/uart.md and https://spellfoundry.com/2016/05/29/configuring-gpio-serial-port-raspbian-jessie-including-pi-3-4/ <br>
-We want these pins to communicate with the M-BUS To TTL converter:  <br>
-Physical pin 8 = gpio 14 = Tx <br>
+Make a "clean" UART port on the RPi 3. For reference, see: https://www.raspberrypi.org/documentation/configuration/uart.md and https://spellfoundry.com/2016/05/29/configuring-gpio-serial-port-raspbian-jessie-including-pi-3-4/<br>
+We want these pins to communicate with the M-BUS To TTL converter:<br>
+Physical pin 8 = gpio 14 = Tx<br>
 Physical pin 10 = gpio 15 = Rx
 
-sudo apt-get update , sudo apt-get upgrade <br>
+sudo apt-get update , sudo apt-get upgrade<br>
 
-Disable console and activate serial: sudo raspi-config -> Interfacing Options -> Serial <br>
-Login shell accessible over serial: No <br>
-Serial port hardware enabled: Yes <br>
+Disable console and activate serial: sudo raspi-config -> Interfacing Options -> Serial<br>
+Login shell accessible over serial: No<br>
+Serial port hardware enabled: Yes<br>
 The system asks for a reboot: Yes
 
 We can stop and deactivate the getty service, as long as the console is not used: <br>
-sudo systemctl stop serial-getty@ttyS0.service <br>
-sudo systemctl disable serial-getty@ttyS0.service <br>
+sudo systemctl stop serial-getty@ttyS0.service<br>
+sudo systemctl disable serial-getty@ttyS0.service<br>
 
-We don't need to use the Bluetooth modem at this time. <br>
-sudo systemctl disable hciuart  // Disables the Bluetooth modem <br>
+We don't need to use the Bluetooth modem at this time.<br>
+sudo systemctl disable hciuart  // Disables the Bluetooth modem<br>
 
-We want to swap the serial ports, please see the relevant lines in the file /boot/overlays/README. <br>
-sudo nano /boot/config.txt, and add at the bottom: dtoverlay=pi3-disable-bt <br>
+We want to swap the serial ports, please see the relevant lines in the file /boot/overlays/README.<br>
+sudo nano /boot/config.txt, and add at the bottom: dtoverlay=pi3-disable-bt<br>
 sudo reboot <br>
 
-Now ttyAMA0 / PL011 / UART0 is connected to gpio 14 / 15 which are the physical pins 8 / 10 <br>
+Now ttyAMA0 / PL011 / UART0 is connected to gpio 14 / 15 which are the physical pins 8 / 10<br>
 
-Make some directories on the Raspberry Pi: <br>
-Command - Owner - Group - View - Change - Access <br>
-mkdir /home/pi/Cpp_AMS - pi - pi - Anyone - Only owner - Anyone <br>
-mkdir /home/pi/Python_AMS - pi - pi - Anyone - Only owner - Anyone <br>
-mkdir /var/meter_log - root - root - Anyone - Anyone - Anyone <br>
-mkdir /var/www/html/data - pi - pi - Anyone - Only owner - Anyone <br>
-mkdir /var/www/html/img - pi - pi - Anyone - Only owner - Anyone <br>
-The directory for a USB stick plugged into the RPi would typically be:
-/media/pi/ABCDEFGHI, so please adapt the cronjob files to suit your system.<br>
-mkdir /media/pi/xxxxxxxxx/meter - pi - pi - Anyone - Only owner - Anyone <br>
-mkdir /media/pi/ABCDEFGHI/prices - pi - pi - Anyone - Only owner - Anyone <br>
+Make some directories on the Raspberry Pi:<br>
+Command - Owner - Group - View - Change - Access<br>
+mkdir /home/pi/Cpp_AMS - pi - pi - Anyone - Only owner - Anyone<br>
+mkdir /home/pi/Python_AMS - pi - pi - Anyone - Only owner - Anyone<br>
+mkdir /var/meter_log - root - root - Anyone - Anyone - Anyone<br>
+mkdir /var/www/html/data - pi - pi - Anyone - Only owner - Anyone<br>
+mkdir /var/www/html/img - pi - pi - Anyone - Only owner - Anyone<br>
+
+The directory for a USB stick plugged into the RPi would typically be:<br>
+mkdir /media/pi/xxxxxxxxx/meter - pi - pi - Anyone - Only owner - Anyone (for usb stick)<br>
+mkdir /media/pi/ABCDEFGHI/prices - pi - pi - Anyone - Only owner - Anyone<br>
 
 Permissions and ownership shown above is like I have it on my RPi. Data security has not been considered so far.
 
@@ -88,13 +88,10 @@ Now copy the files from github into the corresponding directories on RPi listed 
 
 Edit a cronjob as your pi user, with crontab -e, with the following content:
 
-05 00 * * * /usr/bin/python3 /home/pi/Python_AMS/copyprices_1.py
-
-10 00 * * * /home/pi/Cpp_AMS/copyFiles_meter
-
-00 15 * * * /usr/bin/python3 /home/pi/Python_AMS/spotprices.py
-
-55 23 * * * /usr/bin/python3 /home/pi/Python_AMS/copyprices_2.py
+05 00 * * * /usr/bin/python3 /home/pi/Python_AMS/copyprices_1.py<br>
+10 00 * * * /home/pi/Cpp_AMS/copyFiles_meter <br>
+00 15 * * * /usr/bin/python3 /home/pi/Python_AMS/spotprices.py<br>
+55 23 * * * /usr/bin/python3 /home/pi/Python_AMS/copyprices_2.py<br>
 
 Goto folder Cpp_AMS and compile the source code with: g++ -W readAMSxx.cpp. Then start reading messages by typing: ./a.out
 
