@@ -11,7 +11,7 @@ This project for the Raspberry Pi has the following functions:
 * Control two output relays.
 * View and download el-spotprices for Norway/Bergen area in EUR and NOK currency.
 * Send email to a specified address when average of three Wh values within one month exceeds a limit set by the user.
-* Analyze log files on a Windows 10 laptop.
+* Analyze log files on a Windows laptop.
 
 Hardware
 --------
@@ -24,8 +24,8 @@ Hardware
 
 Preparation of RPi while powered up and connectected directly to a screen (TV)
 ------------------------------------------------------------------------------
-Activate VNC here: sudo raspi-config -> Interfacing Options -> VNC -> Enable VNC server <br>
-Activate SSH here: sudo raspi-config -> Interfacing Options -> SSH -> Enable SSH server
+Activate VNC: sudo raspi-config -> Interfacing Options -> VNC -> Enable VNC server <br>
+Activate SSH: sudo raspi-config -> Interfacing Options -> SSH -> Enable SSH server
 
 Open a terminal window, note the IP number of the RPi returned from the command: hostname -I
 
@@ -35,7 +35,7 @@ Download VNC viewer: https://www.realvnc.com/en/connect/download/viewer/ <br>
 Download putty.exe and pscp.exe: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html <br>
 You should now be able to control RPi from the laptop on your local network, both via the GUI (VNC viewer) and terminal window (putty.exe). Also you can copy files between RPi and the laptop with pscp.exe. To connect, use the IP number noted above.
 
-From now on a separate screen should rarely be necessary, while the RPi will be working in "Headless mode".
+From now on a separate screen should rarely be necessary. The RPi will be working in "Headless mode".
 
 Continue to prepare RPi in Headless mode
 ----------------------------------------
@@ -79,7 +79,7 @@ mkdir /var/www/html/data - pi - pi - Anyone - Only owner - Anyone <br>
 mkdir /var/www/html/img - pi - pi - Anyone - Only owner - Anyone <br>
 The directory for a USB stick plugged into the RPi would typically be:
 /media/pi/ABCDEFGHI, so please adapt the cronjob files to suit your system.<br>
-mkdir /media/pi/ABCDEFGHI/meter - pi - pi - Anyone - Only owner - Anyone <br>
+mkdir /media/pi/xxxxxxxxx/meter - pi - pi - Anyone - Only owner - Anyone <br>
 mkdir /media/pi/ABCDEFGHI/prices - pi - pi - Anyone - Only owner - Anyone <br>
 
 Permissions and ownership shown above is like I have it on my RPi. Data security has not been considered so far.
@@ -98,23 +98,23 @@ Edit a cronjob as your pi user, with crontab -e, with the following content:
 
 Goto folder Cpp_AMS and compile the source code with: g++ -W readAMSxx.cpp. Then start reading messages by typing: ./a.out
 
-Note: After upgrading from RPi Operating system stretch to buster I experienced problems while reading the meter. readAMS66.cpp has now been adapted to the newer buster release, and latest version is now readAMS77.cpp. In case of problems it is suggested that you try both program versions to determine what works best for you.
+NOTE: After upgrading from RPi Operating system stretch to buster I experienced problems while reading the meter. readAMS66.cpp has now been adapted to the newer buster release, and latest version is now readAMS77.cpp. In case of problems it is suggested that you try both program versions to determine what works best for you.
 
 Goto folder Python_AMS and start the notification app with: python3 maxpowermonitor.py
 
 When you see the two programs working in their respective terminal windows, you may open the website. From the laptop, when connected to the same local network, open the browser and enter the IP address of the Raspberry pi. The website is very simple, and should be self explanatory. Test that values are being updated in the "View current data from the meter" page. <br>
 
-Note: I have a water meter as well, which has an entry in the webpage. Details about this is currently not covered in the project.
+Note: I have a water meter as well, which has an entry in the webpage. Details about this is currently not covered in this project.
 
-For presentation of log data, please check the Readme in the python folder.
+For presentation of log data on laptop, please see the Readme file in the python folder.
 
-To connect to the website from the outside world, you should open port 80 in your firewall. Beware the risk of getting the RPi hacked by outside users. You should therefor password protect the website, information about this task is found on the internet.<br>
+To connect to the website from the outside world, you should open port 80 in your firewall. Beware the risk of getting the RPi hacked by outside users. You should therefore password protect the website. Information about how to do this is found on the internet.<br>
 
 LIST OF FILES<br>
-/home/pi/Cpp_AMS/readAMS66.cpp               C++ source code<br>
-/home/pi/Cpp_AMS/readAMS77.cpp               C++ source code<br>
-/home/pi/Cpp_AMS/copyFiles_meter             bash script<br>
-/home/pi/Cpp_AMS/a.out                       executable, reads meter<br>
+/home/pi/Cpp_AMS/readAMS66.cpp                  C++ source code<br>
+/home/pi/Cpp_AMS/readAMS77.cpp                  C++ source code<br>
+/home/pi/Cpp_AMS/copyFiles_meter                bash script<br>
+/home/pi/Cpp_AMS/a.out                          executable, reads meter<br>
 /home/pi/Python_AMS/copyprices_1.py<br>
 /home/pi/Python_AMS/copyprices_1.py<br>
 /home/pi/Python_AMS/spotprices.py<br>
@@ -154,8 +154,7 @@ LIST OF FILES<br>
 /var/www/html/data/currentlog.data<br>
 /var/www/html/data/currentactivepower.data<br>
 /var/www/html/data/currenttime.data<br>
-/var/meter_log/20xx-yy-zz.txt                Prepare meter log files for permanent storage on usb stick<br>
+/var/meter_log/20xx-yy-zz.txt                    Prepare meter log files for permanent storage on usb stick<br>
 /media/pi/D8AF-261F/meter/20xx-yy-zz.txt<br>
 /media/pi/D8AF-261F/prices/20xxyyzz_EUR.data<br>
 /media/pi/D8AF-261F/prices/20xxyyzz_NOK.data<br>
-
