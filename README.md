@@ -89,7 +89,7 @@ Now copy the files from github into the corresponding directories on RPi listed 
 Edit a cronjob as your pi user, with crontab -e, with the following content:
 
 05 00 * * * /usr/bin/python3 /home/pi/Python_AMS/copyprices_1.py<br>
-10 00 * * * /home/pi/Cpp_AMS/copyFiles_meter <br>
+10 00 * * * /home/pi/Cpp_AMS/copyFiles_meter<br>
 00 15 * * * /usr/bin/python3 /home/pi/Python_AMS/spotprices.py<br>
 55 23 * * * /usr/bin/python3 /home/pi/Python_AMS/copyprices_2.py<br>
 
