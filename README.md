@@ -77,8 +77,6 @@ mkdir /home/pi/Python_AMS - pi - pi - Anyone - Only owner - Anyone<br>
 mkdir /var/meter_log - root - root - Anyone - Anyone - Anyone<br>
 mkdir /var/www/html/data - pi - pi - Anyone - Only owner - Anyone<br>
 mkdir /var/www/html/img - pi - pi - Anyone - Only owner - Anyone<br>
-
-The directory for a USB stick plugged into the RPi would typically be:<br>
 mkdir /media/pi/xxxxxxxxx/meter - pi - pi - Anyone - Only owner - Anyone (for usb stick)<br>
 mkdir /media/pi/ABCDEFGHI/prices - pi - pi - Anyone - Only owner - Anyone<br>
 
