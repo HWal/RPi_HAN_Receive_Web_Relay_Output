@@ -35,7 +35,7 @@
             fwrite($fh,$string); // Write to file
             fclose($fh);         // Close file
             echo "<center><h3>Limit updated</h3>";
-            echo "New value: ".$string."W<br><br>";
+            echo "New value: ".$string."Wh<br><br>";
             echo "<b><a href=\"index.html\">Back</a></b></center>";
 
         // Data has not yet been entered and submitted
@@ -46,7 +46,7 @@
             $fh = fopen($path,"r");
             $current = fread($fh, filesize($path));
             echo "<font color=\"red\">";
-            echo "<center>Current limit: ".$current."W<br><br></center>";
+            echo "<center>Current limit: ".$current."Wh<br><br></center>";
             echo "</font>";
             fclose($fh);
             ?>
