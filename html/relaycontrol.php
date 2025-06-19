@@ -118,8 +118,25 @@
         }
         </script>
 
+
+
+
+        <script type = "text/javascript">
+        if(typeof(EventSource) !== "undefined") {
+          var eSource1 = new EventSource("currpower.php");
+          eSource1.onmessage = function(event) {
+            document.getElementById("actPowerPlus_SSE").innerHTML = event.data;
+          }
+        } else {
+          document.getElementById("msgDate_SSE").innerHTML = "No browser support."
+        }
+        </script>
+
+
+
+        <br><b><i>Total active power+ (W):</b><div id = "actPowerPlus_SSE"></div></i>
         <br>To operate, click on the green (On) <br> or red (Off) status indicator.<br>
-        <br><b>Panel heater:</b><br>Controls power to panel heaters in the east wall of the living room. Status <b>On</b> indicates the heaters are powered.<br>
+        <br><b>Panel heater:</b><br>Controls power to panel heater in the east wall of the living room. Status <b>On</b> indicates the heater is powered.<br>
         <br><b>Water heater:</b><br>Controls 2000W power to the 200L water heater in the laundry room. Status <b>On</b> indicates the heater is powered.<br>
 
         <br><b><center><a href="index.html">Back</a></center></b>
