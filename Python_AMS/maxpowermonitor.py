@@ -12,9 +12,9 @@ import smtplib
 from email.message import EmailMessage
 
 # Initialization of variables
-from_email_addr ="mmmmmmmmm@nnnnnnnn"
-from_email_pass ="xxxxxxxxxxxxxxxx"
-to_email_addr ="yyyyyyyyyy@zzzzzzz"
+from_email_addr ="kkkkkkkkk@kkkkk.kkk"
+from_email_pass ="kkkkkkkkkkkkkkkk"
+to_email_addr ="kkkkkkkk@kkkkk.kkk"
 
 ok1 = False
 ok2 = False
@@ -55,7 +55,7 @@ try:
         maxWattHour1 = int(values[0])
         maxWattHour2 = int(values[1])
         maxWattHour3 = int(values[2])
-        wattHourAverage = (maxWattHour1 + maxWattHour2 + maxWattHour3) / wattHourSamples
+        wattHourAverage = int((maxWattHour1 + maxWattHour2 + maxWattHour3) / wattHourSamples)
       else:
         print("Could not read three max values")
     else:
@@ -109,8 +109,13 @@ while True:
 
   # Cut first iteration short
   if ok3 == False:
+    # print("energyNew = ", energyNew)
+    # print("ok3 = ", ok3)
     ok3 = True
+    # print("ok3 = ", ok3)
+    # print("energyOld = ", energyOld)
     energyOld = energyNew
+    # print("energyOld = ", energyOld)
     yearOld = yearNew
     monthOld = monthNew
     dayOld = dayNew
@@ -119,13 +124,15 @@ while True:
     secondOld = secondNew
     continue
  
-  # New energy value is sent from the meter 10 seconds after each top of hour
+  # New energy value is sent from the meter 10 seconds after top of the hour
   # Used Wh in one hour is the difference in energy between two tops of hour
   # The difference in Wh is calculated for every 10s cycle anyway
   wattHourDiff = energyNew - energyOld
 
-  # Check if we have got a new energy value different from the old one
+  # Check if the new energy value is different from the old one
   if ok1 == True and ok2 == True and energyOld != energyNew:
+
+    # print("energyNew new hour = ", energyNew)
 
     # We want to find the highest hourly Wh value within the day
     if wattHourDiff > wattHourDiffMax:
@@ -139,7 +146,6 @@ while True:
       diff2 = wattHourDiffMax - maxWattHour2
       diff3 = wattHourDiffMax - maxWattHour3
 
-      # Debug
       # print("Positiv diff betyr en ny max i dag")
       # print("diff1 =", diff1, " diff2 =", diff2, " diff3 =", diff3)
 
@@ -154,9 +160,8 @@ while True:
         if (diff3 > 0):
           maxWattHour3 = wattHourDiffMax
 
-      wattHourAverage = (maxWattHour1 + maxWattHour2 + maxWattHour3) / wattHourSamples
+      wattHourAverage = int((maxWattHour1 + maxWattHour2 + maxWattHour3) / wattHourSamples)
 
-      # Debug
       # print("maxWattHour1 =", maxWattHour1, " maxWattHour2 =", maxWattHour2, " maxWattHour3 =", maxWattHour3)
 
       # Store the maximum values to file 10s after each midnight

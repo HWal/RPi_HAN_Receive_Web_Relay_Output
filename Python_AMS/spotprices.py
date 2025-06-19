@@ -26,7 +26,7 @@ shortDateTomorrow = tomorrow.strftime("%Y") + tomorrow.strftime("%m") + tomorrow
 # String that worked until March 2023 is commented out
 # a = 'https://transparency.entsoe.eu/api?documentType=A44&in_Domain=10Y1001A1001A48H&out_Domain=10Y1001A1001A48H&periodStart='
 # b = '0000&periodEnd='
-# c = '2300&securityToken=aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee'
+# c = '2300&securityToken=kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk'
 a = 'https://web-api.tp.entsoe.eu/api?documentType=A44&processType=A01&in_Domain=10Y1001A1001A48H&out_Domain=10Y1001A1001A48H&periodStart='
 b = '0000&periodEnd='
 c = '2300&securityToken=5415fd5e-908a-43b7-a5ab-920ebf5735e3'
