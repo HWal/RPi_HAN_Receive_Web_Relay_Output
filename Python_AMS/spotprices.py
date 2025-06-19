@@ -24,12 +24,9 @@ shortDateTomorrow = tomorrow.strftime("%Y") + tomorrow.strftime("%m") + tomorrow
 
 # Build Url search string with Domain code for Market Balance Area N05 (includes Bergen)
 # String that worked until March 2023 is commented out
-# a = 'https://transparency.entsoe.eu/api?documentType=A44&in_Domain=10Y1001A1001A48H&out_Domain=10Y1001A1001A48H&periodStart='
-# b = '0000&periodEnd='
-# c = '2300&securityToken=kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk'
 a = 'https://web-api.tp.entsoe.eu/api?documentType=A44&processType=A01&in_Domain=10Y1001A1001A48H&out_Domain=10Y1001A1001A48H&periodStart='
 b = '0000&periodEnd='
-c = '2300&securityToken=5415fd5e-908a-43b7-a5ab-920ebf5735e3'
+c = '2300&securityToken=kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk'
 
 url1 = a + shortDateTomorrow + b + shortDateTomorrow + c
 print(url1)
