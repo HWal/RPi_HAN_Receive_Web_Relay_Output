@@ -12,9 +12,9 @@ import smtplib
 from email.message import EmailMessage
 
 # Initialization of variables
-from_email_addr ="kkkkkkkkk@kkkkk.kkk"
-from_email_pass ="kkkkkkkkkkkkkkkk"
-to_email_addr ="kkkkkkkk@kkkkk.kkk"
+from_email_addr ="ppppppppp@ppppp.ppp"
+from_email_pass ="pppppppppppppppp"
+to_email_addr ="pppppppp@ppppp.ppp"
 
 ok1 = False
 ok2 = False
@@ -65,8 +65,6 @@ except:
 
 
 
-
-
 # Eternal loop
 while True:
   time.sleep(10)
@@ -109,13 +107,8 @@ while True:
 
   # Cut first iteration short
   if ok3 == False:
-    # print("energyNew = ", energyNew)
-    # print("ok3 = ", ok3)
     ok3 = True
-    # print("ok3 = ", ok3)
-    # print("energyOld = ", energyOld)
     energyOld = energyNew
-    # print("energyOld = ", energyOld)
     yearOld = yearNew
     monthOld = monthNew
     dayOld = dayNew
@@ -129,79 +122,13 @@ while True:
   # The difference in Wh is calculated for every 10s cycle anyway
   wattHourDiff = energyNew - energyOld
 
-  # Check if the new energy value is different from the old one
+  # The active energy Wh value is updated hourly, 10s past top of the hour
+  # Check if the Wh value is different from the old one
   if ok1 == True and ok2 == True and energyOld != energyNew:
 
-    # print("energyNew new hour = ", energyNew)
-
-    # We want to find the highest hourly Wh value within the day
-    if wattHourDiff > wattHourDiffMax:
-      wattHourDiffMax = wattHourDiff
-
-    # We want to keep the three highest Wh values in three different
-    # days within one month - The next 16 lines below take care of that
-    if dayNew != dayOld:
-      # Compare the day max with already stored values
-      diff1 = wattHourDiffMax - maxWattHour1
-      diff2 = wattHourDiffMax - maxWattHour2
-      diff3 = wattHourDiffMax - maxWattHour3
-
-      # print("Positiv diff betyr en ny max i dag")
-      # print("diff1 =", diff1, " diff2 =", diff2, " diff3 =", diff3)
-
-      # Determine the largest diff and update stored values
-      if (diff1 >= diff2) and (diff1 >= diff3):
-        if (diff1 > 0):
-          maxWattHour1 = wattHourDiffMax
-      elif (diff2 >= diff1) and (diff2 >= diff3):
-        if (diff2 > 0):
-          maxWattHour2 = wattHourDiffMax
-      elif (diff3 >= diff1) and (diff3 >= diff2):
-        if (diff3 > 0):
-          maxWattHour3 = wattHourDiffMax
-
-      wattHourAverage = int((maxWattHour1 + maxWattHour2 + maxWattHour3) / wattHourSamples)
-
-      # print("maxWattHour1 =", maxWattHour1, " maxWattHour2 =", maxWattHour2, " maxWattHour3 =", maxWattHour3)
-
-      # Store the maximum values to file 10s after each midnight
-      saveFileString_maxes = str(maxWattHour1) + ',' + str(maxWattHour2) + ',' + str(maxWattHour3)
-      with open('/var/www/html/data/threemaxes.data', 'w') as fp4:
-        fp4.write(saveFileString_maxes)
-
-    # Print status hourly (when there is a new Wh reading from the meter)
-    print("År: ", yearOld, "Måned: ", monthOld, " Dag: ", dayOld)
-    print("Timen mellom kl: ", hourOld, " og ", hourNew)
-    print("Forbruk denne timen: ", wattHourDiff, "Wh")
-    print("Maks Wh time hittil i dag", wattHourDiffMax)
-    print("Varselgrense: ", limit, "Wh")
-    print("Snitt 3 høyeste døgn Wh hittil denne mnd: ", wattHourAverage, "Wh")
-    print()
-
-    # Print status daily
-    if dayNew != dayOld:
-      print("NY DAG")
-      print("Tre høyeste døgnmakser hittil i måneden (Wh) År ", yearOld, " Måned ", monthOld, " ", maxWattHour1, "  ", maxWattHour2, "  ", maxWattHour3, "\n")
-      print("Snitt av de tra døgnmaksene: ", wattHourAverage, "Wh")
-
-    # Print status monthly
-    if monthNew != monthOld:
-      print("Ny måned")
-      print("Tre høyeste månedsmakser i måneden (Wh) År ", yearOld, " Måned ", monthOld, " ", maxWattHour1, "  ", maxWattHour2, "  ", maxWattHour3, "\n")
-
-    # Reset max energy during one hour within one day
-    if dayNew != dayOld:
-      wattHourDiffMax = 0
-
-    # Reset the three largest max hour energy values on three
-    # different days within one month
-    if monthNew != monthOld:
-      maxWattHour1 = 0
-      maxWattHour2 = 0
-      maxWattHour3 = 0
 
     # Send email if Wh during one hour is greater than the limit
-    if wattHourAverage > limit:
+    if wattHourDiff > limit:
 
       # Create a message object
       msg = EmailMessage()
@@ -233,6 +160,66 @@ while True:
       server.send_message(msg)
 
       print('Email sent')
+      print()
+
+
+    # We want to find the highest hourly Wh value within the day
+    if wattHourDiff > wattHourDiffMax:
+      wattHourDiffMax = wattHourDiff
+
+    # Print status hourly (if the Wh reading from the meter has changed)
+    print("Ny time")
+    print("År: ", yearOld, "Måned: ", monthOld, " Dag: ", dayOld)
+    print("Timen mellom kl: ", hourOld, " og ", hourNew)
+    print("Forbruk denne timen: ", wattHourDiff, "Wh")
+    print("Maks Wh time hittil i dag", wattHourDiffMax)
+    print("Varselgrense: ", limit, "Wh")
+    print()
+
+
+    # We want to keep the 3 highest Wh values in 3 different days
+    # within the current month. The next 16 lines take care of that
+    if dayNew != dayOld:
+      # Compare the day max with already stored values
+      diff1 = wattHourDiffMax - maxWattHour1
+      diff2 = wattHourDiffMax - maxWattHour2
+      diff3 = wattHourDiffMax - maxWattHour3
+
+      # Determine the largest diff and update stored values
+      if (diff1 >= diff2) and (diff1 >= diff3):
+        if (diff1 > 0):
+          maxWattHour1 = wattHourDiffMax
+      elif (diff2 >= diff1) and (diff2 >= diff3):
+        if (diff2 > 0):
+          maxWattHour2 = wattHourDiffMax
+      elif (diff3 >= diff1) and (diff3 >= diff2):
+        if (diff3 > 0):
+          maxWattHour3 = wattHourDiffMax
+
+      wattHourAverage = int((maxWattHour1 + maxWattHour2 + maxWattHour3) / wattHourSamples)
+      # print("maxes =", maxWhattHour1, " ", maxWattHour2, " ", maxWattHour3)
+
+      # Store the maximum values to file
+      saveFileString_maxes = str(maxWattHour1) + ',' + str(maxWattHour2) + ',' + str(maxWattHour3)
+      with open('/var/www/html/data/threemaxes.data', 'w') as fp4:
+        fp4.write(saveFileString_maxes)
+
+      # Print status daily
+      print("NY DAG")
+      print("3 største døgnmakser denne måneden (Wh) År ", yearOld, " Måned ", monthOld, " ", maxWattHour1, "  ", maxWattHour2, "  ", maxWattHour3)
+      print("Snitt av de 3 døgnmaksene: ", wattHourAverage, "Wh")
+      wattHourDiffMax = 0
+      print()
+
+
+    # Print status monthly
+    if monthNew != monthOld:
+      print("NY MÅNED")
+      print("Tre høyeste månedsmakser i måneden (Wh) År ", yearOld, " Måned ", monthOld, " ", maxWattHour1, "  ", maxWattHour2, "  ", maxWattHour3, "\n")
+      # Reset the 3 largest max hour energy values on 3 different days within one month
+      maxWattHour1 = 0
+      maxWattHour2 = 0
+      maxWattHour3 = 0
       print()
 
     # Update Old values
