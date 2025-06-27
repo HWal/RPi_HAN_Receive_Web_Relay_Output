@@ -14,7 +14,7 @@ from email.message import EmailMessage
 # Initialization of variables
 from_email_addr ="ppppppppp@ppppp.ppp"
 from_email_pass ="pppppppppppppppp"
-to_email_addr ="pppppppp@ppppp.ppp"
+to_email_addr ="qqqqqqqq@qqqqq.qqq"
 
 ok1 = False
 ok2 = False
@@ -45,7 +45,7 @@ wattHourSamples = 3
 
 print("Program startet...\n")
 
-# Read three previously stored max values from file
+# Read 3 previously stored max values from file
 try:
   with open ("/var/www/html/data/threemaxes.data", "r") as fp3:
     threeMaxString = fp3.read()
@@ -168,7 +168,7 @@ while True:
       wattHourDiffMax = wattHourDiff
 
     # Print status hourly (if the Wh reading from the meter has changed)
-    print("Ny time")
+    print("NY TIME")
     print("År: ", yearOld, "Måned: ", monthOld, " Dag: ", dayOld)
     print("Timen mellom kl: ", hourOld, " og ", hourNew)
     print("Forbruk denne timen: ", wattHourDiff, "Wh")
@@ -206,8 +206,8 @@ while True:
 
       # Print status daily
       print("NY DAG")
-      print("3 største døgnmakser denne måneden (Wh) År ", yearOld, " Måned ", monthOld, " ", maxWattHour1, "  ", maxWattHour2, "  ", maxWattHour3)
-      print("Snitt av de 3 døgnmaksene: ", wattHourAverage, "Wh")
+      print("3 høyeste døgnmakser hittil denne mnd (Wh): År", yearOld, "Måned", monthOld, " ", maxWattHour1, maxWattHour2, maxWattHour3)
+      print("Snitt av de 3 døgnmaksene (Wh): ", wattHourAverage, "\n")
       wattHourDiffMax = 0
       print()
 
@@ -215,7 +215,9 @@ while True:
     # Print status monthly
     if monthNew != monthOld:
       print("NY MÅNED")
-      print("Tre høyeste månedsmakser i måneden (Wh) År ", yearOld, " Måned ", monthOld, " ", maxWattHour1, "  ", maxWattHour2, "  ", maxWattHour3, "\n")
+      print("3 høyeste døgnmakser denne mnd (Wh): År", yearOld, "Måned", monthOld, " ", maxWattHour1, maxWattHour2, maxWattHour3)
+      print("Snitt av de 3 døgnmaksene (Wh): ", wattHourAverage, "\n")
+
       # Reset the 3 largest max hour energy values on 3 different days within one month
       maxWattHour1 = 0
       maxWattHour2 = 0

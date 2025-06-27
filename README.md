@@ -10,7 +10,7 @@ This project for the Raspberry Pi has the following functions:
 * Present live data from the meter on a traditional webpage, based on Apache2 webserver.
 * Control two output relays.
 * View and download el-spotprices for Norway/Bergen area in EUR and NOK currency.
-* Send email to a specified address when average of three Wh values within one month exceeds a limit set by the user.
+* Send email to a specified address when average of three Wh values within one hour exceeds a limit set by the user.
 * Analyze log files on a Windows laptop.
 
 Hardware
@@ -76,8 +76,8 @@ mkdir /home/pi/Python_AMS - pi - pi - Anyone - Only owner - Anyone<br>
 mkdir /var/meter_log - root - root - Anyone - Anyone - Anyone<br>
 mkdir /var/www/html/data - pi - pi - Anyone - Only owner - Anyone<br>
 mkdir /var/www/html/img - pi - pi - Anyone - Only owner - Anyone<br>
-mkdir /media/pi/xxxxxxxxx/meter - pi - pi - Anyone - Only owner - Anyone (for usb stick)<br>
-mkdir /media/pi/ABCDEFGHI/prices - pi - pi - Anyone - Only owner - Anyone<br>
+mkdir /media/pi/name-of-usb-stick/meter - pi - pi - Anyone - Only owner - Anyone (for usb stick)<br>
+mkdir /media/pi/name-of-usb-stick/prices - pi - pi - Anyone - Only owner - Anyone (for usb stick)<br>
 
 Permissions and ownership shown above is like I have it on my RPi. Data security has not been considered so far.
 
@@ -105,7 +105,6 @@ For presentation of log data on laptop, please see the Readme file in the python
 To connect to the website from the outside world, you should open port 80 in your firewall. Beware the risk of getting the RPi hacked by outside users. You should therefore password protect the website. Information about how to do this is found on the internet.<br>
 
 LIST OF FILES<br>
-/home/pi/Cpp_AMS/readAMS66.cpp                  C++ source code<br>
 /home/pi/Cpp_AMS/readAMS77.cpp                  C++ source code<br>
 /home/pi/Cpp_AMS/copyFiles_meter                bash script<br>
 /home/pi/Cpp_AMS/a.out                          executable, reads meter<br>
