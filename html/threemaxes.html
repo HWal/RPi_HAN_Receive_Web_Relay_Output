@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang=en-EN>
+
+<head>
+<meta name="viewport" content ="width=device-width, initial-scale=1.0, maximum-scale=4.0, minimum-scale=.5, user-scalable=1">
+<meta http-equiv="refresh" content="3600">
+<title>Web page</title>
+<style>
+body {
+  background-color: #fffff;
+  font-family: Arial, Helvetica, Sans-Serif;
+  Color: #000088;
+}
+</style>
+</head>
+
+<body>
+<center><H3>Watt hours from each hour of</center></H3></center>
+<center><H3>the day is recorded, and the highest</center></H3></center>
+<center><H3>Wh value is the Day max.</center></H3></center>
+<center><H3>The months' 3 highest Day Wh maxes,</H3></center>
+<center><H3>and their average, is shown below.</H3></center>
+
+<table align="center" border="1" width="350" cellpadding="2">
+<tr><td align="center"><b>Date</b></td><td align="center"><b>Hour</b></td><td align="center"><b>Wh max</b></td></tr>
+<tr><td align="center"><div id = "Tim11">xxxxxxxxxx</div></td><td align="center"><div id = "Tim12">xxxxx</div></td><td align="center"><div id = "Max1">xxxxx</div></td></tr>
+<tr><td align="center"><div id = "Tim21">xxxxxxxxxx</div></td></td><td align="center"><div id = "Tim22">xxxxx</div></td></td><td align="center"><div id = "Max2">xxxxx</div></td></tr>
+<tr><td align="center"><div id = "Tim31">xxxxxxxxxx</div></td></td><td align="center"><div id = "Tim32">xxxxx</div></td></td><td align="center"><div id = "Max3">xxxxx</div></td></tr>
+</table><br>
+
+<table style="font-size: 20px;" align="center" border="0" width="150" cellpadding="0">
+<tr><td align="center"><b>Average:</b></td><td align="center"><b><div id = "average">xxxxx</div></b></td><td align="left"><b>Wh</b></td></tr>
+</table><br>
+
+<b><center><a href="index.html">Back</a></center></b>
+
+<script type = "text/javascript">
+
+// var now = new Date();
+// var datetime = now.toLocaleString();
+// document.getElementById("datetime").innerHTML = datetime;
+
+if(typeof(EventSource) !== "undefined") {
+  var eSource3 = new EventSource("threemaxes.php");
+  eSource3.onmessage = function(event) {
+    var maxesArray = JSON.parse(event.data);
+
+    var tim11 = maxesArray[0] + "." + maxesArray[1] + "." + maxesArray[2];
+    document.getElementById("Tim11").innerHTML = tim11;
+    var tim12 = maxesArray[3] + "-" + maxesArray[4];
+    document.getElementById("Tim12").innerHTML = tim12;
+    var max1 = maxesArray[5];
+    document.getElementById("Max1").innerHTML = max1;
+
+    var tim21 = maxesArray[6] + "." + maxesArray[7] + "." + maxesArray[8];
+    document.getElementById("Tim21").innerHTML = tim21;
+    var tim22 = maxesArray[9] + "-" + maxesArray[10];
+    document.getElementById("Tim22").innerHTML = tim22;
+    var max2 = maxesArray[11];
+    document.getElementById("Max2").innerHTML = max2;
+
+    var tim31 = maxesArray[12] + "." + maxesArray[13] + "." + maxesArray[14];
+    document.getElementById("Tim31").innerHTML = tim31;
+    var tim32 = maxesArray[15] + "-" + maxesArray[16];
+    document.getElementById("Tim32").innerHTML = tim32;
+    var max3 = maxesArray[17];
+    document.getElementById("Max3").innerHTML = max3;
+
+    let maxSum = Number(maxesArray[5]) + Number(maxesArray[11]) + Number(maxesArray[17]);
+    let avg = Math.floor(maxSum / 3);
+    let avgStr = avg.toString();
+    document.getElementById("average").innerHTML = avgStr;
+  }
+} else {
+  document.getElementById("prDate").innerHTML = "No browser support."
+}
+</script>
+
+</body>
+</html>

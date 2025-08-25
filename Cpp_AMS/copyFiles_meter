@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# This file should be run as a Cron job 10
+# minutes after midnight.
+
+# Copy files in /var/meter_log/ to USB stick
+cp /var/meter_log/* /media/pi/D8AF-261F/meter/
+
+# Remove files older than 2 days in /var/meter_log/
+find /var/meter_log/* -mtime +2 -exec rm {} \;
