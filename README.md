@@ -9,8 +9,8 @@ This project for the Raspberry Pi has the following functions:
 * Read and decode data from the HAN-port on Kaifa (MA304H3E 3-phase) smart electricity meter. It also reads data from Kaifa 1-phase meter, but this has not been tested.
 * Present live data from the meter on a traditional webpage, based on Apache2 webserver.
 * Control two output relays.
-* View and download el-spotprices for Norway/Bergen area in EUR and NOK currency.
-* Send email to a specified address when average of three Wh values within one hour exceeds a limit set by the user.
+* View and download el-spotprices for the user's local area, in EUR and the local currency. Note, the program spotprices.py needs to be edited accordingly. 
+* Send email to a specified address when Watt hours used during one hour exceeds a limit set by the user.
 * Analyze log files on a Windows laptop.
 
 Hardware
