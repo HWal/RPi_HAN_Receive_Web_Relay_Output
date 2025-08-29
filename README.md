@@ -91,7 +91,6 @@ Edit a cronjob as your pi user, with crontab -e, with the following content:
 55 23 * * * /usr/bin/python3 /home/pi/Python_AMS/copyprices_2.py<br>
 
 Connect the equipment as shown in schematic.jpg
------------------------------------------------
 
 Goto folder Cpp_AMS and compile the source code with: g++ -W readAMSxx.cpp. Then start reading messages by typing: ./a.out
 
