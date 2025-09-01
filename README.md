@@ -7,7 +7,7 @@ Brief description
 -----------------
 This project for the Raspberry Pi has the following functions:
 * Read and decode data from the HAN-port on Kaifa (MA304H3E 3-phase) smart electricity meter. It also reads data from Kaifa 1-phase meter, but this has not been tested.
-* Present live data from the meter on a traditional webpage, based on Apache2 webserver.
+* Present live data from the meter on a simple webpage, based on Apache2 webserver.
 * Control two output relays.
 * Download and view el-spotprices for the user's local area. Note, the program spotprices.py needs to be edited accordingly. 
 * Send email to a specified address when Watt hours used during one hour exceeds a limit set by the user.
@@ -19,6 +19,7 @@ Hardware
 * 5V power supply and USB cable
 * TSS721 Module Board M-BUS To TTL converter (AliExpress)
 * Two 3.3V relay boards that will drain less than 12mA from RPi gpio output
+* One usb stick, preferably 16GB, for permanent storage
 * Some connecting wire
 * A laptop, in my project one that is running Windows 10
 
@@ -92,7 +93,7 @@ Edit a cronjob as your pi user, with crontab -e, with the following content:
 
 Connect the equipment as shown in schematic.jpg
 
-Goto folder Cpp_AMS and compile the source code with: g++ -W readAMSxx.cpp. Then start reading messages by typing: ./a.out
+Goto folder Cpp_AMS and compile the source code with: g++ -W readAMS77.cpp. Then start reading messages by typing: ./a.out
 
 NOTE: After upgrading from RPi Operating system stretch to buster I experienced problems while reading the meter. readAMS66.cpp has now been adapted to the newer buster release, and latest version is now readAMS77.cpp. In case of problems it is suggested that you try both program versions to determine what works best for you.
 
@@ -100,16 +101,14 @@ Goto folder Python_AMS and start the notification app with: python3 maxpowermoni
 
 When you see the two programs working in their respective terminal windows, you may open the website. From the laptop, when connected to the same local network, open the browser and enter the IP address of the Raspberry pi. The website is very simple, and should be self explanatory. Test that values are being updated in the "View current data from the meter" page. <br>
 
-Note: I have a water meter as well, which has an entry in the webpage. Details about this is currently not covered in this project.
-
-For presentation of log data on laptop, please see the Readme file in the python folder.
+For presentation of log data on a laptop, please see the Readme file in the python folder.
 
 To connect to the website from the outside world, you should open port 80 in your firewall. Beware the risk of getting the RPi hacked by outside users. You should therefore password protect the website. Information about how to do this is found on the internet.<br>
 
 LIST OF FILES<br>
-/home/pi/Cpp_AMS/readAMS77.cpp                  C++ source code<br>
-/home/pi/Cpp_AMS/copyFiles_meter                bash script<br>
-/home/pi/Cpp_AMS/a.out                          executable, reads meter<br>
+/home/pi/Cpp_AMS/readAMS77.cpp                   C++ source code<br>
+/home/pi/Cpp_AMS/copyFiles_meter                 bash script<br>
+/home/pi/Cpp_AMS/a.out                           executable, reads meter<br>
 /home/pi/Python_AMS/copyprices_1.py<br>
 /home/pi/Python_AMS/copyprices_1.py<br>
 /home/pi/Python_AMS/spotprices.py<br>
