@@ -6,7 +6,7 @@ HAN reader with relay control for Raspberry Pi 3B+
 Brief description
 -----------------
 This project for the Raspberry Pi has the following functions:
-* Read and decode data from the HAN-port on Kaifa (MA304H3E 3-phase) smart electricity meter. It also reads data from Kaifa 1-phase meter, but this has not been tested.
+* Read and decode data from the HAN-port on Kaifa (MA304H3E 3-phase) smart electricity meter. It also works with Kaifa 1-phase meter, but this has not been tested.
 * Present live data from the meter on a simple webpage, based on Apache2 webserver.
 * Control two output relays.
 * Download and view el-spotprices for the user's local area. Note, the program spotprices.py needs to be edited accordingly. 
