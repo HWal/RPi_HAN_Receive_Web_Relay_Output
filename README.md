@@ -38,8 +38,8 @@ You should now be able to control RPi from the laptop on your local network, bot
 
 From now on a separate screen should rarely be necessary. The RPi will be working in "Headless mode".
 
-Continue to prepare RPi in Headless mode
-----------------------------------------
+Continue preparing RPi in Headless mode
+---------------------------------------
 Preferably, give RPi a static IP address, see: https://raspberrypi.stackexchange.com/questions/37920/how-do-i-set-up-networking-wifi-static-ip-address/74428#74428
 
 Install Apache2 webserver: sudo apt-get update , sudo apt-get upgrade , sudo apt-get install apache2 -y<br>
