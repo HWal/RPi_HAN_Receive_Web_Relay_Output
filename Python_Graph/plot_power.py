@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 import matplotlib.dates as md
 
-def main(fileName):
+def main(fileName, hour1, hour2):
   with open (fileName, "r") as fp:
     rwList = fp.readlines()
     
@@ -23,8 +23,12 @@ def main(fileName):
   for element in spltList:
     tmString = element[0] + " " + element[1]
     tmObject = datetime.strptime(tmString, '%Y-%m-%d %H:%M:%S')
-    tmList.append(tmObject)
-    pwrList.append(int(element[5]))
+
+    # Select hours to display
+    a = element[1][0:2]
+    if int(a) >= int(hour1) and int(a) < int(hour2):
+        tmList.append(tmObject)
+        pwrList.append(int(element[5]))
 
   fig = plt.figure()
   ax = fig.add_subplot(1,1,1)

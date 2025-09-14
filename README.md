@@ -11,7 +11,7 @@ This project for the Raspberry Pi has the following functions:
 * Control two output relays.
 * Download and view el-spotprices for the user's local area. Note, the program spotprices.py needs to be edited accordingly. 
 * Send email to a specified address when Watt hours used during one hour exceeds a limit set by the user.
-* Analyze log files on a Windows laptop.
+* Analyze log files with VNC viewer on a Windows laptop.
 
 Hardware
 --------
@@ -21,7 +21,7 @@ Hardware
 * Two 3.3V relay boards that will drain less than 12mA from RPi gpio output
 * One usb stick, preferably 16GB, for permanent storage
 * Some connecting wire
-* A laptop, in my project one that is running Windows 10
+* A laptop, in my project one that is running Windows 11
 
 Preparation of RPi while powered up and connectected directly to a screen (TV)
 ------------------------------------------------------------------------------
@@ -74,6 +74,7 @@ Now ttyAMA0 / PL011 / UART0 is connected to gpio 14 / 15 which are the physical 
 Make some directories on the Raspberry Pi (Command - Owner - Group - View - Change - Access):<br>
 mkdir /home/pi/Cpp_AMS - pi - pi - Anyone - Only owner - Anyone<br>
 mkdir /home/pi/Python_AMS - pi - pi - Anyone - Only owner - Anyone<br>
+mkdir /home/pi/Python_Graph - pi - pi - Anyone - Only owner - Anyone<br>
 mkdir /var/meter_log - root - root - Anyone - Anyone - Anyone<br>
 mkdir /var/www/html/data - pi - pi - Anyone - Only owner - Anyone<br>
 mkdir /var/www/html/img - pi - pi - Anyone - Only owner - Anyone<br>
@@ -106,13 +107,18 @@ For presentation of log data on a laptop, please see the Readme file in the pyth
 To connect to the website from the outside world, you should open port 80 in your firewall. Beware the risk of getting the RPi hacked by outside users. You should therefore password protect the website. Information about how to do this is found on the internet.<br>
 
 LIST OF FILES<br>
-/home/pi/Cpp_AMS/readAMS77.cpp                   C++ source code<br>
-/home/pi/Cpp_AMS/copyFiles_meter                 bash script<br>
-/home/pi/Cpp_AMS/a.out                           executable, reads meter<br>
+/home/pi/Cpp_AMS/readAMS77.cpp
+/home/pi/Cpp_AMS/copyFiles_meter
+/home/pi/Cpp_AMS/a.out
 /home/pi/Python_AMS/copyprices_1.py<br>
 /home/pi/Python_AMS/copyprices_1.py<br>
 /home/pi/Python_AMS/spotprices.py<br>
 /home/pi/Python_AMS/maxpowermonitor.py<br>
+/home/pi/Python_Graph/graphics.py<br>
+/home/pi/Python_Graph/main_prog.py<br>
+/home/pi/Python_Graph/plot_current.py<br>
+/home/pi/Python_Graph/plot_power.py<br>
+/home/pi/Python_Graph/plot_voltage.py<br>
 /var/www/html/currtime.php<br>
 /var/www/html/gpio.php<br>
 /var/www/html/notificationlimit.php<br>
@@ -148,7 +154,7 @@ LIST OF FILES<br>
 /var/www/html/data/currentlog.data<br>
 /var/www/html/data/currentactivepower.data<br>
 /var/www/html/data/currenttime.data<br>
-/var/meter_log/20xx-yy-zz.txt                    Prepare meter log files for permanent storage on usb stick<br>
+/var/meter_log/20xx-yy-zz.txt<br>
 /media/pi/D8AF-261F/meter/20xx-yy-zz.txt<br>
 /media/pi/D8AF-261F/prices/20xxyyzz_EUR.data<br>
 /media/pi/D8AF-261F/prices/20xxyyzz_NOK.data<br>
