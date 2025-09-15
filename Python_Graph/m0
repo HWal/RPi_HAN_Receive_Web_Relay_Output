@@ -1,0 +1,4 @@
+ #!/bin/bash
+
+clear
+/home/pi/Cpp_AMS/copyFiles_meter
