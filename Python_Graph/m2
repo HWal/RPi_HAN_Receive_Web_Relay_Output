@@ -1,5 +1,4 @@
  #!/bin/bash
 
 clear
-echo "Program not developed yet"
-sleep 5
+python3 main_plot_spot.py

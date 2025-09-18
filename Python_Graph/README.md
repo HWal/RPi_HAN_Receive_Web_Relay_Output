@@ -3,6 +3,8 @@
 About the programs
 ==================
 * Present log data from AMS meter graphically with the Python matplotlib module.
+* Present log data from Entso-e showing El-spot prices 
+.
 
 Get started (Windows 11)
 ------------------------
@@ -14,7 +16,7 @@ Install VNC viewer on the laptop.
 Plot recorded data on the laptop screen:
 ----------------------------------------
 * Open VNC viewer on the laptop.
-* Go to folder Python_Graph and start main_prog.py.
-* On the entry window, check that the path shown is the folder where logs are stored.
+* Go to folder Python_Graph and start one of the two main_*.py programs.
+* In the entry window, check that the path shown is the folder where logs are stored.
 * Enter your choices, and click Ok.
-* The graph(s) should now show in the VNC viewer window.
+* The graph(s) should show in the VNC viewer window.

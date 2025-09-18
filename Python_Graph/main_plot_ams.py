@@ -10,7 +10,7 @@ import plot_voltage
 import plot_current
 import sys
 
-def input_values(folder, date, power, volt1, current, hour1, hour2, win_in):
+def input_values(folder, date, power, volt, current, hour1, hour2, win_in):
     # Create entry fields and show current values
     folder_entry = Entry(Point(505, 85), 50)
     folder_entry.setText(folder)
@@ -22,7 +22,7 @@ def input_values(folder, date, power, volt1, current, hour1, hour2, win_in):
     power_entry.setText(power)
     power_entry.draw(win_in)
     volt_entry = Entry(Point(720, 180), 2)
-    volt_entry.setText(volt1)
+    volt_entry.setText(volt)
     volt_entry.draw(win_in)
     current_entry = Entry(Point(720, 210), 2)
     current_entry.setText(current)
@@ -68,10 +68,10 @@ def main():
     volt_text1.draw(win_in)
     current_text1 = Text(Point(586, 210), "Current graph (Y/N):")
     current_text1.draw(win_in)
-    power_text2 = Text(Point(583, 260), "Start hour (00 - 23):")
-    power_text2.draw(win_in)
-    volt_text2 = Text(Point(581, 290), "End hour (01 - 24):")
-    volt_text2.draw(win_in)
+    hour_text1 = Text(Point(583, 260), "Start hour (00 - 23):")
+    hour_text1.draw(win_in)
+    hour_text2 = Text(Point(581, 290), "End hour (01 - 24):")
+    hour_text2.draw(win_in)
     info_text2 = Text(Point(124, 400), "Enter values and click:")
     info_text2.draw(win_in)
     ok_text = Text(Point(270, 400), "Ok")
