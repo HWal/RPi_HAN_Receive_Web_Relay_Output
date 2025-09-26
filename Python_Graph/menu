@@ -3,7 +3,7 @@
 clear
 echo "GRAPHING PROGRAMS FOR AMS UTILITY"
 echo -e "\n"
-echo "Choose 0 + Enter to update todays log file"
+echo "Choose 0 + Enter to update todays meter log file"
 echo -e "\n"
 echo "Choose 1 + Enter for AMS graphs"
 echo -e "\n"
