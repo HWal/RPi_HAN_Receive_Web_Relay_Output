@@ -44,14 +44,14 @@ def main(fileName):
   spltList.pop(0)
 
   # Format labels of the x axis
-  for x in range(24):
-    tmList.append(x)
-  for y in range(24):
-    tmLabels.append(f'{y:02d}' + '-' + f'{(y + 1):02d}')
+  for p in range(24):
+    tmList.append(p)
+  for q in range(24):
+    tmLabels.append(f'{q:02d}' + '-' + f'{(q + 1):02d}')
 
   # Generate the 24 spotprices
-  for x in range(24):
-    priceList.append(float(spltList[x]))
+  for r in range(24):
+    priceList.append(float(spltList[r]))
 
   fig = plt.figure()
   ax = fig.add_subplot(1,1,1)
@@ -61,7 +61,10 @@ def main(fileName):
   plt.xticks(rotation=90)
   plt.xticks(tmList, tmLabels)
 
-  ax.plot(tmList, priceList, "b", label="Price per kWh (NOK)")
+  if currency == "NOK":
+    ax.plot(tmList, priceList, "b", label="Price per kWh (NOK)")
+  if currency == "EUR":
+    ax.plot(tmList, priceList, "g", label="Price per MWh (EUR)")
   # ax.xaxis.set_major_formatter(md.DateFormatter("%Y-%m-%d"))
   # ax.xaxis.set_major_formatter(md.DateFormatter("%H:%M:%S"))
   ax.grid(which='both')
