@@ -7,8 +7,8 @@ header("Cache-Control: no-cache");
 header("Content-Type: text/event-stream");
 
 while (true) {
-  $myFile = fopen("data/prices_NOK_tomorrow.data", "r") or die("Unable to open file!");
-  $prices = fread($myFile,filesize("data/prices_NOK_tomorrow.data"));
+  $myFile = fopen("data/prices_PT15M_NOK_96.data", "r") or die("Unable to open file!");
+  $prices = fread($myFile,filesize("data/prices_PT15M_NOK_96.data"));
   fclose($myFile);
 
   $priceArray = explode(',', $prices);

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <currency>
 <headline>Valutaliste</headline>
-<updated>18.08.2025 09:00</updated>
-<timestamp>2025-08-18-09.12.52.097454</timestamp>
+<updated>24.10.2025 09:00</updated>
+<timestamp>2025-10-24-09.12.25.532635</timestamp>
 <rate>
 <country>USA</country>
 <isocode>US</isocode>
@@ -10,10 +10,10 @@
 <unit>1</unit>
 <description>Dollar</description>
 <transfer>
-<buy>10.1611</buy>
-<sell>10.2551</sell>
-<change>-0.0002</change>
-<settlementprice>10.2081</settlementprice>
+<buy>9.9431</buy>
+<sell>10.0371</sell>
+<change>-0.0213</change>
+<settlementprice>9.9901</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -23,10 +23,10 @@
 <unit>1</unit>
 <description>Euro</description>
 <transfer>
-<buy>11.8962</buy>
-<sell>11.9902</sell>
-<change>0.0206</change>
-<settlementprice>11.9432</settlementprice>
+<buy>11.5563</buy>
+<sell>11.6503</sell>
+<change>-0.0069</change>
+<settlementprice>11.6033</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -36,10 +36,10 @@
 <unit>100</unit>
 <description>Svenske Kroner</description>
 <transfer>
-<buy>106.04</buy>
-<sell>107.54</sell>
-<change>0.01</change>
-<settlementprice>106.79</settlementprice>
+<buy>105.78</buy>
+<sell>107.28</sell>
+<change>0.20</change>
+<settlementprice>106.53</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -49,10 +49,10 @@
 <unit>100</unit>
 <description>Danske Kroner</description>
 <transfer>
-<buy>159.12</buy>
-<sell>160.82</sell>
-<change>0.28</change>
-<settlementprice>159.97</settlementprice>
+<buy>154.49</buy>
+<sell>156.19</sell>
+<change>-0.05</change>
+<settlementprice>155.34</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -62,10 +62,10 @@
 <unit>1</unit>
 <description>Britiske Pund</description>
 <transfer>
-<buy>13.7715</buy>
-<sell>13.8855</sell>
-<change>-0.0059</change>
-<settlementprice>13.8285</settlementprice>
+<buy>13.2625</buy>
+<sell>13.3765</sell>
+<change>-0.0451</change>
+<settlementprice>13.3195</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -75,10 +75,10 @@
 <unit>100</unit>
 <description>Sveitsiske Franc</description>
 <transfer>
-<buy>1261.59</buy>
-<sell>1271.79</sell>
-<change>0.20</change>
-<settlementprice>1266.69</settlementprice>
+<buy>1250.91</buy>
+<sell>1261.11</sell>
+<change>0.36</change>
+<settlementprice>1256.01</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -88,10 +88,10 @@
 <unit>100</unit>
 <description>Yen</description>
 <transfer>
-<buy>6.8923</buy>
-<sell>6.9543</sell>
-<change>-0.0163</change>
-<settlementprice>6.9233</settlementprice>
+<buy>6.5019</buy>
+<sell>6.5639</sell>
+<change>-0.0257</change>
+<settlementprice>6.5329</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -101,10 +101,10 @@
 <unit>1</unit>
 <description>UAE Dirham</description>
 <transfer>
-<buy>2.7587</buy>
-<sell>2.8027</sell>
-<change>-0.0001</change>
-<settlementprice>2.7807</settlementprice>
+<buy>2.6990</buy>
+<sell>2.7430</sell>
+<change>-0.0059</change>
+<settlementprice>2.7210</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -114,10 +114,10 @@
 <unit>1</unit>
 <description>Dollar</description>
 <transfer>
-<buy>6.6151</buy>
-<sell>6.6791</sell>
-<change>0.0010</change>
-<settlementprice>6.6471</settlementprice>
+<buy>6.4658</buy>
+<sell>6.5298</sell>
+<change>-0.0128</change>
+<settlementprice>6.4978</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -127,10 +127,10 @@
 <unit>1</unit>
 <description>Dinar</description>
 <transfer>
-<buy>26.8932</buy>
-<sell>27.3332</sell>
-<change>0.0030</change>
-<settlementprice>27.1132</settlementprice>
+<buy>26.3142</buy>
+<sell>26.7542</sell>
+<change>-0.0566</change>
+<settlementprice>26.5342</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -140,10 +140,10 @@
 <unit>1</unit>
 <description>Pula</description>
 <transfer>
-<buy>0.7062</buy>
-<sell>0.7362</sell>
-<change>-0.0480</change>
-<settlementprice>0.7212</settlementprice>
+<buy>0.6843</buy>
+<sell>0.7143</sell>
+<change>-0.0025</change>
+<settlementprice>0.6993</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -153,10 +153,10 @@
 <unit>100</unit>
 <description>Lev</description>
 <transfer>
-<buy>603.43</buy>
-<sell>619.43</sell>
-<change>1.25</change>
-<settlementprice>611.43</settlementprice>
+<buy>586.12</buy>
+<sell>602.12</sell>
+<change>-0.19</change>
+<settlementprice>594.12</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -166,10 +166,10 @@
 <unit>1</unit>
 <description>Kanadiske Dollar</description>
 <transfer>
-<buy>7.3609</buy>
-<sell>7.4289</sell>
-<change>-0.0078</change>
-<settlementprice>7.3949</settlementprice>
+<buy>7.0971</buy>
+<sell>7.1651</sell>
+<change>-0.0270</change>
+<settlementprice>7.1311</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -179,10 +179,10 @@
 <unit>100</unit>
 <description>Filippinske Peso</description>
 <transfer>
-<buy>17.64</buy>
-<sell>18.18</sell>
-<change>0.00</change>
-<settlementprice>17.91</settlementprice>
+<buy>16.80</buy>
+<sell>17.34</sell>
+<change>-0.04</change>
+<settlementprice>17.07</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -192,10 +192,10 @@
 <unit>1</unit>
 <description>Hong Kong Dollar</description>
 <transfer>
-<buy>1.2994</buy>
-<sell>1.3124</sell>
-<change>-0.0001</change>
-<settlementprice>1.3059</settlementprice>
+<buy>1.2790</buy>
+<sell>1.2920</sell>
+<change>-0.0014</change>
+<settlementprice>1.2855</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -205,10 +205,10 @@
 <unit>1</unit>
 <description>Indiske Rupee</description>
 <transfer>
-<buy>0.1148</buy>
-<sell>0.1188</sell>
+<buy>0.1120</buy>
+<sell>0.1160</sell>
 <change>0.0001</change>
-<settlementprice>0.1168</settlementprice>
+<settlementprice>0.1140</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -218,10 +218,10 @@
 <unit>100</unit>
 <description>Rupiah</description>
 <transfer>
-<buy>0.0620</buy>
-<sell>0.0644</sell>
+<buy>0.0590</buy>
+<sell>0.0614</sell>
 <change>0.0000</change>
-<settlementprice>0.0632</settlementprice>
+<settlementprice>0.0602</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -231,10 +231,10 @@
 <unit>100</unit>
 <description>Islandske Kroner</description>
 <transfer>
-<buy>8.2423</buy>
-<sell>8.5023</sell>
-<change>0.0169</change>
-<settlementprice>8.3723</settlementprice>
+<buy>8.0289</buy>
+<sell>8.2889</sell>
+<change>-0.0144</change>
+<settlementprice>8.1589</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -244,10 +244,10 @@
 <unit>1</unit>
 <description>Israelske Shekel</description>
 <transfer>
-<buy>2.9768</buy>
-<sell>3.0468</sell>
-<change>-0.0156</change>
-<settlementprice>3.0118</settlementprice>
+<buy>3.0076</buy>
+<sell>3.0776</sell>
+<change>0.0061</change>
+<settlementprice>3.0426</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -257,10 +257,10 @@
 <unit>100</unit>
 <description>Kenya Shilling</description>
 <transfer>
-<buy>7.8070</buy>
-<sell>8.1070</sell>
-<change>-0.0002</change>
-<settlementprice>7.9570</settlementprice>
+<buy>7.6400</buy>
+<sell>7.9400</sell>
+<change>-0.0137</change>
+<settlementprice>7.7900</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -270,10 +270,10 @@
 <unit>100</unit>
 <description>Yuan Renminbi Offsho</description>
 <transfer>
-<buy>140.20</buy>
-<sell>144.00</sell>
-<change>0.10</change>
-<settlementprice>142.10</settlementprice>
+<buy>138.31</buy>
+<sell>142.11</sell>
+<change>-0.28</change>
+<settlementprice>140.21</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -283,10 +283,10 @@
 <unit>100</unit>
 <description>Yuan Renminbi</description>
 <transfer>
-<buy>140.37</buy>
-<sell>144.17</sell>
-<change>0.04</change>
-<settlementprice>142.27</settlementprice>
+<buy>138.49</buy>
+<sell>142.29</sell>
+<change>-0.27</change>
+<settlementprice>140.39</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -296,10 +296,10 @@
 <unit>1</unit>
 <description>Kuwait Dinar</description>
 <transfer>
-<buy>33.2478</buy>
-<sell>33.8078</sell>
-<change>0.0068</change>
-<settlementprice>33.5278</settlementprice>
+<buy>32.4051</buy>
+<sell>32.9651</sell>
+<change>-0.0644</change>
+<settlementprice>32.6851</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -309,10 +309,10 @@
 <unit>100</unit>
 <description>Marokkanske Dirham</description>
 <transfer>
-<buy>112.06</buy>
-<sell>115.26</sell>
-<change>-0.15</change>
-<settlementprice>113.66</settlementprice>
+<buy>106.94</buy>
+<sell>110.14</sell>
+<change>0.14</change>
+<settlementprice>108.54</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -322,10 +322,10 @@
 <unit>100</unit>
 <description>Meksikanske Peso</description>
 <transfer>
-<buy>53.71</buy>
-<sell>55.11</sell>
-<change>-0.01</change>
-<settlementprice>54.41</settlementprice>
+<buy>53.68</buy>
+<sell>55.08</sell>
+<change>0.03</change>
+<settlementprice>54.38</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -335,10 +335,10 @@
 <unit>1</unit>
 <description>New Zealand Dollar</description>
 <transfer>
-<buy>6.0304</buy>
-<sell>6.0904</sell>
-<change>0.0138</change>
-<settlementprice>6.0604</settlementprice>
+<buy>5.7214</buy>
+<sell>5.7814</sell>
+<change>0.0076</change>
+<settlementprice>5.7514</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -348,10 +348,10 @@
 <unit>1</unit>
 <description>Rial</description>
 <transfer>
-<buy>26.33</buy>
-<sell>26.77</sell>
-<change>0.00</change>
-<settlementprice>26.55</settlementprice>
+<buy>25.76</buy>
+<sell>26.20</sell>
+<change>-0.06</change>
+<settlementprice>25.98</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -361,10 +361,10 @@
 <unit>1</unit>
 <description>Pakistanske Rupi</description>
 <transfer>
-<buy>0.0351</buy>
-<sell>0.0373</sell>
-<change>0.0002</change>
-<settlementprice>0.0362</settlementprice>
+<buy>0.0345</buy>
+<sell>0.0367</sell>
+<change>-0.0001</change>
+<settlementprice>0.0356</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -374,10 +374,10 @@
 <unit>100</unit>
 <description>Zloty</description>
 <transfer>
-<buy>278.39</buy>
-<sell>282.79</sell>
-<change>0.71</change>
-<settlementprice>280.59</settlementprice>
+<buy>272.46</buy>
+<sell>276.86</sell>
+<change>0.13</change>
+<settlementprice>274.66</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -387,10 +387,10 @@
 <unit>1</unit>
 <description>Qatari Riyal</description>
 <transfer>
-<buy>2.7814</buy>
-<sell>2.8274</sell>
-<change>0.0000</change>
-<settlementprice>2.8044</settlementprice>
+<buy>2.7212</buy>
+<sell>2.7672</sell>
+<change>-0.0058</change>
+<settlementprice>2.7442</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -400,10 +400,10 @@
 <unit>100</unit>
 <description>Leu</description>
 <transfer>
-<buy>233.74</buy>
-<sell>239.74</sell>
-<change>0.54</change>
-<settlementprice>236.74</settlementprice>
+<buy>225.63</buy>
+<sell>231.63</sell>
+<change>-0.10</change>
+<settlementprice>228.63</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -413,10 +413,10 @@
 <unit>1</unit>
 <description>Saudiske Riyaler</description>
 <transfer>
-<buy>2.6981</buy>
-<sell>2.7441</sell>
-<change>0.0001</change>
-<settlementprice>2.7211</settlementprice>
+<buy>2.6412</buy>
+<sell>2.6872</sell>
+<change>-0.0056</change>
+<settlementprice>2.6642</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -426,10 +426,10 @@
 <unit>1</unit>
 <description>Singapore Dollar</description>
 <transfer>
-<buy>7.9265</buy>
-<sell>7.9945</sell>
-<change>0.0029</change>
-<settlementprice>7.9605</settlementprice>
+<buy>7.6523</buy>
+<sell>7.7203</sell>
+<change>-0.0215</change>
+<settlementprice>7.6863</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -439,10 +439,10 @@
 <unit>100</unit>
 <description>Sri Lanka Rupee</description>
 <transfer>
-<buy>3.32</buy>
-<sell>3.49</sell>
-<change>0.00</change>
-<settlementprice>3.40</settlementprice>
+<buy>3.21</buy>
+<sell>3.38</sell>
+<change>-0.01</change>
+<settlementprice>3.30</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -452,10 +452,10 @@
 <unit>1</unit>
 <description>Rand</description>
 <transfer>
-<buy>0.5725</buy>
-<sell>0.5875</sell>
-<change>-0.0018</change>
-<settlementprice>0.5800</settlementprice>
+<buy>0.5702</buy>
+<sell>0.5852</sell>
+<change>0.0016</change>
+<settlementprice>0.5777</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -465,10 +465,10 @@
 <unit>100</unit>
 <description>Won</description>
 <transfer>
-<buy>0.7233</buy>
-<sell>0.7533</sell>
-<change>0.0023</change>
-<settlementprice>0.7383</settlementprice>
+<buy>0.6815</buy>
+<sell>0.7115</sell>
+<change>0.0000</change>
+<settlementprice>0.6965</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -478,10 +478,10 @@
 <unit>100</unit>
 <description>Tanzania Shilling</description>
 <transfer>
-<buy>0.3911</buy>
-<sell>0.4071</sell>
-<change>0.0001</change>
-<settlementprice>0.3991</settlementprice>
+<buy>0.3997</buy>
+<sell>0.4157</sell>
+<change>-0.0012</change>
+<settlementprice>0.4077</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -491,10 +491,10 @@
 <unit>100</unit>
 <description>Baht</description>
 <transfer>
-<buy>31.12</buy>
-<sell>31.86</sell>
-<change>-0.02</change>
-<settlementprice>31.49</settlementprice>
+<buy>30.15</buy>
+<sell>30.89</sell>
+<change>-0.04</change>
+<settlementprice>30.52</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -504,10 +504,10 @@
 <unit>100</unit>
 <description>Koruna</description>
 <transfer>
-<buy>48.54</buy>
-<sell>49.14</sell>
-<change>0.14</change>
-<settlementprice>48.84</settlementprice>
+<buy>47.45</buy>
+<sell>48.05</sell>
+<change>0.05</change>
+<settlementprice>47.75</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -517,10 +517,10 @@
 <unit>1</unit>
 <description>Tunisisk Dinar</description>
 <transfer>
-<buy>3.5454</buy>
-<sell>3.6454</sell>
-<change>0.0178</change>
-<settlementprice>3.5954</settlementprice>
+<buy>3.3868</buy>
+<sell>3.4868</sell>
+<change>-0.0049</change>
+<settlementprice>3.4368</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -530,10 +530,10 @@
 <unit>100</unit>
 <description>Tyrkisk lira</description>
 <transfer>
-<buy>24.29</buy>
-<sell>25.69</sell>
-<change>-0.02</change>
-<settlementprice>24.99</settlementprice>
+<buy>23.06</buy>
+<sell>24.46</sell>
+<change>-0.10</change>
+<settlementprice>23.76</settlementprice>
 </transfer>
 </rate>
 <rate>
@@ -543,10 +543,10 @@
 <unit>100</unit>
 <description>Forint</description>
 <transfer>
-<buy>2.9970</buy>
-<sell>3.0470</sell>
-<change>0.0050</change>
-<settlementprice>3.0220</settlementprice>
+<buy>2.9520</buy>
+<sell>3.0020</sell>
+<change>-0.0020</change>
+<settlementprice>2.9770</settlementprice>
 </transfer>
 </rate>
 </currency>

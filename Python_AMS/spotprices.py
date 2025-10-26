@@ -1,16 +1,14 @@
 # TO BE EXECUTED AS CRON JOB EVERY DAY AT 15:00
-# This program can exit at several points without notice if necessary
-# data is not successfully obtained from the internet.
-#
+# This program may exit early if necessary data is not successfully
+# obtained from entso-e.
 # Download el-spotprices in EUR from entso-e and save as xml file
 # Download currency conversion data from DNB and save as xml file
 # Read the xml files into xml strings and parse
-# Build commaseparated string with day-ahead date and prices in EUR
-# Save the string to file /var/www/html/data/prices_EUR_tomorrow.data,
-# presented in the following webpage: spotprices_EUR_tomorrow.html.
 # Build commaseparated string with day-ahead date and prices in NOK
-# Save the string to file /var/www/html/data/prices_NOK_tomorrow.data,
-# presented in the following webpage: spotprices_NOK_tomorrow.html.
+# Save to files:
+# /var/www/html/data/prices_PT15M_NOK_96.data   96  15m values
+# /var/www/html/data/prices_PT15M_NOK_24.data   24  60m values
+# Show 24 values in the following webpage: spotprices_NOK_tomorrow.html.
 
 import xml.etree.ElementTree as ET # Process xml documents
 import re                          # Process regex
@@ -18,6 +16,8 @@ import datetime
 import requests                    # For downloading Url
 import time
 import sys
+
+
 
 
 
@@ -29,7 +29,9 @@ shortDateTomorrow = tomorrow.strftime("%Y") + tomorrow.strftime("%m") + tomorrow
 # Sections of search string with Domain code for Market Balance Area N05 (includes Bergen)
 a = 'https://web-api.tp.entsoe.eu/api?documentType=A44&processType=A01&in_Domain=10Y1001A1001A48H&out_Domain=10Y1001A1001A48H&periodStart='
 b = '0000&periodEnd='
-c = '2300&securityToken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+c = '2300&securityToken=5415fd5e-908a-43b7-a5ab-920ebf5735e3'
+
+
 
 
 
@@ -68,6 +70,8 @@ root1 = ET.fromstring(xmlstring1)
 # Replace the tagname price.amount with priceamount
 for element in root1.iter('price.amount'):
     element.tag = 'priceamount'
+
+
 
 
 
@@ -110,158 +114,99 @@ for elem in root2.iter():
 
 
 
-# Find resolution of XML data, initialize variables
+
+
+# Find the resolution of XML data
 for period in root1.findall('.//Period'):
     timeInterval = period.find('resolution').text
-    if timeInterval == 'PT15M':
-        divFactor = 4
-        firstPos = 1
-        lastPos = 93
-        # print(divFactor, firstPos, lastPos)
-    elif timeInterval == 'PT30M':
-        divFactor = 2
-        firstPos = 1
-        lastPos = 47
-        # print(divFactor, firstPos, lastPos)
-    elif timeInterval == 'PT60M':
-        divFactor = 1
-        firstPos = 1
-        lastPos = 24
-        # print(divFactor, firstPos, lastPos)
-    else:
-        sys.exit()
+
+# For the time being we only want to process PT15M xml files
+# This is the one we get from entso-e when using the url above
+if timeInterval != 'PT15M':
+    sys.exit()
 
 
 
-# Build a commaseparated text string with date and EUR prices
-saveFileString_EUR = shortDateTomorrow + ','
 
-oldPosition = 0
-newPosition = 0
-OldPrice = 0.0
-newPrice = 0.0
 
-# Indicator for checking if last point is present
-lastOk = False
+# Possible resolutions
+# timeInterval = 'PT15M'
+# firstPos = 1
+# lastPos = 96
+# timeInterval = 'PT30M':
+# firstPos = 1
+# lastPos = 48
+# timeInterval = 'PT60M':
+# firstPos = 1
+# lastPos = 24
 
-# Iterate through all Points
+
+
+
+
+# Read existing /var/www/html/data/prices_PT15M_NOK_96.data
+with open ("/var/www/html/data/prices_PT15M_NOK_96.data", "r") as fp1:
+    chString_NOK = fp1.readlines()
+    fp1.close()
+# Break it down into a list with 98 elements like below where:
+# element[0]=YYYYMMDD, element[1]-->[96]=prices, element[97]=eurInNok
+spltlist_NOK_96 = chString_NOK[0].split(",")
+
+# Iterate through all Points of the xml file and update the full 15m price list
+# Note: The new xml file may not be complete with all points and prices
+# It is assumed that only prices that have changed, are present in the xml file
 for point in root1.findall('.//Point'):
     position = point.find('position').text
     price = point.find('priceamount').text
-
-    # Check if the Point with position lastPos is present
-    if int(position) == lastPos:
-        lastOk = True
-
-    newPosition = int(position)
-    newPrice = float(price)
-
-    # Check if Point is missing, if so, how many
-    diff = newPosition - oldPosition - 1
-    if diff >= divFactor:
-        division = diff // divFactor
-        for i in range(division):
-            saveFileString_EUR += "unavailable"
-            saveFileString_EUR += ','
-            # Print to terminal
-            # print("Unavailable")
-
-    saveFileString_EUR += price
-    saveFileString_EUR += ','
-    # Print to terminal
-    # print(f"Position: {newPosition}, Price: {newPrice}")
-
-    oldPosition = newPosition
-    oldPrice = newPrice
-
-# If the last Point with position lastPos is missing
-if lastOk == False:
-    diff = lastPos - newPosition
-    if diff >= divFactor:
-        division = diff // divFactor
-    for i in range(division):
-        saveFileString_EUR += "unavailable"
-        saveFileString_EUR += ','
-        # Print to terminal
-        # print("Unavailable")
-
-# Print to terminal
-# print(f"Resolution: {timeInterval}")
-
-# Add the resolution
-saveFileString_EUR += timeInterval
-
-# Save the commaseparated string to file
-with open('/var/www/html/data/prices_EUR_tomorrow.data', 'w') as file:
-    file.write(saveFileString_EUR)
+    # Use the EUR price
+    # spltlist_NOK_96[int(position)] = price
+    # Or convert priceamount to NOK
+    spltlist_NOK_96[int(position)] = (str(float(price) * float(eurInNok) / 1000))[0:6]
 
 
-# Print empty line to terminal
-# print()
 
 
-# Build a commaseparated text string with date and NOK prices
-saveFileString_NOK = shortDateTomorrow + ','
 
-oldPosition = 0
-newPosition = 0
-OldPrice = 0.0
-newPrice = 0.0
+# Build a commaseparated text string with date, 96 NOK prices and exchange rate
+saveFileString_NOK_96 = shortDateTomorrow + ','
 
-# Indicator for checking if last point is present
-lastOk = False
-
-# Iterate through all Points
-for point in root1.findall('.//Point'):
-    position = point.find('position').text
-    price = point.find('priceamount').text
-
-    # Check if the Point with position lastPos is present
-    if int(position) == lastPos:
-        lastOk = True
-
-    newPosition = int(position)
-    newPrice = float(price)
-
-    # Check if Point is missing, if so, how many
-    diff = newPosition - oldPosition - 1
-    if diff >= divFactor:
-        division = diff // divFactor
-        for i in range(division):
-            saveFileString_NOK += "unavailable"
-            saveFileString_NOK += ','
-            # Print to terminal
-            # print("Unavailable")
-
-    saveFileString_NOK += (str(float(price) * float(eurInNok) / 1000))[0:6]
-    saveFileString_NOK += ','
-    # Print to terminal
-    # print(f"Position: {newPosition}, Price: {(str(float(price) * float(eurInNok) / 1000))[0:6]}")
-
-    oldPosition = newPosition
-    oldPrice = newPrice
-
-# If the last Point with position lastPos is missing
-if lastOk == False:
-    diff = lastPos - newPosition
-    if diff >= divFactor:
-        division = diff // divFactor
-    for i in range(division):
-        saveFileString_NOK += "unavailable"
-        saveFileString_NOK += ','
-        # Print to terminal
-        # print("Unavailable")
-
-# Print to terminal
-# print(f"One EUR in NOK: {eurInNok}")
+# Add the 96 prices
+for i in range(1, 97):
+    saveFileString_NOK_96 += spltlist_NOK_96[i] + ','
 
 # Add the sell price for EUR
-saveFileString_NOK += eurInNok
+saveFileString_NOK_96 += eurInNok
 
-# Save the commaseparated string to file
-with open('/var/www/html/data/prices_NOK_tomorrow.data', 'w') as file:
-    file.write(saveFileString_NOK)
+# Save the 96 price commaseparated string to file
+with open('/var/www/html/data/prices_PT15M_NOK_96.data', 'w') as file:
+    file.write(saveFileString_NOK_96)
 
 
-# If everything was successful so far - exit program
+
+
+
+# Build a commaseparated text string with date, 24 NOK prices and exchange rate
+saveFileString_NOK_24 = shortDateTomorrow + ','
+
+# Add 24 prices, each one the average of 4 prices given for every hour
+for z in range(1, 97, 4):
+    avgprice = 0
+    if z < 96:
+        for q in range(z, z+4):
+            avgprice += float(spltlist_NOK_96[q])
+        avgprice /= 4
+    saveFileString_NOK_24 += str(avgprice)[0:6] + ','
+
+# Add the sell price for EUR
+saveFileString_NOK_24 += eurInNok
+
+# Save the 24 price commaseparated string to file
+with open('/var/www/html/data/prices_PT15M_NOK_24.data', 'w') as file:
+    file.write(saveFileString_NOK_24)
+
+
+
+
+
+# If everything was successful - exit program
 sys.exit()

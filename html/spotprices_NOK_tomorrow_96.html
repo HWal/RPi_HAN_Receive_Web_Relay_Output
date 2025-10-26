@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang=en-EN>
+
+<head>
+<meta name="viewport" content ="width=device-width, initial-scale=1.0, maximum-scale=4.0, minimum-scale=.5, user-scalable=1">
+<meta http-equiv="refresh" content="3600">
+<title>Web page</title>
+<style>
+body {
+  background-color: #fffff;
+  font-family: Arial, Helvetica, Sans-Serif;
+  Color: #000088;
+}
+</style>
+</head>
+
+<body>
+<!-- <center><H3>Day-ahead prices less VAT in NO5</center></H3></center> -->
+<center><p><b>DAY-AHEAD PRICES LESS VAT IN NO5</center></b></p></center>
+<center>(Page updates each day 14.00 CET)</center></center>
+<table align="center" border="1" width="350" cellpadding="2">
+<tr><td align="center"><b>Date:</b></td><td align="center"><b><div id = "prDate">YYYY-MM-DD</div></b></td></tr>
+<tr><td align="center"><b>Time interval</b></td><td align="center"><b><div id = "currency">NOK/kWh</div></b></td></tr>
+<tr><td align="center">00.00 - 00.15</td><td align="center"><div id = "price_h01">xx.xx</div></td></tr>
+<tr><td align="center">00.15 - 00.30</td><td align="center"><div id = "price_h02">xx.xx</div></td></tr>
+<tr><td align="center">00.30 - 00.45</td><td align="center"><div id = "price_h03">xx.xx</div></td></tr>
+<tr><td align="center">00.45 - 01.00</td><td align="center"><div id = "price_h04">xx.xx</div></td></tr>
+<tr><td align="center">01.00 - 01.15</td><td align="center"><div id = "price_h05">xx.xx</div></td></tr>
+<tr><td align="center">01.15 - 01.30</td><td align="center"><div id = "price_h06">xx.xx</div></td></tr>
+<tr><td align="center">01.30 - 01.45</td><td align="center"><div id = "price_h07">xx.xx</div></td></tr>
+<tr><td align="center">01.45 - 02.00</td><td align="center"><div id = "price_h08">xx.xx</div></td></tr>
+<tr><td align="center">02.00 - 02.15</td><td align="center"><div id = "price_h09">xx.xx</div></td></tr>
+<tr><td align="center">02.15 - 02.30</td><td align="center"><div id = "price_h10">xx.xx</div></td></tr>
+<tr><td align="center">02.30 - 02.45</td><td align="center"><div id = "price_h11">xx.xx</div></td></tr>
+<tr><td align="center">02.45 - 03.00</td><td align="center"><div id = "price_h12">xx.xx</div></td></tr>
+<tr><td align="center">03.00 - 03.15</td><td align="center"><div id = "price_h13">xx.xx</div></td></tr>
+<tr><td align="center">03.15 - 03.30</td><td align="center"><div id = "price_h14">xx.xx</div></td></tr>
+<tr><td align="center">03.30 - 03.45</td><td align="center"><div id = "price_h15">xx.xx</div></td></tr>
+<tr><td align="center">03.45 - 04.00</td><td align="center"><div id = "price_h16">xx.xx</div></td></tr>
+<tr><td align="center">04.00 - 04.15</td><td align="center"><div id = "price_h17">xx.xx</div></td></tr>
+<tr><td align="center">04.15 - 04.30</td><td align="center"><div id = "price_h18">xx.xx</div></td></tr>
+<tr><td align="center">04.30 - 04.45</td><td align="center"><div id = "price_h19">xx.xx</div></td></tr>
+<tr><td align="center">04.45 - 05.00</td><td align="center"><div id = "price_h20">xx.xx</div></td></tr>
+<tr><td align="center">05.00 - 05.15</td><td align="center"><div id = "price_h21">xx.xx</div></td></tr>
+<tr><td align="center">05.15 - 05.30</td><td align="center"><div id = "price_h22">xx.xx</div></td></tr>
+<tr><td align="center">05.30 - 05.45</td><td align="center"><div id = "price_h23">xx.xx</div></td></tr>
+<tr><td align="center">05.45 - 06.00</td><td align="center"><div id = "price_h24">xx.xx</div></td></tr>
+<tr><td align="center">06.00 - 06.15</td><td align="center"><div id = "price_h25">xx.xx</div></td></tr>
+<tr><td align="center">06.15 - 06.30</td><td align="center"><div id = "price_h26">xx.xx</div></td></tr>
+<tr><td align="center">06.30 - 06.45</td><td align="center"><div id = "price_h27">xx.xx</div></td></tr>
+<tr><td align="center">06.45 - 07.00</td><td align="center"><div id = "price_h28">xx.xx</div></td></tr>
+<tr><td align="center">07.00 - 07.15</td><td align="center"><div id = "price_h29">xx.xx</div></td></tr>
+<tr><td align="center">07.15 - 07.30</td><td align="center"><div id = "price_h30">xx.xx</div></td></tr>
+<tr><td align="center">07.30 - 07.45</td><td align="center"><div id = "price_h31">xx.xx</div></td></tr>
+<tr><td align="center">07.45 - 08.00</td><td align="center"><div id = "price_h32">xx.xx</div></td></tr>
+<tr><td align="center">08.00 - 08.15</td><td align="center"><div id = "price_h33">xx.xx</div></td></tr>
+<tr><td align="center">08.15 - 08.30</td><td align="center"><div id = "price_h34">xx.xx</div></td></tr>
+<tr><td align="center">08.30 - 08.45</td><td align="center"><div id = "price_h35">xx.xx</div></td></tr>
+<tr><td align="center">08.45 - 09.00</td><td align="center"><div id = "price_h36">xx.xx</div></td></tr>
+<tr><td align="center">09.00 - 09.15</td><td align="center"><div id = "price_h37">xx.xx</div></td></tr>
+<tr><td align="center">09.15 - 09.30</td><td align="center"><div id = "price_h38">xx.xx</div></td></tr>
+<tr><td align="center">09.30 - 09.45</td><td align="center"><div id = "price_h39">xx.xx</div></td></tr>
+<tr><td align="center">09.45 - 10.00</td><td align="center"><div id = "price_h40">xx.xx</div></td></tr>
+<tr><td align="center">10.00 - 10.15</td><td align="center"><div id = "price_h41">xx.xx</div></td></tr>
+<tr><td align="center">10.15 - 10.30</td><td align="center"><div id = "price_h42">xx.xx</div></td></tr>
+<tr><td align="center">10.30 - 10.45</td><td align="center"><div id = "price_h43">xx.xx</div></td></tr>
+<tr><td align="center">10.45 - 11.00</td><td align="center"><div id = "price_h44">xx.xx</div></td></tr>
+<tr><td align="center">11.00 - 11.15</td><td align="center"><div id = "price_h45">xx.xx</div></td></tr>
+<tr><td align="center">11.15 - 11.30</td><td align="center"><div id = "price_h46">xx.xx</div></td></tr>
+<tr><td align="center">11.30 - 11.45</td><td align="center"><div id = "price_h47">xx.xx</div></td></tr>
+<tr><td align="center">11.45 - 12.00</td><td align="center"><div id = "price_h48">xx.xx</div></td></tr>
+<tr><td align="center">12.00 - 12.15</td><td align="center"><div id = "price_h49">xx.xx</div></td></tr>
+<tr><td align="center">12.15 - 12.30</td><td align="center"><div id = "price_h50">xx.xx</div></td></tr>
+<tr><td align="center">12.30 - 12.45</td><td align="center"><div id = "price_h51">xx.xx</div></td></tr>
+<tr><td align="center">12.45 - 13.00</td><td align="center"><div id = "price_h52">xx.xx</div></td></tr>
+<tr><td align="center">13.00 - 13.15</td><td align="center"><div id = "price_h53">xx.xx</div></td></tr>
+<tr><td align="center">13.15 - 13.30</td><td align="center"><div id = "price_h54">xx.xx</div></td></tr>
+<tr><td align="center">13.30 - 13.45</td><td align="center"><div id = "price_h55">xx.xx</div></td></tr>
+<tr><td align="center">13.45 - 14.00</td><td align="center"><div id = "price_h56">xx.xx</div></td></tr>
+<tr><td align="center">14.00 - 14.15</td><td align="center"><div id = "price_h57">xx.xx</div></td></tr>
+<tr><td align="center">14.15 - 14.30</td><td align="center"><div id = "price_h58">xx.xx</div></td></tr>
+<tr><td align="center">14.30 - 14.45</td><td align="center"><div id = "price_h59">xx.xx</div></td></tr>
+<tr><td align="center">14.45 - 15.00</td><td align="center"><div id = "price_h60">xx.xx</div></td></tr>
+<tr><td align="center">15.00 - 15.15</td><td align="center"><div id = "price_h61">xx.xx</div></td></tr>
+<tr><td align="center">15.15 - 15.30</td><td align="center"><div id = "price_h62">xx.xx</div></td></tr>
+<tr><td align="center">15.30 - 15.45</td><td align="center"><div id = "price_h63">xx.xx</div></td></tr>
+<tr><td align="center">15.45 - 16.00</td><td align="center"><div id = "price_h64">xx.xx</div></td></tr>
+<tr><td align="center">16.00 - 16.15</td><td align="center"><div id = "price_h65">xx.xx</div></td></tr>
+<tr><td align="center">16.15 - 16.30</td><td align="center"><div id = "price_h66">xx.xx</div></td></tr>
+<tr><td align="center">16.30 - 16.45</td><td align="center"><div id = "price_h67">xx.xx</div></td></tr>
+<tr><td align="center">16.45 - 17.00</td><td align="center"><div id = "price_h68">xx.xx</div></td></tr>
+<tr><td align="center">17.00 - 17.15</td><td align="center"><div id = "price_h69">xx.xx</div></td></tr>
+<tr><td align="center">17.15 - 17.30</td><td align="center"><div id = "price_h70">xx.xx</div></td></tr>
+<tr><td align="center">17.30 - 17.45</td><td align="center"><div id = "price_h71">xx.xx</div></td></tr>
+<tr><td align="center">17.45 - 18.00</td><td align="center"><div id = "price_h72">xx.xx</div></td></tr>
+<tr><td align="center">18.00 - 18.15</td><td align="center"><div id = "price_h73">xx.xx</div></td></tr>
+<tr><td align="center">18.15 - 18.30</td><td align="center"><div id = "price_h74">xx.xx</div></td></tr>
+<tr><td align="center">18.30 - 18.45</td><td align="center"><div id = "price_h75">xx.xx</div></td></tr>
+<tr><td align="center">18.45 - 19.00</td><td align="center"><div id = "price_h76">xx.xx</div></td></tr>
+<tr><td align="center">19.00 - 19.15</td><td align="center"><div id = "price_h77">xx.xx</div></td></tr>
+<tr><td align="center">19.15 - 19.30</td><td align="center"><div id = "price_h78">xx.xx</div></td></tr>
+<tr><td align="center">19.30 - 19.45</td><td align="center"><div id = "price_h79">xx.xx</div></td></tr>
+<tr><td align="center">19.45 - 20.00</td><td align="center"><div id = "price_h80">xx.xx</div></td></tr>
+<tr><td align="center">20.00 - 20.15</td><td align="center"><div id = "price_h81">xx.xx</div></td></tr>
+<tr><td align="center">20.15 - 20.30</td><td align="center"><div id = "price_h82">xx.xx</div></td></tr>
+<tr><td align="center">20.30 - 20.45</td><td align="center"><div id = "price_h83">xx.xx</div></td></tr>
+<tr><td align="center">20.45 - 21.00</td><td align="center"><div id = "price_h84">xx.xx</div></td></tr>
+<tr><td align="center">21.00 - 21.15</td><td align="center"><div id = "price_h85">xx.xx</div></td></tr>
+<tr><td align="center">21.15 - 21.30</td><td align="center"><div id = "price_h86">xx.xx</div></td></tr>
+<tr><td align="center">21.30 - 21.45</td><td align="center"><div id = "price_h87">xx.xx</div></td></tr>
+<tr><td align="center">21.45 - 22.00</td><td align="center"><div id = "price_h88">xx.xx</div></td></tr>
+<tr><td align="center">22.00 - 22.15</td><td align="center"><div id = "price_h89">xx.xx</div></td></tr>
+<tr><td align="center">22.15 - 22.30</td><td align="center"><div id = "price_h90">xx.xx</div></td></tr>
+<tr><td align="center">22.30 - 22.45</td><td align="center"><div id = "price_h91">xx.xx</div></td></tr>
+<tr><td align="center">22.45 - 23.00</td><td align="center"><div id = "price_h92">xx.xx</div></td></tr>
+<tr><td align="center">23.00 - 23.15</td><td align="center"><div id = "price_h93">xx.xx</div></td></tr>
+<tr><td align="center">23.15 - 23.30</td><td align="center"><div id = "price_h94">xx.xx</div></td></tr>
+<tr><td align="center">23.30 - 23.45</td><td align="center"><div id = "price_h95">xx.xx</div></td></tr>
+<tr><td align="center">23.45 - 00.00</td><td align="center"><div id = "price_h96">xx.xx</div></td></tr>
+<tr><td align="center">1 EUR in NOK</td><td align="center"><div id = "eurInNok">xx.xx</div></td></tr>
+</table><br>
+<b><center><a href="index.html">Back</a></center></b>
+
+<script type = "text/javascript">
+if(typeof(EventSource) !== "undefined") {
+  var eSource3 = new EventSource("spotprices_NOK_tomorrow_96.php");
+  eSource3.onmessage = function(event) {
+    var priceArray = JSON.parse(event.data);
+    var YYYY = priceArray[0].substring(0, 4);
+    var MM = priceArray[0].substring(4, 6);
+    var DD = priceArray[0].substring(6);
+    var dayAhead = YYYY + "-" + MM + "-" + DD
+    document.getElementById("prDate").innerHTML = dayAhead;
+
+    document.getElementById("price_h01").innerHTML = priceArray[1];
+    document.getElementById("price_h02").innerHTML = priceArray[2];
+    document.getElementById("price_h03").innerHTML = priceArray[3];
+    document.getElementById("price_h04").innerHTML = priceArray[4];
+    document.getElementById("price_h05").innerHTML = priceArray[5];
+    document.getElementById("price_h06").innerHTML = priceArray[6];
+    document.getElementById("price_h07").innerHTML = priceArray[7];
+    document.getElementById("price_h08").innerHTML = priceArray[8];
+    document.getElementById("price_h09").innerHTML = priceArray[9];
+    document.getElementById("price_h10").innerHTML = priceArray[10];
+    document.getElementById("price_h11").innerHTML = priceArray[11];
+    document.getElementById("price_h12").innerHTML = priceArray[12];
+    document.getElementById("price_h13").innerHTML = priceArray[13];
+    document.getElementById("price_h14").innerHTML = priceArray[14];
+    document.getElementById("price_h15").innerHTML = priceArray[15];
+    document.getElementById("price_h16").innerHTML = priceArray[16];
+    document.getElementById("price_h17").innerHTML = priceArray[17];
+    document.getElementById("price_h18").innerHTML = priceArray[18];
+    document.getElementById("price_h19").innerHTML = priceArray[19];
+    document.getElementById("price_h20").innerHTML = priceArray[20];
+    document.getElementById("price_h21").innerHTML = priceArray[21];
+    document.getElementById("price_h22").innerHTML = priceArray[22];
+    document.getElementById("price_h23").innerHTML = priceArray[23];
+    document.getElementById("price_h24").innerHTML = priceArray[24];
+
+    document.getElementById("price_h25").innerHTML = priceArray[25];
+    document.getElementById("price_h26").innerHTML = priceArray[26];
+    document.getElementById("price_h27").innerHTML = priceArray[27];
+    document.getElementById("price_h28").innerHTML = priceArray[28];
+    document.getElementById("price_h29").innerHTML = priceArray[29];
+    document.getElementById("price_h30").innerHTML = priceArray[30];
+    document.getElementById("price_h31").innerHTML = priceArray[31];
+    document.getElementById("price_h32").innerHTML = priceArray[32];
+    document.getElementById("price_h33").innerHTML = priceArray[33];
+    document.getElementById("price_h34").innerHTML = priceArray[34];
+    document.getElementById("price_h35").innerHTML = priceArray[35];
+    document.getElementById("price_h36").innerHTML = priceArray[36];
+    document.getElementById("price_h37").innerHTML = priceArray[37];
+    document.getElementById("price_h38").innerHTML = priceArray[38];
+    document.getElementById("price_h39").innerHTML = priceArray[39];
+    document.getElementById("price_h40").innerHTML = priceArray[40];
+    document.getElementById("price_h41").innerHTML = priceArray[41];
+    document.getElementById("price_h42").innerHTML = priceArray[42];
+    document.getElementById("price_h43").innerHTML = priceArray[43];
+    document.getElementById("price_h44").innerHTML = priceArray[44];
+    document.getElementById("price_h45").innerHTML = priceArray[45];
+    document.getElementById("price_h46").innerHTML = priceArray[46];
+    document.getElementById("price_h47").innerHTML = priceArray[47];
+    document.getElementById("price_h48").innerHTML = priceArray[48];
+
+    document.getElementById("price_h49").innerHTML = priceArray[49];
+    document.getElementById("price_h50").innerHTML = priceArray[50];
+    document.getElementById("price_h51").innerHTML = priceArray[51];
+    document.getElementById("price_h52").innerHTML = priceArray[52];
+    document.getElementById("price_h53").innerHTML = priceArray[53];
+    document.getElementById("price_h54").innerHTML = priceArray[54];
+    document.getElementById("price_h55").innerHTML = priceArray[55];
+    document.getElementById("price_h56").innerHTML = priceArray[56];
+    document.getElementById("price_h57").innerHTML = priceArray[57];
+    document.getElementById("price_h58").innerHTML = priceArray[58];
+    document.getElementById("price_h59").innerHTML = priceArray[59];
+    document.getElementById("price_h60").innerHTML = priceArray[60];
+    document.getElementById("price_h61").innerHTML = priceArray[61];
+    document.getElementById("price_h62").innerHTML = priceArray[62];
+    document.getElementById("price_h63").innerHTML = priceArray[63];
+    document.getElementById("price_h64").innerHTML = priceArray[64];
+    document.getElementById("price_h65").innerHTML = priceArray[65];
+    document.getElementById("price_h66").innerHTML = priceArray[66];
+    document.getElementById("price_h67").innerHTML = priceArray[67];
+    document.getElementById("price_h68").innerHTML = priceArray[68];
+    document.getElementById("price_h69").innerHTML = priceArray[69];
+    document.getElementById("price_h70").innerHTML = priceArray[70];
+    document.getElementById("price_h71").innerHTML = priceArray[71];
+    document.getElementById("price_h72").innerHTML = priceArray[72];
+
+    document.getElementById("price_h73").innerHTML = priceArray[73];
+    document.getElementById("price_h74").innerHTML = priceArray[74];
+    document.getElementById("price_h75").innerHTML = priceArray[75];
+    document.getElementById("price_h76").innerHTML = priceArray[76];
+    document.getElementById("price_h77").innerHTML = priceArray[77];
+    document.getElementById("price_h78").innerHTML = priceArray[78];
+    document.getElementById("price_h79").innerHTML = priceArray[79];
+    document.getElementById("price_h80").innerHTML = priceArray[80];
+    document.getElementById("price_h81").innerHTML = priceArray[81];
+    document.getElementById("price_h82").innerHTML = priceArray[82];
+    document.getElementById("price_h83").innerHTML = priceArray[83];
+    document.getElementById("price_h84").innerHTML = priceArray[84];
+    document.getElementById("price_h85").innerHTML = priceArray[85];
+    document.getElementById("price_h86").innerHTML = priceArray[86];
+    document.getElementById("price_h87").innerHTML = priceArray[87];
+    document.getElementById("price_h88").innerHTML = priceArray[88];
+    document.getElementById("price_h89").innerHTML = priceArray[89];
+    document.getElementById("price_h90").innerHTML = priceArray[90];
+    document.getElementById("price_h91").innerHTML = priceArray[91];
+    document.getElementById("price_h92").innerHTML = priceArray[92];
+    document.getElementById("price_h93").innerHTML = priceArray[93];
+    document.getElementById("price_h94").innerHTML = priceArray[94];
+    document.getElementById("price_h95").innerHTML = priceArray[95];
+    document.getElementById("price_h96").innerHTML = priceArray[96];
+
+    document.getElementById("eurInNok").innerHTML = priceArray[97];
+  }
+} else {
+  document.getElementById("prDate").innerHTML = "No browser support."
+}
+</script>
+
+</body>
+</html>

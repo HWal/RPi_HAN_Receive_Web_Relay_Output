@@ -1,5 +1,0 @@
- #!/bin/bash
-
-cd spot
-clear
-python3 main_plot_spot.py

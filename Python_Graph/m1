@@ -1,5 +1,0 @@
- #!/bin/bash
-
-cd ams
-clear
-python3 main_plot_ams.py
