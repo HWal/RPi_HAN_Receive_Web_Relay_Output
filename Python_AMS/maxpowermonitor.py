@@ -13,7 +13,7 @@ from email.message import EmailMessage
 
 
 # Initialization of variables
-from_email_addr ="xxxxxxxxx5@xxxxx.com"
+from_email_addr ="xxxxxxxx@xxxxx.com"
 from_email_pass ="xxxxxxxxxxxxxxxx"
 to_email_addr ="xxxxxxxx@xxxxx.xxx"
 
