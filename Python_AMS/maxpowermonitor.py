@@ -13,9 +13,9 @@ from email.message import EmailMessage
 
 
 # Initialization of variables
-from_email_addr ="helge5895@gmail.com"
-from_email_pass ="onyhouenabvbnalz"
-to_email_addr ="helgewal@gmail.com"
+from_email_addr ="xxxxxxxxx5@xxxxx.com"
+from_email_pass ="xxxxxxxxxxxxxxxx"
+to_email_addr ="xxxxxxxx@xxxxx.xxx"
 
 ok1 = ok2 = ok3 = False
 

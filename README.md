@@ -11,7 +11,7 @@ This project for the Raspberry Pi has the following functions:
 * Control two output relays.
 * Download and view el-spotprices for the user's local area. Note, the program spotprices.py needs to be edited accordingly. 
 * Send email to a specified address when Watt hours used during one hour exceeds a limit set by the user.
-* Analyze log files with VNC viewer on a Windows laptop.
+* Analyze log files from the meter on the website.
 
 Hardware
 --------
