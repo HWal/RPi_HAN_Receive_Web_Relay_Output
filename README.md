@@ -74,23 +74,22 @@ Now ttyAMA0 / PL011 / UART0 is connected to gpio 14 / 15 which are the physical 
 Make some directories on the Raspberry Pi (Command - Owner - Group - View - Change - Access):<br>
 mkdir /home/pi/Cpp_AMS - pi - pi - Anyone - Only owner - Anyone<br>
 mkdir /home/pi/Python_AMS - pi - pi - Anyone - Only owner - Anyone<br>
-mkdir /home/pi/Python_Graph - pi - pi - Anyone - Only owner - Anyone<br>
 mkdir /var/meter_log - root - root - Anyone - Anyone - Anyone<br>
 mkdir /var/www/html/data - pi - pi - Anyone - Only owner - Anyone<br>
 mkdir /var/www/html/img - pi - pi - Anyone - Only owner - Anyone<br>
 mkdir /media/pi/name-of-usb-stick/meter - pi - pi - Anyone - Only owner - Anyone (for usb stick)<br>
 mkdir /media/pi/name-of-usb-stick/prices - pi - pi - Anyone - Only owner - Anyone (for usb stick)<br>
 
-Permissions and ownership shown above is like I have it on my RPi. Data security has not been considered so far.
+Permissions and ownership shown above is like I have it on my RPi. Use a strong password, see below.
+To give Apache permission to read /media/pi, edit pi to root - root- Anyone - Only owner and group - Anyone
 
 Now copy the files from github into the corresponding directories on RPi listed above.
 
 Edit a cronjob as your pi user, with crontab -e, with the following content:
 
-05 00 * * * /usr/bin/python3 /home/pi/Python_AMS/copyprices_1.py<br>
 10 00 * * * /home/pi/Cpp_AMS/copyFiles_meter<br>
-00 15 * * * /usr/bin/python3 /home/pi/Python_AMS/spotprices.py<br>
-55 23 * * * /usr/bin/python3 /home/pi/Python_AMS/copyprices_2.py<br>
+20 00 * * * /usr/bin/python3 /home/pi/Python_AMS/copyfiles_prices.py<br>
+00 14 * * * /usr/bin/python3 /home/pi/Python_AMS/spotprices.py<br>
 
 Connect the equipment as shown in schematic.jpg
 
@@ -110,28 +109,21 @@ LIST OF FILES<br>
 /home/pi/Cpp_AMS/readAMS77.cpp
 /home/pi/Cpp_AMS/copyFiles_meter
 /home/pi/Cpp_AMS/a.out
-/home/pi/Python_AMS/copyprices_1.py<br>
-/home/pi/Python_AMS/copyprices_1.py<br>
+/home/pi/Python_AMS/copyfiles_prices.py<br>
 /home/pi/Python_AMS/spotprices.py<br>
 /home/pi/Python_AMS/maxpowermonitor.py<br>
-/home/pi/Python_Graph/graphics.py<br>
-/home/pi/Python_Graph/main_prog.py<br>
-/home/pi/Python_Graph/plot_current.py<br>
-/home/pi/Python_Graph/plot_power.py<br>
-/home/pi/Python_Graph/plot_voltage.py<br>
+
+ALLE FILER FOR PLOTTING HER
+
 /var/www/html/currtime.php<br>
 /var/www/html/gpio.php<br>
 /var/www/html/notificationlimit.php<br>
 /var/www/html/schematic.html<br>
 /var/www/html/schematic.jpg<br>
-/var/www/html/spotprices_EUR_today.php<br>
-/var/www/html/spotprices_EUR_today.html<br>
-/var/www/html/spotprices_EUR_tomorrow.php<br>
-/var/www/html/spotprices_EUR_tomorrow.html<br>
-/var/www/html/spotprices_NOK_today.php<br>
-/var/www/html/spotprices_NOK_today.html<br>
-/var/www/html/spotprices_NOK_tomorrow.php<br>
-/var/www/html/spotprices_NOK_tomorrow.html<br>
+/var/www/html/spotprices_NOK_tomorrow_24.php<br>
+/var/www/html/spotprices_NOK_tomorrow_24.html<br>
+/var/www/html/spotprices_NOK_tomorrow_96.php<br>
+/var/www/html/spotprices_NOK_tomorrow_96.html<br>
 /var/www/html/relaycontrol.php<br>
 /var/www/html/threemaxes.php<br>
 /var/www/html/threemaxes.html<br>
@@ -145,6 +137,10 @@ LIST OF FILES<br>
 /var/www/html/img/red_1.jpg<br>
 /var/www/html/data/notificationlimit.data<br>
 /var/www/html/data/threemaxes.data<br>
+
+SJEKK UNDER HER OM PRICES FILENE I .data
+HUSK OGSÅ PLOT CHOICES I .data
+
 /var/www/html/data/prices_EUR_today.data<br>
 /var/www/html/data/prices_NOK_today.data<br>
 /var/www/html/data/prices_EUR_tomorrow.xml<br>
