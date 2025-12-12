@@ -15,9 +15,7 @@ body {
 </head>
 
 <body>
-<!-- <center><H3>Day-ahead prices less VAT in NO5</center></H3></center> -->
-<center><p><b>DAY-AHEAD PRICES LESS VAT IN NO5</center></b></p></center>
-<center>(Page updates each day 14.00 CET)</center></center>
+<center><b>DAY-AHEAD PRICES LESS VAT IN ZONE<div id = "priceZone">xxx</div></b><a href="zonechoice_24.php">Choose a different zone...</a></center>
 <table align="center" border="1" width="350" cellpadding="2">
 <tr><td align="center"><b>Date:</b></td><td align="center"><b><div id = "prDate">YYYY-MM-DD</div></b></td></tr>
 <tr><td align="center"><b>Time interval</b></td><td align="center"><b><div id = "currency">NOK/kWh</div></b></td></tr>
@@ -54,36 +52,38 @@ if(typeof(EventSource) !== "undefined") {
   var eSource3 = new EventSource("spotprices_NOK_tomorrow_24.php");
   eSource3.onmessage = function(event) {
     var priceArray = JSON.parse(event.data);
-    var YYYY = priceArray[0].substring(0, 4);
-    var MM = priceArray[0].substring(4, 6);
-    var DD = priceArray[0].substring(6);
-    var dayAhead = YYYY + "-" + MM + "-" + DD
+    var zone = priceArray[0];
+    var YYYY = priceArray[1].substring(0, 4);
+    var MM = priceArray[1].substring(4, 6);
+    var DD = priceArray[1].substring(6);
+    var dayAhead = YYYY + "-" + MM + "-" + DD;
+    document.getElementById("priceZone").innerHTML = zone;
     document.getElementById("prDate").innerHTML = dayAhead;
-    document.getElementById("price_h01").innerHTML = priceArray[1];
-    document.getElementById("price_h02").innerHTML = priceArray[2];
-    document.getElementById("price_h03").innerHTML = priceArray[3];
-    document.getElementById("price_h04").innerHTML = priceArray[4];
-    document.getElementById("price_h05").innerHTML = priceArray[5];
-    document.getElementById("price_h06").innerHTML = priceArray[6];
-    document.getElementById("price_h07").innerHTML = priceArray[7];
-    document.getElementById("price_h08").innerHTML = priceArray[8];
-    document.getElementById("price_h09").innerHTML = priceArray[9];
-    document.getElementById("price_h10").innerHTML = priceArray[10];
-    document.getElementById("price_h11").innerHTML = priceArray[11];
-    document.getElementById("price_h12").innerHTML = priceArray[12];
-    document.getElementById("price_h13").innerHTML = priceArray[13];
-    document.getElementById("price_h14").innerHTML = priceArray[14];
-    document.getElementById("price_h15").innerHTML = priceArray[15];
-    document.getElementById("price_h16").innerHTML = priceArray[16];
-    document.getElementById("price_h17").innerHTML = priceArray[17];
-    document.getElementById("price_h18").innerHTML = priceArray[18];
-    document.getElementById("price_h19").innerHTML = priceArray[19];
-    document.getElementById("price_h20").innerHTML = priceArray[20];
-    document.getElementById("price_h21").innerHTML = priceArray[21];
-    document.getElementById("price_h22").innerHTML = priceArray[22];
-    document.getElementById("price_h23").innerHTML = priceArray[23];
-    document.getElementById("price_h24").innerHTML = priceArray[24];
-    document.getElementById("eurInNok").innerHTML = priceArray[25];
+    document.getElementById("price_h01").innerHTML = priceArray[2];
+    document.getElementById("price_h02").innerHTML = priceArray[3];
+    document.getElementById("price_h03").innerHTML = priceArray[4];
+    document.getElementById("price_h04").innerHTML = priceArray[5];
+    document.getElementById("price_h05").innerHTML = priceArray[6];
+    document.getElementById("price_h06").innerHTML = priceArray[7];
+    document.getElementById("price_h07").innerHTML = priceArray[8];
+    document.getElementById("price_h08").innerHTML = priceArray[9];
+    document.getElementById("price_h09").innerHTML = priceArray[10];
+    document.getElementById("price_h10").innerHTML = priceArray[11];
+    document.getElementById("price_h11").innerHTML = priceArray[12];
+    document.getElementById("price_h12").innerHTML = priceArray[13];
+    document.getElementById("price_h13").innerHTML = priceArray[14];
+    document.getElementById("price_h14").innerHTML = priceArray[15];
+    document.getElementById("price_h15").innerHTML = priceArray[16];
+    document.getElementById("price_h16").innerHTML = priceArray[17];
+    document.getElementById("price_h17").innerHTML = priceArray[18];
+    document.getElementById("price_h18").innerHTML = priceArray[19];
+    document.getElementById("price_h19").innerHTML = priceArray[20];
+    document.getElementById("price_h20").innerHTML = priceArray[21];
+    document.getElementById("price_h21").innerHTML = priceArray[22];
+    document.getElementById("price_h22").innerHTML = priceArray[23];
+    document.getElementById("price_h23").innerHTML = priceArray[24];
+    document.getElementById("price_h24").innerHTML = priceArray[25];
+    document.getElementById("eurInNok").innerHTML = priceArray[26];
   }
 } else {
   document.getElementById("prDate").innerHTML = "No browser support."

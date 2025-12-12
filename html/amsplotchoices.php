@@ -22,7 +22,7 @@
     <body>
 
     <center><H3>Plot data from the AMS meter</H3></center>
-    <center>Enter plot parameters:<br><br></center>
+    <!-- <center>Enter plot parameters:<br><br></center> -->
 
         <?php
         // Location for storage of plot choices
@@ -46,16 +46,15 @@
                 $fh = fopen($choicespath,"wa");                // Open file
                 fwrite($fh,$combinedstring);                   // Write to file
                 fclose($fh);                                   // Close file
-                echo "<center>Parameters set.<br><br>";
-                echo "<b>Current values: </b>$combinedstring<br><br>";
-
-            // Valid date has not been entered
+                echo "<center>Parameters set.</center>";
+                // echo "<b>Current values: </b>$combinedstring<br><br>";
+                echo "<center><b><a href=\"plot.php\"><br>Click here and wait for graph...</a></b></center>";
+                echo "<br>or<br>";
+                echo "<center><b><a href=\"amsplotchoices.php\"><br>Go back</a></b></center>";
             } else {
-                echo "<center><h3>Invalid data entered. Check date and/or hour interval!</h3>";
+                echo "<center>Invalid date and/or hour interval entered! Parameters not changed.</center><br>";
+                echo "<center><b><a href=\"index.html\">Go back</a></b></center>";
             }
-
-            echo "<b><a href=\"index.html\">Back</a></b></center>";
-
         } else {
             // Read already stored parameters to be shown as defaults in the html form
             $fh = fopen($choicespath,"r");                     // Open file
@@ -70,14 +69,15 @@
             Nothing between the action= quotes: php code is in the same (this) file -->
             <table align="center" border="1" height="180" width="420" cellpadding="2" bgcolor="#F5F9FA">
             <form action="" method="POST">
+                <tr height="20"><td colspan="2" ><center><b>Enter plot parameters:</b></center></td></tr>
                 <tr height="20"><td><label for="string1">Path to log files:</label></td>
                 <td align="center"><input type="text" value="<?php echo $choicesarray[0]; ?>" size="25" maxlength="50" id="path" name="string1"></td></tr>
                 <tr height="20"><td><label for="string2">Year (YYYY):</label></td>
-                <td align="center"><input type="text" value="<?php echo $choicesarray[1]; ?>" size="4" maxlength="4" id="year" name="string2"></td></tr>
+                <td align="center"><input type="number" style="width: 50px;" value="<?php echo $choicesarray[1]; ?>" min="2000" max="2100" id="year" name="string2"></td></tr>
                 <tr height="20"><td><label for="string3">Month (MM):</label></td>
-                <td align="center"><input type="text" value="<?php echo $choicesarray[2]; ?>" size="2" maxlength="2" id="month" name="string3"></td></tr>
+                <td align="center"><input type="number" style="width: 50px;" value="<?php echo $choicesarray[2]; ?>" min="1" max="12" id="month" name="string3"></td></tr>
                 <tr height="20"><td><label for="string4">Day (DD):</label></td>
-                <td align="center"><input type="text" value="<?php echo $choicesarray[3]; ?>" size="2" maxlength="2" id="day" name="string4"></td></tr>
+                <td align="center"><input type="number" style="width: 50px;" value="<?php echo $choicesarray[3]; ?>" min="1" max="31" id="day" name="string4"></td></tr>
                 <tr height="20"><td><label for="string5">Power graph (Y/y/N/n):</label></td>
                 <td align="center"><input type="text" value="<?php echo $choicesarray[4]; ?>" size="1" maxlength="1" id="powergraph" name="string5"></td></tr>
                 <tr height="20"><td><label for="string6">Volt graph (Y/y/N/n):</label></td>
@@ -85,13 +85,13 @@
                 <tr height="20"><td><label for="string7">Current graph (Y/y/N/n):</label></td>
                 <td align="center"><input type="text" value="<?php echo $choicesarray[6]; ?>" size="1" maxlength="1" id="currentgraph" name="string7"></td></tr>
                 <tr height="20"><td><label for="string8">Start hour (00-23):</label></td>
-                <td align="center"><input type="text" value="<?php echo $choicesarray[7]; ?>" size="2" maxlength="2" id="starthour" name="string8"></td></tr>
+                <td align="center"><input type="number" style="width: 50px;" value="<?php echo $choicesarray[7]; ?>" min="0" max="23" id="starthour" name="string8"></td></tr>
                 <tr height="20"><td><label for="string9">End hour (01-24):</label></td>
-                <td align="center"><input type="text" value="<?php echo $choicesarray[8]; ?>" size="2" maxlength="2" id="endthour" name="string9"></td></tr>
+                <td align="center"><input type="number" style="width: 50px;" value="<?php echo $choicesarray[8]; ?>" min="1" max="24" id="endthour" name="string9"></td></tr>
                 <tr height="20"><td align="center" colspan="2"><input type="submit" value="Submit"></td></tr>
             </form>
             </table>
-            <br><b><a href="index.html">Back</a></b>
+            <br><b><a href="index.html">Go back without changes</a></b>
             </center>
 
         <?php } ?>
