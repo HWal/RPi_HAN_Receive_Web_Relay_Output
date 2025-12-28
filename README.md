@@ -112,9 +112,6 @@ LIST OF FILES<br>
 /home/pi/Python_AMS/copyfiles_prices.py<br>
 /home/pi/Python_AMS/spotprices.py<br>
 /home/pi/Python_AMS/maxpowermonitor.py<br>
-
-ALLE FILER FOR PLOTTING HER
-
 /var/www/html/currtime.php<br>
 /var/www/html/gpio.php<br>
 /var/www/html/notificationlimit.php<br>
@@ -137,10 +134,6 @@ ALLE FILER FOR PLOTTING HER
 /var/www/html/img/red_1.jpg<br>
 /var/www/html/data/notificationlimit.data<br>
 /var/www/html/data/threemaxes.data<br>
-
-SJEKK UNDER HER OM PRICES FILENE I .data
-HUSK OGSÅ PLOT CHOICES I .data
-
 /var/www/html/data/prices_EUR_today.data<br>
 /var/www/html/data/prices_NOK_today.data<br>
 /var/www/html/data/prices_EUR_tomorrow.xml<br>
@@ -161,51 +154,51 @@ HUSK OGSÅ PLOT CHOICES I .data
 AMS UTILITY - PROGRAMS AND FILES; CONNECTION BETWEEN FILES AND PROGRAMS/SCRIPTS
 ===============================================================================
 
-Name                             Type              Location                      Purpose
+Name                             Type              Location                      Purpose<br>
 ----                             ----              --------                      -------
-index.html                       html page         /var/www/html/                Main menu. Links all programs and scripts. The page also contains links
-                                                                                 to NORD POOL and an in-house water meter web camera.
-amsdata.html                     html page              "                        Shows live data from the AMS electricity meter.
-                                                                                 Calls currtime.php, currpower.php, currlog.php, which in turn reads data
-                                                                                 from the files currenttime.data, currentactivepower.data, currentlog.data .
-spotprices_NOK_tomorrow_96.html  html page              "                        Shows Day-Ahead el-spotprices with 15m resolution. Calls spotprices_nok_tomorrow_96.php .
-spotprices_NOK_tomorrow_96.php   php script             "                        Prepares data to be shown on spotprices_nok_tomorrow_96.html .
-                                                                                 Reads data from prices_PT15M_NOK_96_NOx.data and zonechoice.data .
-zonechoice_96.php                php script             "                        Called by spotprices_nok_tomorrow_96.html, for choosing zone to display.
-                                                                                 Edits zonechoice.data .
-spotprices_NOK_tomorrow_24.html  html page              "                        Shows Day-Ahead el-spotprices with 60m resolution. Calls spotprices_nok_tomorrow_24.php .
-spotprices_NOK_tomorrow_24.php   php script             "                        Prepares data to be shown on spotprices_NOK_tomorrow_24.html .
-                                                                                 Reads data from prices_PT15M_NOK_24_NOx.data and zonechoice.data .
-zonechoice_24.php                php script             "                        Called by spotprices_nok_tomorrow_24.html, for choosing zone to display.
-                                                                                 Edits zonechoice.data .
-threemaxes.html                  html page              "                        Shows the three highest day maxes in current month. Calls threemaxes.php .
-threemaxes.php                   php script             "                        Reads data from threemaxes.data, to show on threemaxes.html page.
-relaycontrol.php                 php script             "                        GUI for control of two output relays. This script calls gpio.php .
-gpio.php                         php script             "                        Controls two output relays, driven from output pins on Raspberry Pi 3B+.
-notificationlimit.php            php script             "                        Edit kWh/h that triggers sending an email to specified email address.
-                                                                                 Stores user defined kWh/h trigger value in  notificationlimit.data.
-                                                                                 maxpowermonitor.py monitors the kWh/h value and sends email when applicable.
-schematic.html                   html page              "                        Shows schematic of the equipment connected to Raspberry Pi 3B+.
-schematic.jpg                    Image file             "                        Image containing the schematic.
-zonemap.html                     html page              "                        Shows nordic el price zones.
-zonemap.jpg                      Image file             "                        Image containing the zone map.
-amsplotchoices.php               php script             "                        Edits parameter file amsplotchoices.data for plotting data from the AMS meter.
-plot.php                         php script             "                        Starts main python script plotmain.py for plotting of currents, power, voltages.
-plotmain.py                      python script          "                        Main python script for running the plot scripts. Deletes old plot images,
-                                                                                 reads amsplotchoices.data, calls functions according to choices made by user.
-plot_volts.py                    python script          "                        Plots two voltages (third not available for tech reasons).
-volts.png                        Image file             "                        Latest voltages plot image. Gets overwritten by next plot.
-plot_currents.py                 python script          "                        Plots three currents.
-currents.png                     Image file             "                        Latest currents plot image. Gets overwritten by next plot.
-plot_power.py                    python script          "                        Plots active power.
-power.png                        Image file             "                        Latest power plot image. Gets overwritten by next plot.
-currlog.php                      php script             "                        Reads currentlog.data every 10s, values are shown on amsdata.html page.
-                                                                                 Currentlog.data file is updated by program readAMSxx.cpp .
-currpower.php                    php script             "                        Reads currentactivepower.data every 2s, values are shown on amsdata.html page.
-                                                                                 Currentactivepower.data file is updated by program readAMSxx.cpp .
-currtime.php                     php script             "                        Reads currenttime.data every 2s, values are shown on amsdata.html page.
-                                                                                 Currenttime.data file is updated by program readAMSxx.cpp .
-																				 
+index.html                       html page         /var/www/html/                Main menu. Links all programs and scripts. The page also contains links<br>
+                                                                                 to NORD POOL and an in-house water meter web camera.<br>
+amsdata.html                     html page              "                        Shows live data from the AMS electricity meter.<br>
+                                                                                 Calls currtime.php, currpower.php, currlog.php, which in turn reads data<br>
+                                                                                 from the files currenttime.data, currentactivepower.data, currentlog.data .<br>
+spotprices_NOK_tomorrow_96.html  html page              "                        Shows Day-Ahead el-spotprices with 15m resolution. Calls spotprices_nok_tomorrow_96.php .<br>
+spotprices_NOK_tomorrow_96.php   php script             "                        Prepares data to be shown on spotprices_nok_tomorrow_96.html .<br>
+                                                                                 Reads data from prices_PT15M_NOK_96_NOx.data and zonechoice.data .<br>
+zonechoice_96.php                php script             "                        Called by spotprices_nok_tomorrow_96.html, for choosing zone to display.<br>
+                                                                                 Edits zonechoice.data .<br>
+spotprices_NOK_tomorrow_24.html  html page              "                        Shows Day-Ahead el-spotprices with 60m resolution. Calls spotprices_nok_tomorrow_24.php .<br>
+spotprices_NOK_tomorrow_24.php   php script             "                        Prepares data to be shown on spotprices_NOK_tomorrow_24.html .<br>
+                                                                                 Reads data from prices_PT15M_NOK_24_NOx.data and zonechoice.data .<br>
+zonechoice_24.php                php script             "                        Called by spotprices_nok_tomorrow_24.html, for choosing zone to display.<br>
+                                                                                 Edits zonechoice.data .<br>
+threemaxes.html                  html page              "                        Shows the three highest day maxes in current month. Calls threemaxes.php .<br>
+threemaxes.php                   php script             "                        Reads data from threemaxes.data, to show on threemaxes.html page.<br>
+relaycontrol.php                 php script             "                        GUI for control of two output relays. This script calls gpio.php .<br>
+gpio.php                         php script             "                        Controls two output relays, driven from output pins on Raspberry Pi 3B+.<br>
+notificationlimit.php            php script             "                        Edit kWh/h that triggers sending an email to specified email address.<br>
+                                                                                 Stores user defined kWh/h trigger value in  notificationlimit.data.<br>
+                                                                                 maxpowermonitor.py monitors the kWh/h value and sends email when applicable.<br>
+schematic.html                   html page              "                        Shows schematic of the equipment connected to Raspberry Pi 3B+.<br>
+schematic.jpg                    Image file             "                        Image containing the schematic.<br>
+zonemap.html                     html page              "                        Shows nordic el price zones.<br>
+zonemap.jpg                      Image file             "                        Image containing the zone map.<br>
+amsplotchoices.php               php script             "                        Edits parameter file amsplotchoices.data for plotting data from the AMS meter.<br>
+plot.php                         php script             "                        Starts main python script plotmain.py for plotting of currents, power, voltages.<br>
+plotmain.py                      python script          "                        Main python script for running the plot scripts. Deletes old plot images,<br>
+                                                                                 reads amsplotchoices.data, calls functions according to choices made by user.<br>
+plot_volts.py                    python script          "                        Plots two voltages (third not available for tech reasons).<br>
+volts.png                        Image file             "                        Latest voltages plot image. Gets overwritten by next plot.<br>
+plot_currents.py                 python script          "                        Plots three currents.<br>
+currents.png                     Image file             "                        Latest currents plot image. Gets overwritten by next plot.<br>
+plot_power.py                    python script          "                        Plots active power.<br>
+power.png                        Image file             "                        Latest power plot image. Gets overwritten by next plot.<br>
+currlog.php                      php script             "                        Reads currentlog.data every 10s, values are shown on amsdata.html page.<br>
+                                                                                 Currentlog.data file is updated by program readAMSxx.cpp .<br>
+currpower.php                    php script             "                        Reads currentactivepower.data every 2s, values are shown on amsdata.html page.<br>
+                                                                                 Currentactivepower.data file is updated by program readAMSxx.cpp .<br>
+currtime.php                     php script             "                        Reads currenttime.data every 2s, values are shown on amsdata.html page.<br>
+                                                                                 Currenttime.data file is updated by program readAMSxx.cpp .<br>
+<br>
 amsplotchoices.data              data file         /var/www/html/data/           Stores user defined parameters for plot, edited with amsplotchoices.php .
 currencyconversions.xml          xml file               "                        Conversion of EUR to NOK downloaded, read by spotprices.py .
 currentactivepower.data          data file              "                        Holds active power read from the meter by readAMSxx.cpp. Updated every 2s.
