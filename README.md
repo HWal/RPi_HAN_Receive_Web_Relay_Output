@@ -75,15 +75,18 @@ Make some directories on the Raspberry Pi (Command - Owner - Group - View - Chan
 mkdir /home/pi/Cpp_AMS/ - pi - pi - Anyone - Only owner - Anyone<br>
 mkdir /home/pi/Python_AMS/ - pi - pi - Anyone - Only owner - Anyone<br>
 mkdir /var/meter_log/ - root - root - Anyone - Anyone - Anyone<br>
+Edit/check /var/www/html/ - pi - pi - Anyone - Anyone - Anyone<br>
 mkdir /var/www/html/data/ - pi - pi - Anyone - Only owner - Anyone<br>
 mkdir /var/www/html/img/ - pi - pi - Anyone - Only owner - Anyone<br>
+Edit/check /media/pi/ - root - root - Anyone - Only owner and group - Anyone<br>
+Edit/check /media/pi/name-of-usb-stick/ - pi - pi - Anyone - Only owner - Anyone (for usb stick)<br>
 mkdir /media/pi/name-of-usb-stick/meter/ - pi - pi - Anyone - Only owner - Anyone (for usb stick)<br>
 mkdir /media/pi/name-of-usb-stick/prices/ - pi - pi - Anyone - Only owner - Anyone (for usb stick)<br>
 
 Permissions and ownership shown above is like I have it on my RPi. Use a strong password, see below.
-To give Apache permission to read /media/pi, edit pi to root - root- Anyone - Only owner and group - Anyone
 
 Now copy the files from github into the corresponding directories on RPi listed above.
+Don't mind about existing data on the files, they will be overwritten with correct data.
 
 Edit a cronjob as your pi user, with crontab -e, with the following content:
 
@@ -105,45 +108,124 @@ For presentation of log data on a laptop, please see the Readme file in the pyth
 
 To connect to the website from the outside world, you should open port 80 in your firewall. Beware the risk of getting the RPi hacked by outside users. You should therefore password protect the website. Information about how to do this is found on the internet.<br>
 
-LIST OF FILES (TO BE EDITED - NOT COMPLETE)<br>
-/home/pi/Cpp_AMS/readAMSxx.cpp<br>
-/home/pi/Cpp_AMS/copyFiles_meter<br>
-/home/pi/Cpp_AMS/a.out<br>
-/home/pi/Python_AMS/copyfiles_prices.py<br>
-/home/pi/Python_AMS/spotprices.py<br>
-/home/pi/Python_AMS/maxpowermonitor.py<br>
-/var/www/html/currtime.php<br>
-/var/www/html/gpio.php<br>
-/var/www/html/notificationlimit.php<br>
-/var/www/html/schematic.html<br>
-/var/www/html/schematic.jpg<br>
-/var/www/html/spotprices_NOK_tomorrow_24.php<br>
-/var/www/html/spotprices_NOK_tomorrow_24.html<br>
-/var/www/html/spotprices_NOK_tomorrow_96.php<br>
-/var/www/html/spotprices_NOK_tomorrow_96.html<br>
-/var/www/html/relaycontrol.php<br>
-/var/www/html/threemaxes.php<br>
-/var/www/html/threemaxes.html<br>
-/var/www/html/amsdata.html<br>
-/var/www/html/currpower.php<br>
-/var/www/html/currlog.php<br>
-/var/www/html/index.html<br>
-/var/www/html/img/green_0.jpg<br>
-/var/www/html/img/green_1.jpg<br>
-/var/www/html/img/red_0.jpg<br>
-/var/www/html/img/red_1.jpg<br>
-/var/www/html/data/notificationlimit.data<br>
-/var/www/html/data/threemaxes.data<br>
-/var/www/html/data/prices_EUR_today.data<br>
-/var/www/html/data/prices_NOK_today.data<br>
-/var/www/html/data/prices_EUR_tomorrow.xml<br>
-/var/www/html/data/prices_EUR_tomorrow.data<br>
-/var/www/html/data/currencyconversions.xml<br>
-/var/www/html/data/prices_NOK_tomorrow.data<br>
-/var/www/html/data/currentlog.data<br>
-/var/www/html/data/currentactivepower.data<br>
-/var/www/html/data/currenttime.data<br>
-/var/meter_log/20xx-yy-zz.txt<br>
-/media/pi/D8AF-261F/meter/20xx-yy-zz.txt<br>
-/media/pi/D8AF-261F/prices/20xxyyzz_EUR.data<br>
-/media/pi/D8AF-261F/prices/20xxyyzz_NOK.data<br>
+LIST OF FILES AND HOW THEY ARE USED<br>
+Name                                                         Type
+----                                                         ----
+/var/www/html/index.html                                     html page
+Main menu. Links all programs and scripts. The page also contains links
+to the NORD POOL power exchange, and an in-house water meter web camera.
+
+/var/www/html/amsdata.html                                   html page
+Shows live data from the AMS electricity meter.
+Calls currtime.php, currpower.php, currlog.php, which in turn reads data
+from the files currenttime.data, currentactivepower.data, currentlog.data.
+
+/var/www/html/spotprices_NOK_tomorrow_96.html                html page
+Shows Day-Ahead el-spotprices with 15m resolution.
+Calls spotprices_nok_tomorrow_96.php.
+
+/var/www/html/spotprices_NOK_tomorrow_96.php                 php script
+Prepares data to be shown on spotprices_nok_tomorrow_96.html.
+Reads data from prices_PT15M_NOK_96_NOx.data and zonechoice.data.
+
+/var/www/html/zonechoice_96.php                              php script
+Called by spotprices_nok_tomorrow_96.html, for choosing zone to display.
+Edits zonechoice.data.
+
+/var/www/html/spotprices_NOK_tomorrow_24.html                html page
+Shows Day-Ahead el-spotprices with 60m resolution. Calls
+spotprices_nok_tomorrow_24.php.
+
+/var/www/html/spotprices_NOK_tomorrow_24.php                 php script
+Prepares data to be shown on spotprices_NOK_tomorrow_24.html.
+Reads data from prices_PT15M_NOK_24_NOx.data and zonechoice.data.
+
+/var/www/html/zonechoice_24.php                              php script
+Called by spotprices_nok_tomorrow_24.html, for choosing zone to display.
+Edits zonechoice.data.
+
+/var/www/html/threemaxes.html                                html page      Shows the three highest day maxes in current month. Calls threemaxes.php .
+/var/www/html/threemaxes.php                                 php script     Reads data from threemaxes.data, to show on threemaxes.html page.
+/var/www/html/relaycontrol.php                               php script     GUI for control of two output relays. This script calls gpio.php .
+/var/www/html/gpio.php                                       php script     Controls two output relays, driven from output pins on Raspberry Pi 3B+.
+/var/www/html/notificationlimit.php                          php script     Edit kWh/h that triggers sending an email to specified email address.
+                                                                            Stores user defined kWh/h trigger value in  notificationlimit.data.
+                                                                            maxpowermonitor.py monitors the kWh/h value and sends email when applicable.
+/var/www/html/schematic.html                                 html page      Shows schematic of the equipment connected to Raspberry Pi 3B+.
+/var/www/html/schematic.jpg                                  Image file     Image containing the schematic.
+/var/www/html/zonemap.html                                   html page      Shows nordic el price zones.
+/var/www/html/zonemap.jpg                                    Image file     Image containing the zone map.
+/var/www/html/amsplotchoices.php                             php script     Edits parameter file amsplotchoices.data for plotting data from the AMS meter.
+/var/www/html/plot.php                                       php script     Starts main python script plotmain.py for plotting of currents, power, voltages.
+/var/www/html/plotmain.py                                    python script  Main python script for running the plot scripts. Deletes old plot images,
+                                                                            reads amsplotchoices.data, calls functions according to choices made by user.
+/var/www/html/plot_volts.py                                  python script  Plots two voltages (third not available for tech reasons).
+/var/www/html/volts.png                                      Image file     Latest voltages plot image. Gets overwritten by next plot.
+/var/www/html/plot_currents.py                               python script  Plots three currents.
+/var/www/html/currents.png                                   Image file     Latest currents plot image. Gets overwritten by next plot.
+/var/www/html/plot_power.py                                  python script  Plots active power.
+/var/www/html/power.png                                      Image file     Latest power plot image. Gets overwritten by next plot.
+/var/www/html/currlog.php                                    php script     Reads currentlog.data every 10s, values are shown on amsdata.html page.
+                                                                            Currentlog.data file is updated by program readAMSxx.cpp .
+/var/www/html/currpower.php                                  php script     Reads currentactivepower.data every 2s, values are shown on amsdata.html page.
+                                                                            Currentactivepower.data file is updated by program readAMSxx.cpp .
+/var/www/html/currtime.php                                   php script     Reads currenttime.data every 2s, values are shown on amsdata.html page.
+                                                                            Currenttime.data file is updated by program readAMSxx.cpp .
+/var/www/html/data/amsplotchoices.data                       data file      Stores user defined parameters for plot, edited with amsplotchoices.php .
+/var/www/html/data/currencyconversions.xml                   xml file       Conversion of EUR to NOK downloaded, read by spotprices.py .
+/var/www/html/data/currentactivepower.data                   data file      Holds active power read from the meter by readAMSxx.cpp. Updated every 2s.
+/var/www/html/data/currentlog.data                           data file      Holds multiple data read from the meter by readAMSxx.cpp .
+                                                                            Updated at various intervals every 2s/10s/hourly.
+/var/www/html/data/currenttime.data                          data file      Holds time updated from the meter by readAMSxx.cpp every 2s.
+                                                                            Read by currtime.php, to update time in amsdata.html page.
+/var/www/html/data/notificationlimit.data                    data file      Holds the kWh/h limit for when notification is sent to email address
+                                                                            given in the maxpowermonitor.py script. The kWh/h value is updated
+																			through notificationlimit.php .
+/var/www/html/data/prices_EUR_tomorrow_NO1.xml               xml file       El-price data downloaded from enso-e by spotprices.py each day at 14.00 hrs.
+/var/www/html/data/prices_EUR_tomorrow_NO2.xml               xml file       El-price data downloaded from enso-e by spotprices.py each day at 14.00 hrs.
+/var/www/html/data/prices_EUR_tomorrow_NO3.xml               xml file       El-price data downloaded from enso-e by spotprices.py each day at 14.00 hrs.
+/var/www/html/data/prices_EUR_tomorrow_NO4.xml               xml file       El-price data downloaded from enso-e by spotprices.py each day at 14.00 hrs.
+/var/www/html/data/prices_EUR_tomorrow_NO5.xml               xml file       El-price data downloaded from enso-e by spotprices.py each day at 14.00 hrs.
+/var/www/html/data/prices_PT15M_NOK_24_NO1.data              data file      Parsed .xml for zone NOx. Averaged 15m, shown in spotprices_NOK_tomorrow_24.html .
+/var/www/html/data/prices_PT15M_NOK_24_NO2.data              data file      Parsed .xml for zone NOx. Averaged 15m, shown in spotprices_NOK_tomorrow_24.html .
+/var/www/html/data/prices_PT15M_NOK_24_NO3.data              data file      Parsed .xml for zone NOx. Averaged 15m, shown in spotprices_NOK_tomorrow_24.html .
+/var/www/html/data/prices_PT15M_NOK_24_NO4.data              data file      Parsed .xml for zone NOx. Averaged 15m, shown in spotprices_NOK_tomorrow_24.html .
+/var/www/html/data/prices_PT15M_NOK_24_NO5.data              data file      Parsed .xml for zone NOx. Averaged 15m, shown in spotprices_NOK_tomorrow_24.html .
+/var/www/html/data/prices_PT15M_NOK_96_NO1.data              data file      Parsed .xml for zone NOx. Price per 15m, shown in spotprices_NOK_tomorrow_96.html .
+/var/www/html/data/prices_PT15M_NOK_96_NO2.data              data file      Parsed .xml for zone NOx. Price per 15m, shown in spotprices_NOK_tomorrow_96.html .
+/var/www/html/data/prices_PT15M_NOK_96_NO3.data              data file      Parsed .xml for zone NOx. Price per 15m, shown in spotprices_NOK_tomorrow_96.html .
+/var/www/html/data/prices_PT15M_NOK_96_NO4.data              data file      Parsed .xml for zone NOx. Price per 15m, shown in spotprices_NOK_tomorrow_96.html .
+/var/www/html/data/prices_PT15M_NOK_96_NO5.data              data file      Parsed .xml for zone NOx. Price per 15m, shown in spotprices_NOK_tomorrow_96.html .
+/var/www/html/data/threemaxes.data                           data file      Holds the three max kWh/h values with date and time, during current month.
+                                                                            Content updated by maxpowermonitor.py .
+                                                                            Read by threemaxes.php, shown i treemaxes.html .
+/var/www/html/data/zonechoice.data                           data file      Holds the current price zone to be shown.
+                                                                            Read by zonechoice_24.php and zonechoice_96.php, to be used by, and shown in,
+                                                                            spotprices_NOK_tomorrow_24.html and spotprices_NOK_tomorrow_96.html respectively.
+/var/www/html/img/green_0.jpg                                Image file     Show On/Off condition of output relays.
+/var/www/html/img/green_1.jpg                                Image file     Show On/Off condition of output relays.
+/var/www/html/img/red_0.jpg                                  Image file     Show On/Off condition of output relays.
+/var/www/html/img/red_1.jpg                                  Image file     Show On/Off condition of output relays.
+/home/pi/Cpp_AMS/readAMSxx.cpp                               C++ program    Source code for a.out. These files are updated by the program:
+                                                                            /var/meter_log/yyyy-mm-dd.txt                Every 10s.
+                                                                            /var/www/html/data/currenttime.data          Every 2s.
+                                                                            /var/www/html/data/currentactivepower.data   Every 2s
+                                                                            /var/www/html/data/currentlog.data various intervals every 2s/10s/hourly.
+/home/pi/Cpp_AMS/a.out                                       executable     Executable version of readAMSxx.cpp . Does the actual reading of the meter.
+/home/pi/Cpp_AMS/copyFiles_meter                             shell script   Copy /var/meter_log/yyyy-mm-dd.txt to usb stick. Cleans /var/meter_log/
+                                                                            of files older than 2 days. Run as cron job 10 minutes past every midnight.
+/var/meter_log/yyyy-mm-dd.txt                                data file      This file is updated by readAMSxx.cpp Every 10s.
+/home/pi/Python_AMS/copyfiles_prices.py                      python script  Copy price data per day to usb stick. Run as cron job 20 minutes past midnight.
+                                                                            Note: At present only prices for NO5 are saved to the usb stick.
+                                                                            prices_PT15M_NOK_24_NO5.data -> yyyymmdd_PT15M_NOK_24_NO5.data .
+                                                                            prices_PT15M_NOK_96_NO5.data -> yyyymmdd_PT15M_NOK_96_NO5.data .
+/home/pi/Python_AMS/maxpowermonitor.py                       python script  Calculates energy difference between each top of hour.
+                                                                            Determines the highest Wh value for each day.
+                                                                            Keeps the three highest day values within the month.
+																			Updates file threemaxes.data .
+/home/pi/Python_AMS/spotprices.py                            python script  Downloads spotprices and generates price data files for all norwegian price zones.
+                                                                            Run as cron job every day at 14.00 hrs.
+                                                                            Files: prices_PT15M_NOK_24_NOx.data and prices_PT15M_NOK_96_NOx.data .
+/media/pi/D8AF-261F/meter/yyyy-mm-dd.txt                     data file      Log per day of AMS meter, with 10s resolution, copied from folder /var/meter_log .
+/media/pi/D8AF-261F/prices/yyyymmdd_PT15M_NOK_24_NO5.data    data file      Log per day of el-spotprices, one price per hour (averaged 15m prices).
+/media/pi/D8AF-261F/prices/yyyymmdd_PT15M_NOK_96_NO5.data    data file      Log per day of el-spotprices, one price per 15m.
