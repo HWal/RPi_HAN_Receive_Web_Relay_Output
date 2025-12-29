@@ -112,38 +112,32 @@ LIST OF FILES AND HOW THEY ARE USED
 -----------------------------------
 Name                                                         Type
 
-/var/www/html/index.html                                     html page
-Main menu. Links all programs and scripts. The page also contains links
-to the NORD POOL power exchange, and an in-house water meter web camera.
+/var/www/html/index.html                                     html page<br>
+Main menu. Links all programs and scripts. The page also contains links to the NORD POOL power exchange, and an in-house water meter web camera.
 
-/var/www/html/amsdata.html                                   html page
-Shows live data from the AMS electricity meter.
-Calls currtime.php, currpower.php, currlog.php, which in turn reads data
-from the files currenttime.data, currentactivepower.data, currentlog.data.
+/var/www/html/amsdata.html                                   html page<br>
+Shows live data from the AMS electricity meter. Calls currtime.php, currpower.php, currlog.php, which in turn reads data from the files currenttime.data, currentactivepower.data, currentlog.data.
 
-/var/www/html/spotprices_NOK_tomorrow_96.html                html page
-Shows Day-Ahead el-spotprices with 15m resolution.
-Calls spotprices_nok_tomorrow_96.php.
+/var/www/html/spotprices_NOK_tomorrow_96.html                html page<br>
+Shows Day-Ahead el-spotprices with 15m resolution. Calls spotprices_nok_tomorrow_96.php.
 
-/var/www/html/spotprices_NOK_tomorrow_96.php                 php script
-Prepares data to be shown on spotprices_nok_tomorrow_96.html.
-Reads data from prices_PT15M_NOK_96_NOx.data and zonechoice.data.
+/var/www/html/spotprices_NOK_tomorrow_96.php                 php script<br>
+Prepares data to be shown on spotprices_nok_tomorrow_96.html. Reads data from prices_PT15M_NOK_96_NOx.data and zonechoice.data.
 
-/var/www/html/zonechoice_96.php                              php script
-Called by spotprices_nok_tomorrow_96.html, for choosing zone to display.
-Edits zonechoice.data.
+/var/www/html/zonechoice_96.php                              php script<br>
+Called by spotprices_nok_tomorrow_96.html, for choosing zone to display. Edits zonechoice.data.
 
-/var/www/html/spotprices_NOK_tomorrow_24.html                html page
-Shows Day-Ahead el-spotprices with 60m resolution. Calls
-spotprices_nok_tomorrow_24.php.
+/var/www/html/spotprices_NOK_tomorrow_24.html                html page<br>
+Shows Day-Ahead el-spotprices with 60m resolution. Calls spotprices_nok_tomorrow_24.php.
 
-/var/www/html/spotprices_NOK_tomorrow_24.php                 php script
-Prepares data to be shown on spotprices_NOK_tomorrow_24.html.
-Reads data from prices_PT15M_NOK_24_NOx.data and zonechoice.data.
+/var/www/html/spotprices_NOK_tomorrow_24.php                 php script<br>
+Prepares data to be shown on spotprices_NOK_tomorrow_24.html. Reads data from prices_PT15M_NOK_24_NOx.data and zonechoice.data.
 
-/var/www/html/zonechoice_24.php                              php script
-Called by spotprices_nok_tomorrow_24.html, for choosing zone to display.
-Edits zonechoice.data.
+/var/www/html/zonechoice_24.php                              php script<br>
+Called by spotprices_nok_tomorrow_24.html, for choosing zone to display. Edits zonechoice.data.
+
+
+
 
 /var/www/html/threemaxes.html                                html page      Shows the three highest day maxes in current month. Calls threemaxes.php .
 /var/www/html/threemaxes.php                                 php script     Reads data from threemaxes.data, to show on threemaxes.html page.
