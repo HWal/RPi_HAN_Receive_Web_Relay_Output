@@ -153,29 +153,56 @@ Edit kWh/h that triggers sending an email to specified email address. Stores use
 /var/www/html/schematic.html<br>
 Shows schematic of the equipment connected to Raspberry Pi 3B+.
 
+/var/www/html/schematic.jpg<br>
+Image containing the schematic.
+
+/var/www/html/zonemap.html<br>
+Shows nordic el price zones.
+
+/var/www/html/zonemap.jpg<br>
+Image containing the zone map.
+
+/var/www/html/amsplotchoices.php<br>
+Edits parameter file amsplotchoices.data for plotting data from the AMS meter.
+
+/var/www/html/plot.php<br>
+Starts main python script plotmain.py for plotting of currents, power, voltages.
+
+/var/www/html/plotmain.py<br>
+Main python script for running the plot scripts. Deletes old plot images, reads amsplotchoices.data, calls functions according to choices made by user.
+
+/var/www/html/plot_volts.py<br>
+Plots two voltages (third not available for tech reasons).
+
+/var/www/html/volts.png<br>
+Latest voltages plot image. Gets overwritten by next plot.
+
+/var/www/html/plot_currents.py<br>
+Plots three currents.
+
+/var/www/html/currents.png<br>
+Latest currents plot image. Gets overwritten by next plot.
+
+/var/www/html/plot_power.py<br>
+Plots active power.
+
+/var/www/html/power.png<br>
+Latest power plot image. Gets overwritten by next plot.
+
+/var/www/html/currlog.php<br>
+Reads currentlog.data every 10s, values are shown on amsdata.html page. Currentlog.data file is updated by program readAMSxx.cpp.
+
+/var/www/html/currpower.php<br>
+Reads currentactivepower.data every 2s, values are shown on amsdata.html page. Currentactivepower.data file is updated by program readAMSxx.cpp.
+
+/var/www/html/currtime.php<br>
+Reads currenttime.data every 2s, values are shown on amsdata.html page. Currenttime.data file is updated by program readAMSxx.cpp.
 
 
 
 
-/var/www/html/schematic.jpg                                  Image file     Image containing the schematic.
-/var/www/html/zonemap.html                                   html page      Shows nordic el price zones.
-/var/www/html/zonemap.jpg                                    Image file     Image containing the zone map.
-/var/www/html/amsplotchoices.php                             php script     Edits parameter file amsplotchoices.data for plotting data from the AMS meter.
-/var/www/html/plot.php                                       php script     Starts main python script plotmain.py for plotting of currents, power, voltages.
-/var/www/html/plotmain.py                                    python script  Main python script for running the plot scripts. Deletes old plot images,
-                                                                            reads amsplotchoices.data, calls functions according to choices made by user.
-/var/www/html/plot_volts.py                                  python script  Plots two voltages (third not available for tech reasons).
-/var/www/html/volts.png                                      Image file     Latest voltages plot image. Gets overwritten by next plot.
-/var/www/html/plot_currents.py                               python script  Plots three currents.
-/var/www/html/currents.png                                   Image file     Latest currents plot image. Gets overwritten by next plot.
-/var/www/html/plot_power.py                                  python script  Plots active power.
-/var/www/html/power.png                                      Image file     Latest power plot image. Gets overwritten by next plot.
-/var/www/html/currlog.php                                    php script     Reads currentlog.data every 10s, values are shown on amsdata.html page.
-                                                                            Currentlog.data file is updated by program readAMSxx.cpp .
-/var/www/html/currpower.php                                  php script     Reads currentactivepower.data every 2s, values are shown on amsdata.html page.
-                                                                            Currentactivepower.data file is updated by program readAMSxx.cpp .
-/var/www/html/currtime.php                                   php script     Reads currenttime.data every 2s, values are shown on amsdata.html page.
-                                                                            Currenttime.data file is updated by program readAMSxx.cpp .
+
+
 /var/www/html/data/amsplotchoices.data                       data file      Stores user defined parameters for plot, edited with amsplotchoices.php .
 /var/www/html/data/currencyconversions.xml                   xml file       Conversion of EUR to NOK downloaded, read by spotprices.py .
 /var/www/html/data/currentactivepower.data                   data file      Holds active power read from the meter by readAMSxx.cpp. Updated every 2s.
