@@ -6,15 +6,15 @@ HAN reader with relay control for Raspberry Pi 3B+
 Brief description
 -----------------
 This project for the Raspberry Pi has the following functions:
-* Read and decode data from the HAN-port on Kaifa (MA304H3E 3-phase) smart electricity meter. It also works with Kaifa 1-phase meter, but this has not been tested.
+* Read and decode data from the HAN-port on Kaifa (MA304H3E 3-phase) smart electricity meter. This also works with Kaifa 1-phase meter, but this has not been tested.
 * Present live data from the meter on a simple webpage, based on Apache2 webserver.
 * Control two output relays.
-* Download and view el-spotprices for the user's local area. Note, the program spotprices.py needs to be edited accordingly. 
+* Download and view el-spotprices for selectable Norwegian price zones. 
 * Send email to a specified address when Watt hours used during one hour exceeds a limit set by the user.
-* Analyze log files from the meter on the website.
+* Plot log files from the meter on the website.
 
-Hardware
---------
+Hardware (see connection diagram)
+---------------------------------
 * One Raspberry Pi 3 B+ with Raspbian (Buster) installed
 * 5V power supply and USB cable
 * TSS721 Module Board M-BUS To TTL converter (AliExpress)
@@ -72,13 +72,13 @@ sudo reboot <br>
 Now ttyAMA0 / PL011 / UART0 is connected to gpio 14 / 15 which are the physical pins 8 / 10<br>
 
 Make some directories on the Raspberry Pi (Command - Owner - Group - View - Change - Access):<br>
-mkdir /home/pi/Cpp_AMS - pi - pi - Anyone - Only owner - Anyone<br>
-mkdir /home/pi/Python_AMS - pi - pi - Anyone - Only owner - Anyone<br>
-mkdir /var/meter_log - root - root - Anyone - Anyone - Anyone<br>
-mkdir /var/www/html/data - pi - pi - Anyone - Only owner - Anyone<br>
-mkdir /var/www/html/img - pi - pi - Anyone - Only owner - Anyone<br>
-mkdir /media/pi/name-of-usb-stick/meter - pi - pi - Anyone - Only owner - Anyone (for usb stick)<br>
-mkdir /media/pi/name-of-usb-stick/prices - pi - pi - Anyone - Only owner - Anyone (for usb stick)<br>
+mkdir /home/pi/Cpp_AMS/ - pi - pi - Anyone - Only owner - Anyone<br>
+mkdir /home/pi/Python_AMS/ - pi - pi - Anyone - Only owner - Anyone<br>
+mkdir /var/meter_log/ - root - root - Anyone - Anyone - Anyone<br>
+mkdir /var/www/html/data/ - pi - pi - Anyone - Only owner - Anyone<br>
+mkdir /var/www/html/img/ - pi - pi - Anyone - Only owner - Anyone<br>
+mkdir /media/pi/name-of-usb-stick/meter/ - pi - pi - Anyone - Only owner - Anyone (for usb stick)<br>
+mkdir /media/pi/name-of-usb-stick/prices/ - pi - pi - Anyone - Only owner - Anyone (for usb stick)<br>
 
 Permissions and ownership shown above is like I have it on my RPi. Use a strong password, see below.
 To give Apache permission to read /media/pi, edit pi to root - root- Anyone - Only owner and group - Anyone
@@ -105,7 +105,7 @@ For presentation of log data on a laptop, please see the Readme file in the pyth
 
 To connect to the website from the outside world, you should open port 80 in your firewall. Beware the risk of getting the RPi hacked by outside users. You should therefore password protect the website. Information about how to do this is found on the internet.<br>
 
-LIST OF FILES<br>
+LIST OF FILES (TO BE EDITED - NOT COMPLETE)<br>
 /home/pi/Cpp_AMS/readAMS77.cpp
 /home/pi/Cpp_AMS/copyFiles_meter
 /home/pi/Cpp_AMS/a.out
