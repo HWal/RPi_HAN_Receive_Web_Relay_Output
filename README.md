@@ -6,7 +6,7 @@ HAN reader with relay control for Raspberry Pi 3B+
 Brief description
 -----------------
 This project for the Raspberry Pi has the following functions:
-* Read and decode data from the HAN-port on Kaifa (MA304H3E 3-phase) smart electricity meter. This also works with Kaifa 1-phase meter, but this has not been tested.
+* Read and decode data from the HAN-port on Kaifa (MA304H3E 3-phase) smart electricity meter. This also works with Kaifa 1-phase meter, but has not been tested.
 * Present live data from the meter on a simple webpage, based on Apache2 webserver.
 * Control two output relays.
 * Download and view el-spotprices for selectable Norwegian price zones. 
@@ -93,7 +93,7 @@ Edit a cronjob as your pi user, with crontab -e, with the following content:
 
 Connect the equipment as shown in schematic.jpg
 
-Goto folder Cpp_AMS and compile the source code with: g++ -W readAMS77.cpp. Then start reading messages by typing: ./a.out
+Goto folder Cpp_AMS and compile the source code with: g++ -W readAMSxx.cpp. Then start reading messages by typing: ./a.out
 
 NOTE: After upgrading from RPi Operating system stretch to buster I experienced problems while reading the meter. readAMS66.cpp has now been adapted to the newer buster release, and latest version is now readAMS77.cpp. In case of problems it is suggested that you try both program versions to determine what works best for you.
 
@@ -106,9 +106,9 @@ For presentation of log data on a laptop, please see the Readme file in the pyth
 To connect to the website from the outside world, you should open port 80 in your firewall. Beware the risk of getting the RPi hacked by outside users. You should therefore password protect the website. Information about how to do this is found on the internet.<br>
 
 LIST OF FILES (TO BE EDITED - NOT COMPLETE)<br>
-/home/pi/Cpp_AMS/readAMS77.cpp
-/home/pi/Cpp_AMS/copyFiles_meter
-/home/pi/Cpp_AMS/a.out
+/home/pi/Cpp_AMS/readAMSxx.cpp<br>
+/home/pi/Cpp_AMS/copyFiles_meter<br>
+/home/pi/Cpp_AMS/a.out<br>
 /home/pi/Python_AMS/copyfiles_prices.py<br>
 /home/pi/Python_AMS/spotprices.py<br>
 /home/pi/Python_AMS/maxpowermonitor.py<br>
