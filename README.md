@@ -108,9 +108,10 @@ For presentation of log data on a laptop, please see the Readme file in the pyth
 
 To connect to the website from the outside world, you should open port 80 in your firewall. Beware the risk of getting the RPi hacked by outside users. You should therefore password protect the website. Information about how to do this is found on the internet.<br>
 
-LIST OF FILES AND HOW THEY ARE USED<br>
+LIST OF FILES AND HOW THEY ARE USED
+-----------------------------------
 Name                                                         Type
-----                                                         ----
+
 /var/www/html/index.html                                     html page
 Main menu. Links all programs and scripts. The page also contains links
 to the NORD POOL power exchange, and an in-house water meter web camera.
