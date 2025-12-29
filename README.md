@@ -110,43 +110,53 @@ To connect to the website from the outside world, you should open port 80 in you
 
 LIST OF FILES AND HOW THEY ARE USED
 -----------------------------------
-Name                                                         Type
 
-/var/www/html/index.html                                     html page<br>
+/var/www/html/index.html<br>
 Main menu. Links all programs and scripts. The page also contains links to the NORD POOL power exchange, and an in-house water meter web camera.
 
-/var/www/html/amsdata.html                                   html page<br>
+/var/www/html/amsdata.html<br>
 Shows live data from the AMS electricity meter. Calls currtime.php, currpower.php, currlog.php, which in turn reads data from the files currenttime.data, currentactivepower.data, currentlog.data.
 
-/var/www/html/spotprices_NOK_tomorrow_96.html                html page<br>
+/var/www/html/spotprices_NOK_tomorrow_96.html<br>
 Shows Day-Ahead el-spotprices with 15m resolution. Calls spotprices_nok_tomorrow_96.php.
 
-/var/www/html/spotprices_NOK_tomorrow_96.php                 php script<br>
+/var/www/html/spotprices_NOK_tomorrow_96.php<br>
 Prepares data to be shown on spotprices_nok_tomorrow_96.html. Reads data from prices_PT15M_NOK_96_NOx.data and zonechoice.data.
 
-/var/www/html/zonechoice_96.php                              php script<br>
+/var/www/html/zonechoice_96.php<br>
 Called by spotprices_nok_tomorrow_96.html, for choosing zone to display. Edits zonechoice.data.
 
-/var/www/html/spotprices_NOK_tomorrow_24.html                html page<br>
+/var/www/html/spotprices_NOK_tomorrow_24.html<br>
 Shows Day-Ahead el-spotprices with 60m resolution. Calls spotprices_nok_tomorrow_24.php.
 
-/var/www/html/spotprices_NOK_tomorrow_24.php                 php script<br>
+/var/www/html/spotprices_NOK_tomorrow_24.php<br>
 Prepares data to be shown on spotprices_NOK_tomorrow_24.html. Reads data from prices_PT15M_NOK_24_NOx.data and zonechoice.data.
 
-/var/www/html/zonechoice_24.php                              php script<br>
+/var/www/html/zonechoice_24.php<br>
 Called by spotprices_nok_tomorrow_24.html, for choosing zone to display. Edits zonechoice.data.
 
+/var/www/html/threemaxes.html<br>
+Shows the three highest day maxes in current month. Calls threemaxes.php.
+
+/var/www/html/threemaxes.php<br>
+Reads data from threemaxes.data, to show on threemaxes.html page.
+
+/var/www/html/relaycontrol.php<br>
+GUI for control of two output relays. This script calls gpio.php.
+
+/var/www/html/gpio.php<br>
+Controls two output relays, driven from output pins on Raspberry Pi 3B+.
+
+/var/www/html/notificationlimit.php<br>
+Edit kWh/h that triggers sending an email to specified email address. Stores user defined kWh/h trigger value in  notificationlimit.data. maxpowermonitor.py monitors the kWh/h value and sends email when applicable.
+
+/var/www/html/schematic.html<br>
+Shows schematic of the equipment connected to Raspberry Pi 3B+.
 
 
 
-/var/www/html/threemaxes.html                                html page      Shows the three highest day maxes in current month. Calls threemaxes.php .
-/var/www/html/threemaxes.php                                 php script     Reads data from threemaxes.data, to show on threemaxes.html page.
-/var/www/html/relaycontrol.php                               php script     GUI for control of two output relays. This script calls gpio.php .
-/var/www/html/gpio.php                                       php script     Controls two output relays, driven from output pins on Raspberry Pi 3B+.
-/var/www/html/notificationlimit.php                          php script     Edit kWh/h that triggers sending an email to specified email address.
-                                                                            Stores user defined kWh/h trigger value in  notificationlimit.data.
-                                                                            maxpowermonitor.py monitors the kWh/h value and sends email when applicable.
-/var/www/html/schematic.html                                 html page      Shows schematic of the equipment connected to Raspberry Pi 3B+.
+
+
 /var/www/html/schematic.jpg                                  Image file     Image containing the schematic.
 /var/www/html/zonemap.html                                   html page      Shows nordic el price zones.
 /var/www/html/zonemap.jpg                                    Image file     Image containing the zone map.
