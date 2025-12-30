@@ -270,5 +270,5 @@ Log per day of AMS meter, with 10s resolution, copied from folder /var/meter_log
 /media/pi/D8AF-261F/prices/yyyymmdd_PT15M_NOK_24_NOx.data (x = 5)<br>
 Log per day of el-spotprices, one price per hour (averaged 15m prices).
 
-/media/pi/D8AF-261F/prices/yyyymmdd_PT15M_NOK_96_NO5.data (x = 5)<br>
+/media/pi/D8AF-261F/prices/yyyymmdd_PT15M_NOK_96_NOx.data (x = 5)<br>
 Log per day of el-spotprices, one price per 15m.
