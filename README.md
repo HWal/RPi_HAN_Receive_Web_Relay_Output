@@ -121,7 +121,7 @@ Shows live data from the AMS electricity meter. Calls currtime.php, currpower.ph
 Shows Day-Ahead el-spotprices with 15m resolution. Calls spotprices_nok_tomorrow_96.php.
 
 /var/www/html/spotprices_NOK_tomorrow_96.php<br>
-Prepares data to be shown on spotprices_nok_tomorrow_96.html. Reads data from prices_PT15M_NOK_96_NOx.data and zonechoice.data.
+Prepares data to be shown on spotprices_nok_tomorrow_96.html. Reads data from prices_PT15M_NOK_96_NOx.data (x = 1 ...5) and zonechoice.data.
 
 /var/www/html/zonechoice_96.php<br>
 Called by spotprices_nok_tomorrow_96.html, for choosing zone to display. Edits zonechoice.data.
@@ -130,7 +130,7 @@ Called by spotprices_nok_tomorrow_96.html, for choosing zone to display. Edits z
 Shows Day-Ahead el-spotprices with 60m resolution. Calls spotprices_nok_tomorrow_24.php.
 
 /var/www/html/spotprices_NOK_tomorrow_24.php<br>
-Prepares data to be shown on spotprices_NOK_tomorrow_24.html. Reads data from prices_PT15M_NOK_24_NOx.data and zonechoice.data.
+Prepares data to be shown on spotprices_NOK_tomorrow_24.html. Reads data from prices_PT15M_NOK_24_NOx.data (x = 1 ...5) and zonechoice.data.
 
 /var/www/html/zonechoice_24.php<br>
 Called by spotprices_nok_tomorrow_24.html, for choosing zone to display. Edits zonechoice.data.
@@ -216,49 +216,13 @@ Holds time updated from the meter by readAMSxx.cpp every 2s. Read by currtime.ph
 /var/www/html/data/notificationlimit.data<br>
 Holds the kWh/h limit for when notification is sent to email address hardcoded in the maxpowermonitor.py script. The kWh/h value is updated by notificationlimit.php.
 
-/var/www/html/data/prices_EUR_tomorrow_NO1.xml<br>
+/var/www/html/data/prices_EUR_tomorrow_NOx.xml (x = 1 ... 5)<br>
 El-price data downloaded from enso-e by spotprices.py each day at 14.00 hrs.
 
-/var/www/html/data/prices_EUR_tomorrow_NO2.xml<br>
-El-price data downloaded from enso-e by spotprices.py each day at 14.00 hrs.
-
-/var/www/html/data/prices_EUR_tomorrow_NO3.xml<br>
-El-price data downloaded from enso-e by spotprices.py each day at 14.00 hrs.
-
-/var/www/html/data/prices_EUR_tomorrow_NO4.xml<br>
-El-price data downloaded from enso-e by spotprices.py each day at 14.00 hrs.
-
-/var/www/html/data/prices_EUR_tomorrow_NO5.xml<br>
-El-price data downloaded from enso-e by spotprices.py each day at 14.00 hrs.
-
-/var/www/html/data/prices_PT15M_NOK_24_NO1.data<br>
+/var/www/html/data/prices_PT15M_NOK_24_NOx.data (x = 1 ... 5)<br>
 Parsed .xml for zone NOx. Averaged 15m, shown in spotprices_NOK_tomorrow_24.html.
 
-/var/www/html/data/prices_PT15M_NOK_24_NO2.data<br>
-Parsed .xml for zone NOx. Averaged 15m, shown in spotprices_NOK_tomorrow_24.html.
-
-/var/www/html/data/prices_PT15M_NOK_24_NO3.data<br>
-Parsed .xml for zone NOx. Averaged 15m, shown in spotprices_NOK_tomorrow_24.html.
-
-/var/www/html/data/prices_PT15M_NOK_24_NO4.data<br>
-Parsed .xml for zone NOx. Averaged 15m, shown in spotprices_NOK_tomorrow_24.html.
-
-/var/www/html/data/prices_PT15M_NOK_24_NO5.data<br>
-Parsed .xml for zone NOx. Averaged 15m, shown in spotprices_NOK_tomorrow_24.html.
-
-/var/www/html/data/prices_PT15M_NOK_96_NO1.data<br>
-Parsed .xml for zone NOx. Price per 15m, shown in spotprices_NOK_tomorrow_96.html.
-
-/var/www/html/data/prices_PT15M_NOK_96_NO2.data<br>
-Parsed .xml for zone NOx. Price per 15m, shown in spotprices_NOK_tomorrow_96.html.
-
-/var/www/html/data/prices_PT15M_NOK_96_NO3.data<br>
-Parsed .xml for zone NOx. Price per 15m, shown in spotprices_NOK_tomorrow_96.html.
-
-/var/www/html/data/prices_PT15M_NOK_96_NO4.data<br>
-Parsed .xml for zone NOx. Price per 15m, shown in spotprices_NOK_tomorrow_96.html.
-
-/var/www/html/data/prices_PT15M_NOK_96_NO5.data<br>
+/var/www/html/data/prices_PT15M_NOK_96_NOx.data (x = 1 ... 5)<br>
 Parsed .xml for zone NOx. Price per 15m, shown in spotprices_NOK_tomorrow_96.html.
 
 /var/www/html/data/threemaxes.data<br>
@@ -298,13 +262,13 @@ Copies price data per day to usb stick. Run as cron job 20 minutes past midnight
 Calculates energy difference between each top of hour. Determines the highest Wh value for each day. Keeps the three highest day values within the month. Updates file threemaxes.data.
 
 /home/pi/Python_AMS/spotprices.py<br>
-Downloads spotprices and generates price data files for all norwegian price zones. Run as cron job every day at 14.00 hrs. Files: prices_PT15M_NOK_24_NOx.data and prices_PT15M_NOK_96_NOx.data.
+Downloads spotprices and generates price data files for all norwegian price zones. Run as cron job every day at 14.00 hrs. Files: prices_PT15M_NOK_24_NOx.data and prices_PT15M_NOK_96_NOx.data (x = 1 ... 5).
 
 /media/pi/D8AF-261F/meter/yyyy-mm-dd.txt<br>
 Log per day of AMS meter, with 10s resolution, copied from folder /var/meter_log.
 
-/media/pi/D8AF-261F/prices/yyyymmdd_PT15M_NOK_24_NO5.data<br>
+/media/pi/D8AF-261F/prices/yyyymmdd_PT15M_NOK_24_NOx.data (x = 5)<br>
 Log per day of el-spotprices, one price per hour (averaged 15m prices).
 
-/media/pi/D8AF-261F/prices/yyyymmdd_PT15M_NOK_96_NO5.data<br>
+/media/pi/D8AF-261F/prices/yyyymmdd_PT15M_NOK_96_NO5.data (x = 5)<br>
 Log per day of el-spotprices, one price per 15m.
