@@ -15,15 +15,15 @@ body {
 
 <script type = "text/javascript">
 if(typeof(EventSource) !== "undefined") {
-  var eSource2 = new EventSource("currtime.php");
-  eSource2.onmessage = function(event) {
-    document.getElementById("msgTime_SSE").innerHTML = event.data;
-  }
-}
-if(typeof(EventSource) !== "undefined") {
   var eSource1 = new EventSource("currpower.php");
   eSource1.onmessage = function(event) {
     document.getElementById("actPowerPlus_SSE").innerHTML = event.data;
+  }
+}
+if(typeof(EventSource) !== "undefined") {
+  var eSource2 = new EventSource("currtime.php");
+  eSource2.onmessage = function(event) {
+    document.getElementById("msgTime_SSE").innerHTML = event.data;
   }
 }
 if(typeof(EventSource) !== "undefined") {
@@ -31,6 +31,7 @@ if(typeof(EventSource) !== "undefined") {
   eSource3.onmessage = function(event) {
     var logArray = JSON.parse(event.data);
     document.getElementById("msgDate_SSE").innerHTML = logArray[0];
+    // document.getElementById("msgTime_SSE").innerHTML = logArray[1];
     document.getElementById("obis_list_version_SSE").innerHTML = logArray[2];
     document.getElementById("meterId_SSE").innerHTML = logArray[3];
     document.getElementById("meterModel_SSE").innerHTML = logArray[4];
