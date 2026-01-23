@@ -93,6 +93,8 @@ Edit a cronjob as your pi user, with crontab -e, with the following content:
 10 00 * * * /home/pi/Cpp_AMS/copyFiles_meter<br>
 20 00 * * * /usr/bin/python3 /home/pi/Python_AMS/copyfiles_prices.py<br>
 00 14 * * * /usr/bin/python3 /home/pi/Python_AMS/spotprices.py<br>
+00 22 * * * /usr/bin/python3 /home/pi/Python_AMS/spotprices.py<br>
+The last line is present to secure that late incoming spotprices are registered. 
 
 Connect the equipment as shown in schematic.jpg
 
