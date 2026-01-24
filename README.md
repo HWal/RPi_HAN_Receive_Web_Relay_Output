@@ -100,11 +100,13 @@ Connect the equipment as shown in schematic.jpg
 
 Goto folder Cpp_AMS and compile the source code with: g++ -W readAMSxx.cpp. Then start reading messages by typing: ./a.out
 
-NOTE: After upgrading from RPi Operating system stretch to buster I experienced problems while reading the meter. readAMS66.cpp has now been adapted to the newer buster release, and latest version is now readAMS77.cpp. In case of problems it is suggested that you try both program versions to determine what works best for you.
+NOTE: After upgrading from RPi Operating system stretch to buster I experienced problems reading the meter. From readAMS66.cpp onwards the program has been adapted to the newer buster release. The latest version is now readAMS77.cpp.
 
 Goto folder Python_AMS and start the notification app with: python3 maxpowermonitor.py
 
 When you see the two programs working in their respective terminal windows, you may open the website. From the laptop, when connected to the same local network, open the browser and enter the IP address of the Raspberry pi. The website is very simple, and should be self explanatory. Test that values are being updated in the "View current data from the meter" page. <br>
+
+Day-Ahead spotprices are downloaded every day at 14 and 22 hrs PM.
 
 For presentation of log data on a laptop, please see the Readme file in the python folder.
 
