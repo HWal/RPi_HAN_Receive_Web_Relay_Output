@@ -108,8 +108,6 @@ When you see the two programs working in their respective terminal windows, you 
 
 Day-Ahead spotprices are downloaded every day at 14 and 22 hrs PM.
 
-For presentation of log data on a laptop, please see the Readme file in the python folder.
-
 To connect to the website from the outside world, you should open port 80 in your firewall. Beware the risk of getting the RPi hacked by outside users. You should therefore password protect the website. Information about how to do this is found on the internet.<br>
 
 LIST OF FILES AND HOW THEY ARE USED

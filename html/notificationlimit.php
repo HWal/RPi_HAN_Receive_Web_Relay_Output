@@ -22,10 +22,10 @@
     <body>
 
     <center><H3>Enter the preferred notification limit.</center></H3></center>
-    <center><H3>If Watt hours used during one hour</center></H3></center>
-    <center><H3>exceeds the limit, an email reminder</center></H3></center>
-    <center><H3>is sent to the address given in</center></H3></center>
-    <center><H3>.../pi/Python_AMS/threemaxes.py</H3></center>
+    <center><H3>If Watt hours used during any one hour</center></H3></center>
+    <center><H3>exceeds the limit, an email is sent to</center></H3></center>
+    <center><H3>the address given in</center></H3></center>
+    <center><H3>.../pi/Python_AMS/maxpowermonitor.py</H3></center>
 
         <table align="center" border="1" height="180" width="300" cellpadding="2" bgcolor="#F5F9FA"><tr><td>
 
