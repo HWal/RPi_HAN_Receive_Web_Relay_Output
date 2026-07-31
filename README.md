@@ -6,9 +6,9 @@ HAN reader with relay control for Raspberry Pi 3B+
 Brief description
 -----------------
 This project for the Raspberry Pi has the following functions:
-* Read and decode data from the HAN-port on Kaifa (MA304H3E 3-phase) smart electricity meter. This also works with Kaifa 1-phase meter, but has not been tested.
+* Read and decode data from the HAN-port on Kaifa (MA304H3E 3-phase) smart electricity meter. This should also work with Kaifa 1-phase meter, but has not been tested.
 * Present live data from the meter on a simple webpage, based on Apache2 webserver.
-* Control two output relays.
+* Control two output relays for water and panel heater.
 * Download and view el-spotprices for selectable Norwegian price zones. 
 * Send email to a specified address when Watt hours used during one hour exceeds a limit set by the user.
 * Plot log files from the meter on the website.
@@ -258,7 +258,7 @@ Copies /var/meter_log/yyyy-mm-dd.txt to usb stick. Cleans /var/meter_log/ of fil
 This file is updated by readAMSxx.cpp Every 10s.
 
 /home/pi/Python_AMS/copyfiles_prices.py<br>
-Copies price data per day to usb stick. Run as cron job 20 minutes past midnight. Note: At present only prices for NO5 are saved to the usb stick. prices_PT15M_NOK_24_NO5.data -> yyyymmdd_PT15M_NOK_24_NO5.data. prices_PT15M_NOK_96_NO5.data -> yyyymmdd_PT15M_NOK_96_NO5.data.
+Copies price data per day to usb stick. Run as cron job 20 minutes past midnight. prices_PT15M_NOK_24_NO5.data -> yyyymmdd_PT15M_NOK_24_NO5.data. prices_PT15M_NOK_96_NO5.data -> yyyymmdd_PT15M_NOK_96_NO5.data.
 
 /home/pi/Python_AMS/maxpowermonitor.py<br>
 Calculates energy difference between each top of hour. Determines the highest Wh value for each day. Keeps the three highest day values within the month. Updates file threemaxes.data.
